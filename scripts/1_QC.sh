@@ -16,12 +16,12 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-mapfile -t NAMES < names.txt
+mapfile -t NAMES < /share/hoverflies/Caleb/names.txt
 
 mkdir ./QC
 
-SAMPLE="../fastqs/"${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
-OUTDIR=./QC #Sets output
+SAMPLE="/share/hoverflies/fastqs/"${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
+OUTDIR=/share/hoverflies/Caleb/QC #Sets output
 
 # Running QC Analysis
 fastqc \

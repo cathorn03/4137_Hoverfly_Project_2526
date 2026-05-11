@@ -15,5 +15,5 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-multiqc ./QC # Runs multiqc
+multiqc /share/hoverflies/Caleb/QC # Runs multiqc
 

@@ -11,5 +11,11 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
-bcftools concat --file-list vcf_list.txt -Oz --output ./VCF/VB.vcf.gz
-bcftools index ./VCF/VB.vcf.gz
+source $HOME/.bash_profile
+conda actovate list
+
+LIST=/share/hoverflies/Caleb/vcf_list.txt
+OUT=/share/hoverflies/Caleb/VCF/VB.vcf.gz
+
+bcftools concat --file-list $LIST -Oz --output $OUT
+bcftools index $OUT

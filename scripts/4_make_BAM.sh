@@ -23,16 +23,18 @@ module load picard-uoneasy/3.0.0-Java-17
 mkdir -p BAM
 cd BAM
 
-mapfile -t ROOTS < ../roots.txt # Loads in fq file paths
+PATH_TO=/share/hoverflies/Caleb
+
+mapfile -t ROOTS < $PATH_TO/roots.txt # Loads in fq file paths
 
 FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} # Sets file for the array
 
 # Sets input files
-FILE=../trimmed/$FQ
+FILE=$PATH_TO/$FQ
 FILE1=$FILE"_R1.trimmed.fastq.gz"
 FILE2=$FILE"_R2.trimmed.fastq.gz"
 
-REF=../references/GCA_949129095.1_idVolBomb1.1_genomic.fna # Sets reference genome
+REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna # Sets reference genome
 
 OUT=$FQ".sort.bam" # Sets output file
 

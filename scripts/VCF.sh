@@ -14,16 +14,18 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
+PATH_TO=/share/hoverflies/Caleb
+
 mkdir -p VCF
 
-mapfile -t CHRS < chr_names.txt
+mapfile -t CHRS < $PATH_TO/chr_names.txt
 
 CHROM=${CHRS[$SLURM_ARRAY_TASK_ID]}
 
-REF=./references/GCA_949129095.1_idVolBomb1.1_genomic.fna
-OUT=./VCF/VB.$CHROM.vcf.gz
+REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna
+OUT=$PATH_TO/VCF/VB.$CHROM.vcf.gz
 
-BAMS=./bam_list.txt
+BAMS=$PATH_TO/bam_list.txt
 
 bcftools mpileup \
   --threads 20 \
@@ -42,5 +44,6 @@ bcftools call \
   -a GQ,GP \
   -Oz \
   -o "$OUT"
+
 bcftools index $OUT
 

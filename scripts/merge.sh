@@ -12,11 +12,13 @@
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 #SBATCH --array=0-42
 
-mapfile -t ROOTS < roots.txt
+PATH_TO=/share/hoverflies/Caleb
+
+mapfile -t ROOTS < $PATH_TO/roots.txt
 
 mkdir merged_fq
 
-MERGE=../fastqs/${ROOTS[$SLURM_ARRAY_TASK_ID]}*.fastq.gz
-OUT=./merged_fq/${ROOTS[$SLURM_ARRAY_TASK_ID]}.fastq.gz
+MERGE=/share/hoverflies/fastqs/${ROOTS[$SLURM_ARRAY_TASK_ID]}*.fastq.gz
+OUT=$PATH_TO/merged_fq/${ROOTS[$SLURM_ARRAY_TASK_ID]}.fastq.gz
 
 cat $MERGE > $OUT
