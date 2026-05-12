@@ -2,27 +2,29 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=12g
+#SBATCH --cpus-per-task=20
+#SBATCH --mem=32g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=VCF
-#SBATCH --output=./logsOut/slurm-%x-%j.out
-#SBATCH --error=./logsErr/slurm-%x-%j.err
+#SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
+#SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
 source $HOME/.bash_profile
 conda activate hoverflies
 
+module load bcftools-uoneasy/1.19-GCC-13.2.0
+
 PATH_TO=/share/hoverflies/Caleb
 
-mkdir -p VCF
+mkdir -p $PATH_TO/VCF
 
-mapfile -t CHRS < $PATH_TO/chr_names.txt
+mapfile -t CHRS < $PATH_TO/chr_list.txt
 
 CHROM=${CHRS[$SLURM_ARRAY_TASK_ID]}
 
-REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna
+REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fasta
 OUT=$PATH_TO/VCF/VB.$CHROM.vcf.gz
 
 BAMS=$PATH_TO/bam_list.txt
@@ -35,7 +37,7 @@ bcftools mpileup \
   --min-BQ 30 \
   --platforms ILLUMINA \
   --annotate FORMAT/DP,FORMAT/AD \
-  --bam-list "$BAMLIST" \
+  --bam-list "$BAMS" \
   -r "$CHROM" | \
 bcftools call \
   --threads 20 \
@@ -46,4 +48,3 @@ bcftools call \
   -o "$OUT"
 
 bcftools index $OUT
-
