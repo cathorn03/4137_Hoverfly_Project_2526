@@ -21,12 +21,12 @@ PATH_TO=/share/hoverflies/
 mkdir -p $PATH_TO/Caleb/high_GC
 #Creates output directory
 
-seqkit fx2tab -g $PATH_TO/fastqs/VB21036_R1.fastq.gz | \
-awk '$2 >= 65 && $2 <= 80' | \
-seqkit tab2fx > $PATH_TO/Caleb/high_GC/VB21036_R1.fastq
+seqkit fx2tab -g $PATH_TO/fastqs/VB21036_R1.fastq.gz \
+| awk '$3 >= 65 && $3 <= 80' \
+| seqkit tab2fx > $PATH_TO/Caleb/high_GC/VB21036_R1.fastq
 
-seqkit fx2tab -g $PATH_TO/fastqs/VB21036_R2.fastq.gz | \
-awk '$2 >= 65 && $2 <= 80' | \
-seqkit tab2fx > $PATH_TO/Caleb/high_GC/VB21036_R2.fastq
+seqkit fx2tab -g $PATH_TO/fastqs/VB21036_R2.fastq.gz \
+| awk '$3 >= 65 && $3 <= 80' \
+| seqkit tab2fx > $PATH_TO/Caleb/high_GC/VB21036_R2.fastq
 #Runs seqkit on sample identifed with high GC reads. Outputs in unzipped format
 #Filters for samples with GC > 0.65

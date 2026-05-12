@@ -10,6 +10,7 @@
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --array=0-5
 
 source $HOME/.bash_profile
 conda activate hoverflies
