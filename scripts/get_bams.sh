@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /share/hoverflies/Caleb/
+
 #Path to fastqs
 FQ_PATH=/share/hoverflies/Caleb/BAM/
 
