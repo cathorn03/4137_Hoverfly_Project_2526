@@ -13,12 +13,21 @@
 #SBATCH --array=0-42
 
 PATH_TO=/share/hoverflies/Caleb
+#Sets path to driectory
 
 mapfile -t ROOTS < $PATH_TO/roots.txt
+#Reads roots.txt and assigns to $ROOTS
+#roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
+#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
-mkdir merged_fq
+mkdir -p $PATH_TO/merged_fq
+#Makes output directory
 
 MERGE=/share/hoverflies/fastqs/${ROOTS[$SLURM_ARRAY_TASK_ID]}*.fastq.gz
+#Gets files to merge
+
 OUT=$PATH_TO/merged_fq/${ROOTS[$SLURM_ARRAY_TASK_ID]}.fastq.gz
+#Sets output file name
 
 cat $MERGE > $OUT
+#Merges files

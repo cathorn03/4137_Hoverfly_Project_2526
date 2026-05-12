@@ -11,9 +11,10 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
-# Activates conda env
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
-multiqc /share/hoverflies/Caleb/QC # Runs multiqc
+multiqc /share/hoverflies/Caleb/QC
+#Runs multiqc
 

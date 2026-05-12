@@ -12,36 +12,44 @@
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 #SBATCH --array=0-42
 
-# Activates conda env
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 module load samtools-uoneasy/1.18-GCC-12.3.0
 module load picard-uoneasy/3.0.0-Java-17
-
-# Makes and enters output dir
-mkdir -p BAM
-cd BAM
+#Loads slurm modules
 
 PATH_TO=/share/hoverflies/Caleb
+#Sets directory paths
 
-mapfile -t ROOTS < $PATH_TO/roots.txt # Loads in fq file paths
+mkdir -p $PATH_TO/BAM
+cd $PATH_TO/BAM
+# Makes and enters output dir
 
-FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} # Sets file for the array
+mapfile -t ROOTS < $PATH_TO/roots.txt
+#Reads roots.txt and assigns to $ROOTS
+#roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
+#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
-# Sets input files
+FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} 
+#Sets file for the array 
+
 FILE=$PATH_TO/$FQ
 FILE1=$FILE"_R1.trimmed.fastq.gz"
 FILE2=$FILE"_R2.trimmed.fastq.gz"
+#Sets input file names
 
-REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna # Sets reference genome
+REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna
+#Sets reference genome
 
-OUT=$FQ".sort.bam" # Sets output file
+OUT=$FQ".sort.bam"
+#Sets output file
 
 bwa mem -M -t 16 $REF $FILE1 $FILE2 | \
 	samtools view -b | \
 	samtools sort -T $FQ -o $OUT
-# Makes BAM file | 
+#Makes BAM file
 
 java -Xmx1g -jar $EBROOTPICARD/picard.jar \
 MarkDuplicates REMOVE_DUPLICATES=true \
@@ -50,7 +58,10 @@ MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
 INPUT="$OUT" \
 OUTPUT=$FQ.rmd.bam \
 METRICS_FILE=$FQ.rmd.bam.metrics
+#Runs picard
 
 samtools index $FQ.rmd.bam
+#Indexes output
 
 rm $OUT
+#Removes plain bam files

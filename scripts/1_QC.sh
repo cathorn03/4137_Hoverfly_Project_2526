@@ -12,16 +12,22 @@
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 #SBATCH --array=0-86
 
-# Importing Conda Environment
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
-mapfile -t NAMES < /share/hoverflies/Caleb/names.txt
+PATH_TO=/share/hoverflies/Caleb
+#Sests working path
 
-mkdir ./QC
+mapfile -t NAMES < $PATH_TO/names.txt
+#Reads names.txt and assigns to $NAME
+#names.txt contains the names of all fastq files in /share/hoverflies/fastqs/
 
-SAMPLE="/share/hoverflies/fastqs/"${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
-OUTDIR=/share/hoverflies/Caleb/QC #Sets output
+mkdir -p $PATH_TO/QC
+#Makes output dir
+
+SAMPLE=$PATH_TO${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
+OUTDIR=$PATH_TO/QC #Sets output
 
 # Running QC Analysis
 fastqc \
