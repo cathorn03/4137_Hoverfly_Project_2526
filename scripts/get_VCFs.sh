@@ -4,7 +4,7 @@
 VCF_PATH=/share/hoverflies/Caleb/VCF/
 
 # Output file
-OUT="vcf_list.txt" > "$OUT"  # Clear file if it exists
+OUT=/share/hoverflies/Caleb/vcf_list.txt
 
 # Loop through matching files
 for file in "$VCF_PATH"*.vcf.gz; do
