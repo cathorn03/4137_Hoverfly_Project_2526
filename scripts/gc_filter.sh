@@ -15,14 +15,19 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/
+PATH_TO=/share/hoverflies
 
 mapfile -t NAMES < $PATH_TO/Caleb/high_gc_list.txt
 
-SAMPLE=$PATH_TO/fastqs/${NAMES[$SLURM_ARRAY_TASK_ID]}
+SAMPLE_NAME=${NAMES[$SLURM_ARRAY_TASK_ID]}
 
-OUT_NAME=$(basename ${NAMES[$SLURM_ARRAY_TASK_ID]} .fastq).filtered.fastq
+SAMPLE=$PATH_TO/$SAMPLE_NAME
 
-OUT=$PATH_TO/Caleb/high_gc/$OUT_NAME
+SAMPLE_ROOT=$(basename $SAMPLE_NAME .fastq)
+OUT_NAME=${SAMPLE_ROOT}".filtered.fasta"
 
-printf "%s" "$SAMPLE" | gc_filter.py > $OUT
+echo "$SAMPLE_NAME filtered by GC"
+
+OUT=$PATH_TO/$OUT_NAME
+
+printf "%s" "$SAMPLE" | python gc_filter.py > $OUT

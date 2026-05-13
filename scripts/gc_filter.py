@@ -17,13 +17,13 @@ def gc_filter(fq, gc_min = 0.4, gc_max = 0.6):
 	    if gc_fraction(record.seq) >= gc_min and gc_fraction(record.seq) <= gc_max ]
 	#Runs gc filtering on the list
 
-	SeqIO.write(filtered, fq+".tmp", "fastq") #Outputs list to a file
-	temp = SeqIO.parse(fq+".tmp", "fastq") #Reads in the new file
+	SeqIO.write(filtered, fq+".tmp", "fasta") #Outputs list to a file
+	temp = SeqIO.parse(fq+".tmp", "fasta") #Reads in the new file
 
 	os.remove(fq+".tmp") #Removes the new file
 
 	for record in temp:
-		print(record.format("fastq")) #Sends fastq data to stdout
+		print(record.format("fasta")) #Sends fastq data to stdout
 
 def main():
 	fq_in = sys.stdin.read() #Accepts stdin
