@@ -3,9 +3,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
-#SBATCH --mem=20g
+#SBATCH --mem=8g
 #SBATCH --time=2:00:00
-#SBATCH --job-name=FST_scan
+#SBATCH --job-name=BCF_view
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -14,16 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-$PATH_TO=/share/hoverflies/Caleb
+IN=/share/hoverflies/Caleb/VCF/VB.vcf.gz
+OUT=/share/hoverflies/Caleb/VCF/VB_miss.vcf.gz
 
-VCF=$PATH_TO/VCF/stick.70b.vcf.gz
-POP1=$PATH_TO/bombylans.txt
-POP2=$PATH_TO/plumata.txt
-
-vcftools --gzvcf $VCF \
---max-missing 0.8 \
---maf 0.05 \
---weir-fst-pop $POP1 \
---weir-fst-pop $POP2 \
---fst-window-size 5000 \
---fst-window-step 5000
+bcftools view -i 'F_MISSING < 0.1' -O z -o $OUT $IN

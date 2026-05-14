@@ -6,8 +6,8 @@
 #SBATCH --mem=20g
 #SBATCH --time=2:00:00
 #SBATCH --job-name=VCF_merge
-#SBATCH --output=./logsOut/slurm-%x-%j.out
-#SBATCH --error=./logsErr/slurm-%x-%j.err
+#SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
+#SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 

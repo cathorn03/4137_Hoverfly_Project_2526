@@ -3,27 +3,17 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
-#SBATCH --mem=20g
+#SBATCH --mem=8g
 #SBATCH --time=2:00:00
-#SBATCH --job-name=FST_scan
+#SBATCH --job-name=QC_filter
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
 source $HOME/.bash_profile
-conda activate hoverflies
+conda actovate hoverflies
 
-$PATH_TO=/share/hoverflies/Caleb
+cd /share/hoverflies/Caleb/plink
 
-VCF=$PATH_TO/VCF/stick.70b.vcf.gz
-POP1=$PATH_TO/bombylans.txt
-POP2=$PATH_TO/plumata.txt
-
-vcftools --gzvcf $VCF \
---max-missing 0.8 \
---maf 0.05 \
---weir-fst-pop $POP1 \
---weir-fst-pop $POP2 \
---fst-window-size 5000 \
---fst-window-step 5000
+plink --bfile dog_raw --allow-extra-chr --geno 0.05 --mind 0.05 --maf 0.001 --make-bed --out dog_qc
