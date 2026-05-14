@@ -28,7 +28,7 @@ def gc_filter(fq, gc_min = 0.4, gc_max = 0.6):
 def main():
 	fq_in = sys.stdin.read() #Accepts stdin
 
-	gc_filter(fq_in, 0.7, 1) #Runs gc_filter
+	gc_filter(fq_in, 0.65, 75) #Runs gc_filter
 
 if __name__ == "__main__":
 	main() 

@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
-#SBATCH --mem=20gcd 
+#SBATCH --mem=20g
 #SBATCH --time=2:00:00
 #SBATCH --job-name=VCF_filter
 #SBATCH --output=./logsOut/slurm-%x-%j.out

@@ -1,0 +1,5 @@
+Checking the headers and starting positions of 6 files
+Concatenating /share/hoverflies/Caleb/VCF/VB.OX422140.1.vcf.gz	2609.966002 seconds
+Concatenating /share/hoverflies/Caleb/VCF/VB.OX422141.1.vcf.gz	1770.576822 seconds
+Concatenating /share/hoverflies/Caleb/VCF/VB.OX422142.1.vcf.gz	1719.407495 seconds
+Concatenating /share/hoverflies/Caleb/VCF/VB.OX422143.1.vcf.gzslurmstepd: error: *** JOB 6742805 ON comp038 CANCELLED AT 2026-05-13T13:46:38 DUE TO TIME LIMIT ***

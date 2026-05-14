@@ -1,0 +1,24 @@
+
+VCFtools - 0.1.17
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /share/hoverflies/Caleb/VCF/VB.vcf.gz
+	--maf 0.05
+	--maxDP 50
+	--max-meanDP 50
+	--minDP 1
+	--min-meanDP 1
+	--minQ 30
+	--max-missing 0.7
+	--recode
+	--remove-indels
+	--stdout
+
+Using zlib version: 1.3.1
+Warning: Expected at least 2 parts in INFO entry: ID=SGB,Number=1,Type=Float,Description="Segregation based metric, http://samtools.github.io/bcftools/rd-SegBias.pdf">
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+After filtering, kept 43 out of 43 Individuals
+Outputting VCF file...
