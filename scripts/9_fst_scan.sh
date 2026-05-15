@@ -16,7 +16,11 @@ conda activate hoverflies
 
 $PATH_TO=/share/hoverflies/Caleb
 
-VCF=$PATH_TO/VCF/stick.70b.vcf.gz
+mkdir -p $PATH_TO/FST
+
+cd $PATH_TO/FST
+
+VCF=$PATH_TO/VCF/VB.70.vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
 
