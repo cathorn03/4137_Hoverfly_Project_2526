@@ -14,6 +14,9 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
+module load bcftools-uoneasy/1.19-GCC-13.2.0
+#loads BCFtools slurm module
+
 PATH_TO=/share/hoverflies/Caleb
 
 VCF_IN=$PATH_TO/VCF/VB.vcf.gz
