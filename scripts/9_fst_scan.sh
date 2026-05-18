@@ -20,7 +20,7 @@ mkdir -p $PATH_TO/FST
 
 cd $PATH_TO/FST
 
-VCF=$PATH_TO/VCF/VB.70.vcf.gz
+VCF=$PATH_TO/VCF/VB.70b.vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
 
