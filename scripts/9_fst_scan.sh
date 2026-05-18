@@ -14,7 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-$PATH_TO=/share/hoverflies/Caleb
+PATH_TO=/share/hoverflies/Caleb
 
 mkdir -p $PATH_TO/FST
 
