@@ -17,7 +17,7 @@ PATH_TO=/share/hoverflies/Caleb
 
 cd $PATH_TO/plink
 
-PHENO=$PATH_TO/pheno.txt
+PHENO=$PATH_TO/pheno_numeric.txt
 
 plink --bfile VB_qc \
         --allow-extra-chr \
