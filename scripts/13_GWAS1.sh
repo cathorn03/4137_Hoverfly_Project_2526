@@ -17,9 +17,11 @@ PATH_TO=/share/hoverflies/Caleb
 
 cd $PATH_TO/plink
 
+PHENO=$PATH_TO/pheno.txt
+
 plink --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
-        --pheno pheno.txt \
+        --pheno $PHENO \
         --linear \
         --out GWAS1
