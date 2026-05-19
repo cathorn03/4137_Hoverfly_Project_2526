@@ -12,7 +12,7 @@
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
 source $HOME/.bash_profile
-conda actovate hoverflies
+conda activate hoverflies
 
 cd /share/hoverflies/Caleb/plink
 
