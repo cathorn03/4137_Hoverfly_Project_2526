@@ -32,7 +32,7 @@ SAMPLE=$PATH_TO/Caleb/high_GC/$SAMPLE_ROOT".fastq"
 
 echo "$SAMPLE_NAME filtered by GC"
 
-OUT=$PATH_TO/$OUT_NAME
+OUT=$PATH_TO/Caleb/high_GC/$OUT_NAME
 
 SCRIPT=/gpfs01/home/mbyct9/GIT/4137_Hoverfly_Project_2526/scripts/gc_filter.py
 

@@ -15,6 +15,8 @@ source $HOME/.bash_profile
 conda activate hoverflies
 #Activates conda env
 
+module load bcftools-uoneasy/1.19-GCC-13.2.0 
+
 PATH_TO=/share/hoverflies/Caleb
 
 BCF_IN=$PATH_TO/VCF/VB_miss.vcf.gz
