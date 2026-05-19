@@ -23,5 +23,5 @@ plink --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
         --pheno $PHENO \
-        --linear \
+        --logistic \
         --out GWAS1
