@@ -35,12 +35,12 @@ mapfile -t ROOTS < $PATH_TO/roots.txt
 FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} 
 #Sets file for the array 
 
-FILE=$PATH_TO/$FQ
+FILE=$PATH_TO/trimmed/$FQ
 FILE1=$FILE"_R1.trimmed.fastq.gz"
 FILE2=$FILE"_R2.trimmed.fastq.gz"
 #Sets input file names
 
-REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fna
+REF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #Sets reference genome
 
 OUT=$FQ".sort.bam"
