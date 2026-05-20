@@ -11,11 +11,11 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
-source $HOME/bash_profile
+source $HOME/.bash_profile
 conda activate hoverflies
 # Activates conda env
 
-gunzip /share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.gz # Unzips reference genome
+#gunzip /share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.gz # Unzips reference genome
 #Unzips reference genome
 
 bwa index /share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna # Indexes reference genome
