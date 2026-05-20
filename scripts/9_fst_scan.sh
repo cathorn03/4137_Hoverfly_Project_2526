@@ -20,12 +20,12 @@ mkdir -p $PATH_TO/FST
 
 cd $PATH_TO/FST
 
-VCF=$PATH_TO/VCF/VB.70b.vcf.gz
+VCF=$PATH_TO/VCF/VB.vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
 
 vcftools --gzvcf $VCF \
---max-missing 0.8 \
+--max-missing 0.7 \
 --maf 0.05 \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
