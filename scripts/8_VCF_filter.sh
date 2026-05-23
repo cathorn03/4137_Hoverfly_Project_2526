@@ -2,9 +2,9 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=20
+#SBATCH --cpus-per-task=1
 #SBATCH --mem=20g
-#SBATCH --time=2:00:00
+#SBATCH --time=8:00:00
 #SBATCH --job-name=VCF_filter
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
@@ -24,7 +24,7 @@ VCF_OUT=$PATH_TO/VCF/VB.70.vcf.gz
 
 MAF=0.05
 MISS=0.7
-QUAL=30
+QUAL=20
 MIN_DEPTH=1
 MAX_DEPTH=50
 
@@ -43,7 +43,7 @@ vcftools --gzvcf $VCF_IN \
 
 bcftools index $VCF_OUT
 
-VCFB=$PATH_TO/VCF/stick.70b.vcf.gz
+VCFB=$PATH_TO/VCF/VCF.70b.vcf.gz
 
 bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF_OUT
 bcftools view -H $VCFB | wc -l > $VCFB.SNPS.txt
