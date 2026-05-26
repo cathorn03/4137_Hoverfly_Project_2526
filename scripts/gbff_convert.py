@@ -8,7 +8,7 @@ from Bio import SeqIO
 def gbff_to_gff3(gbff):
 
     records = SeqIO.parse(gbff, "genbank")
-    GFF.write(sys.stdout)
+    GFF.write(records, sys.stdout)
 
 def main():
  	in_gbff = sys.stdin.read()
