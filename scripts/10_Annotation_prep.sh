@@ -24,4 +24,4 @@ OUT=$PATH_TO/VolBomb1.1.gff3
 
 SCRIPT=/share/hoverflies/Caleb/4137_Hoverfly_Project_2526/scripts/gbff_convert.py
 
-printf "%s" "$SAMPLE" | python $SCRIPT > $OUT
+printf "%s" "$REF" | python $SCRIPT > $OUT
