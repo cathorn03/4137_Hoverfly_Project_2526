@@ -5,15 +5,10 @@ import sys
 from BCBio import GFF
 from Bio import SeqIO
 
-def gbff_to_gff3(gbff):
+def main():
 
-    records = SeqIO.parse(gbff, "genbank")
+    records = SeqIO.parse(sys.stdin, "genbank")
     GFF.write(records, sys.stdout)
 
-def main():
- 	in_gbff = sys.stdin.read()
-
- 	gbff_to_gff3(in_gbff)
-
 if __name__ == "__main__":
-	main() 
+    main()
