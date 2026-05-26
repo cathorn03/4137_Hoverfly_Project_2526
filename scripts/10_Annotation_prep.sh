@@ -22,6 +22,6 @@ REF=$PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gbff
 
 OUT=$PATH_TO/VolBomb1.1.gff3
 
-SCRIPT=/gpfs01/home/mbyct9/GIT/4137_Hoverfly_Project_2526/scripts/gbff_convert.py
+SCRIPT=/share/hoverflies/Caleb/4137_Hoverfly_Project_2526/scripts/gbff_convert.py
 
 printf "%s" "$SAMPLE" | python $SCRIPT > $OUT
