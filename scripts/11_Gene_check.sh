@@ -21,11 +21,7 @@ PATH_TO=/share/hoverflies/Caleb
 
 mkdir -p $PATH_TO/genes
 
-REF=$PATH_TO/references/VolBomb1.1.gff3
-
-awk '$3=="gene"' $REF > $PATH_TO/genes/all_genes.gff3
-
-ANNOT=$PATH_TO/genes/all_genes.gff3
+ANNOT=$PATH_TO/references/VolBomb1.1.gff3
 BED=$PATH_TO/genes/high_fst.bed
 OUT=$PATH_TO/genes/candidate_genes.gff3
 
