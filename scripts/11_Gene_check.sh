@@ -21,11 +21,11 @@ PATH_TO=/share/hoverflies/Caleb
 
 mkdir -p $PATH_TO/genes
 
-ANNOT=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
-BED=
-OUT=
+ANNOT=$PATH_TO/references/VolBomb1.1_genomic.gff3
+BED=$PATH_TO/genes/high_fst.bed
+OUT=$PATH_TO/genes/candidate_genes.gff3
 
 bedtools intersect \
 -a $ANNOT \
 -b highfst.bed \
--wa > candidate_genes.gff3
+-wa > $OUT

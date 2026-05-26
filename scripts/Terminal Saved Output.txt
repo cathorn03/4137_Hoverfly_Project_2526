@@ -1,0 +1,2169 @@
+Last login: Thu May 21 09:32:49 on ttys001
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Sat May 23 09:53:09 2026 from 10.146.0.17
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls -lh FST/
+total 68M
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 58M May 22 10:29 out.windowed.weir.fst
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 10M May 20 08:57 unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ 
+  [Restored 23 May 2026 at 10:10:50]
+Last login: Sat May 23 10:10:43 on console
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Sat May 23 10:00:40 2026 from 10.146.0.7
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/FST/
+(base) [mbyct9@hpclogin02(Ada) FST]$ ls
+out.windowed.weir.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) FST]$ mv out.windowed.weir.fst 70b.5000.fst
+(base) [mbyct9@hpclogin02(Ada) FST]$ vim ../4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+(base) [mbyct9@hpclogin02(Ada) FST]$ sbatch ../4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+Submitted batch job 6819605
+(base) [mbyct9@hpclogin02(Ada) FST]$ ls -lh ../VCF/
+total 247G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  21G May 21 13:35 VB.70.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 863K May 21 13:40 VB.70.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  16G May 18 13:23 VB.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 18 13:37 VB.70b.vcf.gz.SNPS.txt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  18G May 13 01:12 VB.OX422140.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 313K May 13 01:16 VB.OX422140.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:24 VB.OX422141.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 170K May 12 21:27 VB.OX422141.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:06 VB.OX422142.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 159K May 12 21:09 VB.OX422142.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:31 VB.OX422143.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 148K May 12 20:33 VB.OX422143.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:26 VB.OX422144.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 138K May 12 20:29 VB.OX422144.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 787M May 12 15:30 VB.OX422145.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  23K May 12 15:30 VB.OX422145.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  63G May 20 13:18 VB.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 952K May 20 13:35 VB.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  35G May 22 11:58 VB_miss.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  31G May 19 13:47 VB_snps.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 633K May 19 13:54 VB_snps.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  20G May 21 14:54 VCF.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 21 15:13 VCF.70b.vcf.gz.SNPS.txt
+(base) [mbyct9@hpclogin02(Ada) FST]$ cd ../4137_Hoverfly_Project_2526/
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_BCF_view.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/11_plink_setup.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/11_plink_setup.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/11_plink_setup.sh 
+Submitted batch job 6819669
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9 PD       0:00      1 (None)
+           6819605      defq FST_scan   mbyct9  R       1:19      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       1:38      1 comp020
+           6819605      defq FST_scan   mbyct9  R       3:39      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       2:57      1 comp020
+           6819605      defq FST_scan   mbyct9  R       4:58      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       4:41      1 comp020
+           6819605      defq FST_scan   mbyct9  R       6:42      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       8:04      1 comp020
+           6819605      defq FST_scan   mbyct9  R      10:05      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       8:05      1 comp020
+           6819605      defq FST_scan   mbyct9  R      10:06      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       9:10      1 comp020
+           6819605      defq FST_scan   mbyct9  R      11:11      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R       9:23      1 comp020
+           6819605      defq FST_scan   mbyct9  R      11:24      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R      22:54      1 comp020
+           6819605      defq FST_scan   mbyct9  R      24:55      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R      29:02      1 comp020
+           6819605      defq FST_scan   mbyct9  R      31:03      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R      29:03      1 comp020
+           6819605      defq FST_scan   mbyct9  R      31:04      1 comp010
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6819669      defq Plink_se   mbyct9  R      34:56      1 comp020
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cd ../FST/
+(base) [mbyct9@hpclogin02(Ada) FST]$ mv out.windowed.weir.fst 70b.5000.fst
+(base) [mbyct9@hpclogin02(Ada) FST]$ ls
+70b.5000.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) FST]$ exit 
+logout
+Connection to hpclogin02.ada.nottingham.ac.uk closed.
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Sat May 23 10:13:07 2026 from 10.146.0.17
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls
+4137_Hoverfly_Project_2526  bombylans.txt     logsOut              pheno_plink.txt  trimmed
+BAM                         chr_list.txt      multiqc_data         plink            vcf_list.txt
+FST                         fastp.json        multiqc_report.html  plumata.txt
+QC                          high_GC           names.txt            pre_pheno.txt
+VCF                         high_gc_list.txt  pheno.txt            references
+bam_list.txt                logsErr           pheno_numeric.txt    roots.txt
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls plink/
+GWAS1.assoc.logistic  VB_missing.lmiss  VB_qc.bim   VB_qc.nosex  VB_raw.log
+GWAS1.log             VB_missing.log    VB_qc.fam   VB_raw.bed   VB_raw.nosex
+GWAS1.nosex           VB_missing.nosex  VB_qc.irem  VB_raw.bim   pheno_test.txt
+VB_missing.imiss      VB_qc.bed         VB_qc.log   VB_raw.fam
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/12_QC_filter.sh   
+Submitted batch job 6820272
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls VCF/
+VB.70.vcf.gz              VB.OX422141.1.vcf.gz      VB.OX422144.1.vcf.gz      VB_miss.vcf.gz
+VB.70.vcf.gz.csi          VB.OX422141.1.vcf.gz.csi  VB.OX422144.1.vcf.gz.csi  VB_snps.vcf.gz
+VB.70b.vcf.gz             VB.OX422142.1.vcf.gz      VB.OX422145.1.vcf.gz      VB_snps.vcf.gz.csi
+VB.70b.vcf.gz.SNPS.txt    VB.OX422142.1.vcf.gz.csi  VB.OX422145.1.vcf.gz.csi  VCF.70b.vcf.gz
+VB.OX422140.1.vcf.gz      VB.OX422143.1.vcf.gz      VB.vcf.gz                 VCF.70b.vcf.gz.SNPS.txt
+VB.OX422140.1.vcf.gz.csi  VB.OX422143.1.vcf.gz.csi  VB.vcf.gz.csi
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 10 (delta 5), reused 10 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (10/10), 1.53 KiB | 68.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   d52aa63..8b154ec  main       -> origin/main
+Updating d52aa63..8b154ec
+Fast-forward
+ scripts/14_PCA.sh | 32 ++++++++++++++++++++++++++++++++
+ thesis_log.ipynb  |  6 +++++-
+ vcf_list.txt      | 12 ------------
+ 3 files changed, 37 insertions(+), 13 deletions(-)
+ create mode 100644 scripts/14_PCA.sh
+ delete mode 100644 vcf_list.txt
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls
+README.md  scripts  thesis_log.ipynb
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/14_PCA.sh 
+Submitted batch job 6820278
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820278      defq PCA_prep   mbyct9  R       1:41      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-QC_filter-6820272.err \> 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsOut/slurm-QC_filter-6820272.out 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/13_GWAS1.sh 
+Submitted batch job 6820279
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ mv scripts/14_PCA.sh scripts/XX_PCA.sh
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add scripts/XX_PCA.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Temp file name change"    
+[main 442ff83] Temp file name change
+ 1 file changed, 32 insertions(+)
+ create mode 100644 scripts/XX_PCA.sh
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+   8b154ec..442ff83  main -> main
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 5 (delta 2), reused 5 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 960 bytes | 68.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   442ff83..3bb6bc4  main       -> origin/main
+Updating 442ff83..3bb6bc4
+Fast-forward
+ scripts/14_LD_Pruning.sh | 23 +++++++++++++++++++++++
+ scripts/15_GWAS_PCA.sh   | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
+ create mode 100644 scripts/14_LD_Pruning.sh
+ create mode 100644 scripts/15_GWAS_PCA.sh
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls scripts/
+10_BCF_view.sh     14_LD_Pruning.sh  3_trim.sh      7_VCF_merge.sh   gc_filter.py  get_chrs.sh
+11_plink_setup.sh  15_GWAS_PCA.sh    4_BAM_prep.sh  8_VCF_filter.sh  gc_filter.sh  get_names.sh
+12_QC_filter.sh    1_QC.sh           5_make_BAM.sh  9_fst_scan.sh    get_VCFs.sh   get_roots.sh
+13_GWAS1.sh        2_multiqc.sh      6_VCF.sh       XX_PCA.sh        get_bams.sh   merge.sh
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/14_LD_Pruning.sh 
+sbatch: error: Invalid --time specification
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/14_LD_Pruning.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/14_LD_Pruning.sh 
+Submitted batch job 6820292
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls -lh ../PCA/
+total 0
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/XX_PCA.sh   
+Submitted batch job 6820293
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ scancel 6820293
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls Plink
+ls: cannot access 'Plink': No such file or directory
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ scancel plink
+scancel: error: Invalid job id plink
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../plink/
+GWAS1.assoc.logistic  VB_missing.lmiss  VB_qc.bim   VB_qc.nosex  VB_raw.log
+GWAS1.log             VB_missing.log    VB_qc.fam   VB_raw.bed   VB_raw.nosex
+GWAS1.nosex           VB_missing.nosex  VB_qc.irem  VB_raw.bim   pheno_test.txt
+VB_missing.imiss      VB_qc.bed         VB_qc.log   VB_raw.fam
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ mv pheno_test.txt
+mv: missing destination file operand after 'pheno_test.txt'
+Try 'mv --help' for more information.
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ mv ../pl          
+plink/       plumata.txt  
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ mv ../plink/pheno_test.txt ../plink/pheno.txt(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ rm -rf ../logsErr/
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/12_QC_filter.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/11_plink_setup.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_BCF_view.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls -lh ../VCF/
+total 246G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  21G May 21 13:35 VB.70.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 863K May 21 13:40 VB.70.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  16G May 18 13:23 VB.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 18 13:37 VB.70b.vcf.gz.SNPS.txt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  18G May 13 01:12 VB.OX422140.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 313K May 13 01:16 VB.OX422140.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:24 VB.OX422141.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 170K May 12 21:27 VB.OX422141.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:06 VB.OX422142.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 159K May 12 21:09 VB.OX422142.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:31 VB.OX422143.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 148K May 12 20:33 VB.OX422143.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:26 VB.OX422144.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 138K May 12 20:29 VB.OX422144.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 787M May 12 15:30 VB.OX422145.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  23K May 12 15:30 VB.OX422145.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  63G May 20 13:18 VB.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 952K May 20 13:35 VB.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  35G May 22 11:58 VB_miss.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  29G May 23 12:06 VB_snps.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 601K May 23 12:13 VB_snps.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  20G May 21 14:54 VCF.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 21 15:13 VCF.70b.vcf.gz.SNPS.txt
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ :q
+-bash: :q: command not found
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls -lh ../plink/
+total 11G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 4.2G May 19 15:39 GWAS1.assoc.logistic
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  994 May 23 13:24 GWAS1.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.5K May 23 13:24 GWAS1.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 5.6K May 23 12:19 VB_missing.imiss
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 2.2G May 23 12:19 VB_missing.lmiss
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  872 May 23 12:19 VB_missing.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 12:19 VB_missing.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 460M May 23 13:13 VB_qc.bed
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.3G May 23 13:13 VB_qc.bim
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.8K May 23 13:13 VB_qc.fam
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  264 May 23 13:13 VB_qc.irem
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2K May 23 13:13 VB_qc.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 13:13 VB_qc.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 564M May 23 12:19 VB_raw.bed
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.5G May 23 12:19 VB_raw.bim
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 4.1K May 23 12:19 VB_raw.fam
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1005 May 23 12:19 VB_raw.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 12:19 VB_raw.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  442 May 23 13:42 pca20.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  774 May 19 15:18 pheno.txt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  432 May 23 13:42 prune.log
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/12_QC_filter.sh 
+Submitted batch job 6820307
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-QC_filter-6820307.err 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsOut/slurm-QC_filter-6820307.out 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/13_GWAS1.sh
+Submitted batch job 6820310
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsOut/slurm-GWAS1-6              
+slurm-GWAS1-6778227.out  slurm-GWAS1-6778297.out  slurm-GWAS1-6778461.out  slurm-GWAS1-6820279.out
+slurm-GWAS1-6778228.out  slurm-GWAS1-6778322.out  slurm-GWAS1-6778462.out  slurm-GWAS1-6820310.out
+slurm-GWAS1-6778236.out  slurm-GWAS1-6778443.out  slurm-GWAS1-6778463.out  
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/13_GWAS1.sh      
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-GWAS1-6820310.err 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../plink/pheno.txt 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim ../plink/pheno.txt 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/13_GWAS1.sh 
+Submitted batch job 6820317
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820317      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../plink/pheno.txt 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-GWAS1-6820317.err 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../pl
+plink/       plumata.txt  
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../pl
+plink/       plumata.txt  
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../plink/
+GWAS1.assoc.logistic  VB_missing.nosex      VB_qc.nosex           pca20.log
+GWAS1.log             VB_qc.bed             VB_raw.bed            pheno.txt
+GWAS1.nosex           VB_qc.bim             VB_raw.bim            prune.log
+VB_missing.imiss      VB_qc.fam             VB_raw.fam            
+VB_missing.lmiss      VB_qc.irem            VB_raw.log            
+VB_missing.log        VB_qc.log             VB_raw.nosex          
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../plink/VB_qc.fam 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cd ../plink/
+(base) [mbyct9@hpclogin02(Ada) plink]$ awk 'BEGIN{OFS="\t"}
+> NR==1 {print; next}
+> {
+> $1="/share/hoverflies/Caleb/BAM/"$1
+> $2="/share/hoverflies/Caleb/BAM/"$2
+> print
+> }' pheno.txt > pheno_with_paths.txt
+(base) [mbyct9@hpclogin02(Ada) plink]$ less pheno_with_paths.txt 
+(base) [mbyct9@hpclogin02(Ada) plink]$ vim pheno_with_paths.txt 
+(base) [mbyct9@hpclogin02(Ada) plink]$ vim pheno_with_paths.txt 
+(base) [mbyct9@hpclogin02(Ada) plink]$ rm pheno.txt 
+(base) [mbyct9@hpclogin02(Ada) plink]$ mv pheno_with_paths.txt pheno.txt
+(base) [mbyct9@hpclogin02(Ada) plink]$ cd ../  
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/13_GWAS1.sh 
+Submitted batch job 6820321
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9  R       0:03      1 comp007
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820321      defq    GWAS1   mbyct9  R       0:05      1 comp007
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-GWAS1-6820321.err 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ vim 4137_Hoverfly_Project_2526/scripts/13_GWAS1.sh 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/13_GWAS1.sh 
+Submitted batch job 6820329
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-GWAS1-6820329.err 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls    
+4137_Hoverfly_Project_2526  bam_list.txt      logsErr              pheno_numeric.txt  roots.txt
+BAM                         bombylans.txt     logsOut              pheno_plink.txt    trimmed
+FST                         chr_list.txt      multiqc_data         plink              vcf_list.txt
+PCA                         fastp.json        multiqc_report.html  plumata.txt
+QC                          high_GC           names.txt            pre_pheno.txt
+VCF                         high_gc_list.txt  pheno.txt            references
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less pheno_numeric.txt 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less pheno_plink.txt 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ vim 4137_Hoverfly_Project_2526/scripts/13_GWAS1.sh 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/13_GWAS1.sh 
+Submitted batch job 6820332
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820332      defq    GWAS1   mbyct9  R       0:22      1 comp007
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820332      defq    GWAS1   mbyct9  R       0:55      1 comp007
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-G 
+logsErr/slurm-G: No such file or directory
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-GWAS1-6820332.err 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less logsOut/slurm-GWAS1-6820332.out 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ pwd
+/share/hoverflies/Caleb
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls -lh plink/
+total 9.9G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 4.0G May 23 14:20 GWAS1.assoc.logistic
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.1K May 23 14:20 GWAS1.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.5K May 23 14:19 GWAS1.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 5.6K May 23 12:19 VB_missing.imiss
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 2.2G May 23 12:19 VB_missing.lmiss
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  872 May 23 12:19 VB_missing.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 12:19 VB_missing.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 460M May 23 13:58 VB_qc.bed
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.3G May 23 13:58 VB_qc.bim
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.8K May 23 13:58 VB_qc.fam
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  264 May 23 13:58 VB_qc.irem
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2K May 23 13:58 VB_qc.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 13:58 VB_qc.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 564M May 23 12:19 VB_raw.bed
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.5G May 23 12:19 VB_raw.bim
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 4.1K May 23 12:19 VB_raw.fam
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1005 May 23 12:19 VB_raw.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.7K May 23 12:19 VB_raw.nosex
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  442 May 23 13:42 pca20.log
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 3.2K May 23 14:10 pheno.txt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  432 May 23 13:42 prune.log
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls -lh VCF/         
+total 246G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  21G May 21 13:35 VB.70.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 863K May 21 13:40 VB.70.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  16G May 18 13:23 VB.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 18 13:37 VB.70b.vcf.gz.SNPS.txt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  18G May 13 01:12 VB.OX422140.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 313K May 13 01:16 VB.OX422140.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:24 VB.OX422141.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 170K May 12 21:27 VB.OX422141.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12G May 12 21:06 VB.OX422142.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 159K May 12 21:09 VB.OX422142.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:31 VB.OX422143.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 148K May 12 20:33 VB.OX422143.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  11G May 12 20:26 VB.OX422144.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 138K May 12 20:29 VB.OX422144.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 787M May 12 15:30 VB.OX422145.1.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  23K May 12 15:30 VB.OX422145.1.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  63G May 20 13:18 VB.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 952K May 20 13:35 VB.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  35G May 22 11:58 VB_miss.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  29G May 23 12:06 VB_snps.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 601K May 23 12:13 VB_snps.vcf.gz.csi
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  20G May 21 14:54 VCF.70b.vcf.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    9 May 21 15:13 VCF.70b.vcf.gz.SNPS.txt
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/10_BCF_view.sh 
+Submitted batch job 6820376
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9 PD       0:00      1 (None)
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R       3:14      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R       5:08      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less plink/GWAS1.log 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R       6:51      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls FST
+70b.5000.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ vim 4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$   
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+Submitted batch job 6820382
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820382      defq FST_scan   mbyct9  R       1:42      1 comp009
+           6820376      defq BCF_view   mbyct9  R      10:49      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820382      defq FST_scan   mbyct9  R       5:30      1 comp009
+           6820376      defq BCF_view   mbyct9  R      14:37      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820382      defq FST_scan   mbyct9  R       6:57      1 comp009
+           6820376      defq BCF_view   mbyct9  R      16:04      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9 
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820382      defq FST_scan   mbyct9  R       7:52      1 comp009
+           6820376      defq BCF_view   mbyct9  R      16:59      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R      35:46      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls FST
+70b.5000.fst  out.windowed.weir.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ mv FST/out.windowed.weir.fst FST/70b.2500.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R      45:32      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820376      defq BCF_view   mbyct9  R      52:11      1 comp008
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_BCF_view.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ scancel 6820376
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_BCF_view.sh 
+Submitted batch job 6820436
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9 
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820436      defq BCF_view   mbyct9  R       4:22      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820436      defq BCF_view   mbyct9  R      15:59      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820436      defq BCF_view   mbyct9  R      28:06      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820436      defq BCF_view   mbyct9  R    1:08:42      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/9_fst_scan.sh 
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/9_fst_scan.sh 
+Submitted batch job 6820698
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../FST/
+70b.2500.fst  70b.5000.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbuyt9
+squeue: error: Invalid user: mbuyt9
+
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820698      defq FST_scan   mbyct9  R       6:00      1 comp008
+           6820436      defq BCF_view   mbyct9  R    1:15:00      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820698      defq FST_scan   mbyct9  R      10:12      1 comp008
+           6820436      defq BCF_view   mbyct9  R    1:19:12      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6820698      defq FST_scan   mbyct9  R      12:50      1 comp008
+           6820436      defq BCF_view   mbyct9  R    1:21:50      1 comp007
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ exit
+logout
+Connection to hpclogin02.ada.nottingham.ac.uk closed.
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2    
+^C
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Sat May 23 13:25:39 2026 from 10.146.0.30
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls FST/
+70b.2500.fst  70b.5000.fst  out.windowed.weir.fst  unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ ls -lh FST/
+total 156M
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  25M May 23 15:19 70b.2500.fst
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  13M May 23 11:02 70b.5000.fst
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 109M May 23 17:13 out.windowed.weir.fst
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  10M May 20 08:57 unfiltered.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ mv FST/out.windowed.weir.fst FST/70b.500.fst
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ less 4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ exit
+logout
+Connection to hpclogin02.ada.nottingham.ac.uk closed.
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Mon May 25 19:39:30 2026 from 10.146.0.9
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ vim 4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/9_fst_scan.sh 
+Submitted batch job 6833455
+(base) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add *
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Changing FST windows"
+[main addbe81] Changing FST windows
+ 10 files changed, 93 insertions(+), 39 deletions(-)
+ create mode 100644 VB-temporary.bed
+ create mode 100644 VB-temporary.bim
+ create mode 100644 VB-temporary.fam
+ create mode 100644 VB.log
+ create mode 100644 VB.nosex
+ delete mode 100644 scripts/14_PCA.sh
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls 
+README.md         VB-temporary.bim  VB.log    scripts
+VB-temporary.bed  VB-temporary.fam  VB.nosex  thesis_log.ipynb
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls VB.log
+VB.log
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less VB.log
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ rm VB*
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls
+README.md  scripts  thesis_log.ipynb
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 18, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (12/12), 287.72 MiB | 5.43 MiB/s, done.
+Total 12 (delta 6), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), completed with 5 local objects.
+remote: error: Trace: 4d63f96892a7d227b24c4499975505301eb0bfe07b00a4192aebfb2f31447738
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File VB-temporary.bed is 296.93 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File VB-temporary.bim is 769.29 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'github.com:cathorn03/4137_Hoverfly_Project_2526.git'
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 18, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (10/10), done.
+^Citing objects:  16% (2/12)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git rm VB*
+rm 'VB-temporary.bed'
+rm 'VB-temporary.bim'
+rm 'VB-temporary.fam'
+rm 'VB.log'
+rm 'VB.nosex'
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Removing erroneous files"
+[main f503e74] Removing erroneous files
+ 5 files changed, 86 deletions(-)
+ delete mode 100644 VB-temporary.bed
+ delete mode 100644 VB-temporary.bim
+ delete mode 100644 VB-temporary.fam
+ delete mode 100644 VB.log
+ delete mode 100644 VB.nosex
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 287.72 MiB | 916.00 KiB/s, done.
+Total 14 (delta 7), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), completed with 5 local objects.
+remote: error: Trace: b7e4f72d254c62109766f13a51c80c851db9470e13c9a6a5290d47c36af7d771
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File VB-temporary.bed is 296.93 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File VB-temporary.bim is 769.29 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'github.com:cathorn03/4137_Hoverfly_Project_2526.git'
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+Already up to date.
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git config pull.rebase false
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+Already up to date.
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (12/12), done.
+^Citing objects:  64% (9/14)
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls
+README.md  scripts  thesis_log.ipynb
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 287.72 MiB | 5.59 MiB/s, done.
+Total 14 (delta 7), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), completed with 5 local objects.
+remote: error: Trace: cf2fd9c4e7054afba6f846e3a57d2ab02788cf60c1f7a6b1c6aedeccff870870
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File VB-temporary.bed is 296.93 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File VB-temporary.bim is 769.29 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'github.com:cathorn03/4137_Hoverfly_Project_2526.git'
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add .
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git rm
+fatal: No pathspec was given. Which files should I remove?
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git rm .
+fatal: not removing '.' recursively without -r
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git rm ./
+fatal: not removing './' recursively without -r
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git rm VB*
+fatal: pathspec 'VB*' did not match any files
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls
+README.md  scripts  thesis_log.ipynb
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -a
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m
+error: switch `m' requires a value
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git log
+commit f503e7458ccc249f8f1c52525325f02f212080ac (HEAD -> main)
+Author: Caleb Thornber <mbyct9@nottingham.ac.uk>
+Date:   Tue May 26 10:08:49 2026 +0100
+
+    Removing erroneous files
+
+commit addbe810f8f93030fd8f65c48aae62534d702e5c
+Author: Caleb Thornber <mbyct9@nottingham.ac.uk>
+Date:   Tue May 26 10:05:52 2026 +0100
+
+    Changing FST windows
+
+commit 3bb6bc4fb33cdc012f3bc9b13b1aad31762137c4 (origin/main, origin/HEAD)
+Author: Caleb Thornber <cth.rnber@gmail.com>
+Date:   Sat May 23 13:39:21 2026 +0100
+
+    Adding ld pruning and GWAS PCA scripta
+
+commit 442ff83ec1cf506720713ca2981cda0575288302
+Author: Caleb Thornber <mbyct9@nottingham.ac.uk>
+Date:   Sat May 23 13:29:25 2026 +0100
+
+    Temp file name change
+
+commit 8b154ecdac2d6bf155692a576e3c174e22cf6c0c
+Author: Caleb Thornber <cth.rnber@gmail.com>
+Date:   Sat May 23 13:17:16 2026 +0100
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git merge
+Already up to date.
+(base) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda activate hoverflies
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ module avail
+
+------------------------------------------ /opt/slurm/modules -------------------------------------------
+   nvidia/cuda-12.2.2    slurm/23.02.4 (S)    slurm/23.02.6 (S,L,D)
+
+--------------------------------------- /opt/slurm/modules/nvidia ---------------------------------------
+   cuda-12.2.2
+
+----------------------------------- /gpfs01/software/lmod/modulefiles -----------------------------------
+   21cmfast-uon/gcc13.3.0/3.3.1
+   21cmfast-uon/gcc13.3.0/4.0.0                                           (D)
+   R-uon/gcc12.3.0/4.4.1
+   R-uoneasy/4.2.1-foss-2022a
+   R-uoneasy/4.3.2-gfbf-2023a
+   R-uoneasy/4.3.3-gfbf-2023b-rstudio
+   R-uoneasy/4.3.3-gfbf-2023b
+   R-uoneasy/4.4.1-gfbf-2023b-rstudio
+   R-uoneasy/4.4.1-gfbf-2023b
+   R-uoneasy/4.4.2-gfbf-2024a-BVD_project
+   R-uoneasy/4.4.2-gfbf-2024a
+   R-uoneasy/4.5.1-gfbf-2025a-rstudio-2026.05.999
+   R-uoneasy/4.5.1-gfbf-2025a                                             (D)
+   abaqus-uon/2024
+   abaqus-uon/2025hotfix
+   abaqus-uon/2025                                                        (D)
+   abaqus-uoneasy/2021-nohotfix
+   abaqus-uoneasy/2021
+   abaqus-uoneasy/2022                                                    (D)
+   abyss-uoneasy/2.3.7-foss-2023a
+   ada-uon/util
+   admin-uon/adduserhpc
+   admixtools-uon/gcc12.3.0/7.0.2
+   admixture-uoneasy/1.3.0
+   afni-uon/binary/24.1.06
+   alphafold-uon/3-foss-2022a-CUDA-11.7.0
+   alphafold-uoneasy/2.3.1-foss-2022a-CUDA-11.7.0
+   alphafold-uoneasy/2.3.1-foss-2022a
+   alphafold-uoneasy/2.3.4-foss-2022a-CUDA-11.7.0-ColabFold               (D)
+   amber-uon/gcc11.3.0/24
+   amber-uoneasy/20.11-fosscuda-2020b-AmberTools-21.3
+   anaconda-uoneasy/2023.09-0
+   angsd-uoneasy/0.940-GCC-13.2.0
+   ansys-uon/2024R1
+   ansys-uoneasy/2022R2
+   ansys-uoneasy/2025R1                                                   (D)
+   ansysrocky-uon/v241
+   augustus-uoneasy/3.5.0-20240612-foss-2023a
+   autodockvina-uon/binary/1.2.5
+   bamtools-uoneasy/2.5.2-GCC-13.2.0
+   bcftools-uoneasy/1.18-GCC-13.2.0
+   bcftools-uoneasy/1.19-GCC-13.2.0                                       (D)
+   beast-uoneasy/2.7.3-GCC-12.3.0
+   bedtools-uoneasy/2.31.0-GCC-12.3.0
+   bfieldtools-uon/gcc13.2.0/0.11.3
+   bgc-uoneasy/1.03-gompi-2023a
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../
+4137_Hoverfly_Project_2526  bam_list.txt      logsErr              pheno_numeric.txt  roots.txt
+BAM                         bombylans.txt     logsOut              pheno_plink.txt    trimmed
+FST                         chr_list.txt      multiqc_data         plink              vcf_list.txt
+PCA                         fastp.json        multiqc_report.html  plumata.txt
+QC                          high_GC           names.txt            pre_pheno.txt
+VCF                         high_gc_list.txt  pheno.txt            references
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../references/
+GCA_949129095.1_idVolBomb1.1_genomic.fasta
+GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna
+GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda install -c bioconda genometools
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+2 channel Terms of Service accepted
+Retrieving notices: done
+Channels:
+ - bioconda
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+LibMambaUnsatisfiableError: Encountered problems while solving:
+  - package genometools-1.2.1-py27_0 requires python 2.7*, but none of the providers can be installed
+
+Could not solve for environment specs
+The following packages are incompatible
+├─ genometools =* * is installable and it requires
+│  └─ python =2.7 *, which can be installed;
+└─ pin on python 3.14.* =* * is not installable because it requires
+   └─ python =3.14 *, which conflicts with any installable versions previously reported.
+
+Pins seem to be involved in the conflict. Currently pinned specs:
+ - python=3.14
+
+
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ exit
+logout
+Connection to hpclogin02.ada.nottingham.ac.uk closed.
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+^Vssh: connect to host hpclogin02.ada.nottingham.ac.uk port 22: Operation timed out
+calebthornber@Calebs-MacBook-Pro ~ % ssh ada2
+Last login: Tue May 26 09:25:03 2026 from 10.146.0.147
+Info: Loaded slurm into the modular environment.
+Info: Loaded lmod into the modular environment.
+
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ conda create -n genometools
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+2 channel Terms of Service accepted
+Retrieving notices: done
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/genometools
+
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate genometools
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) [mbyct9@hpclogin02(Ada) ~]$ conda activate hoverflies
+(hoverflies) [mbyct9@hpclogin02(Ada) ~]$ conda install python=2.7
+2 channel Terms of Service accepted
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/hoverflies
+
+  added / updated specs:
+    - python=2.7
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2026.5.14  |       h06a4308_0         107 KB
+    ------------------------------------------------------------
+                                           Total:         107 KB
+
+The following NEW packages will be INSTALLED:
+
+  certifi            pkgs/main/noarch::certifi-2020.6.20-pyhd3eb1b0_3 
+  setuptools         pkgs/main/linux-64::setuptools-44.0.0-py27_0 
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 
+
+The following packages will be REMOVED:
+
+  ld_impl_linux-64-2.44-h9e0c5a2_3
+  libexpat-2.8.0-h7354ed3_0
+  libmpdec-4.0.0-h5eee18b_0
+  libuuid-1.41.5-h5eee18b_0
+  python_abi-3.14-2_cp314
+  tzdata-2026a-he532380_0
+
+The following packages will be UPDATED:
+
+  ca-certificates                      2026.3.19-h06a4308_0 --> 2026.5.14-h06a4308_0 
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  pip                pkgs/main/noarch::pip-26.0.1-pyh0d264~ --> pkgs/main/linux-64::pip-19.3.1-py27_0 
+
+The following packages will be DOWNGRADED:
+
+  python                          3.14.4-h490e9c7_100_cp314 --> 2.7.18-h42bf7aa_3 
+
+
+Proceed ([y]/n)? n
+
+
+CondaSystemExit: Exiting.
+
+(hoverflies) [mbyct9@hpclogin02(Ada) ~]$ conda activate genometools
+(genometools) [mbyct9@hpclogin02(Ada) ~]$ conda install bioconda::genometools
+2 channel Terms of Service accepted
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+Channels:
+ - defaults
+ - bioconda
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/genometools
+
+  added / updated specs:
+    - bioconda::genometools
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-5.1          |           52_gnu           7 KB
+    asn1crypto-1.4.0           |             py_0          80 KB
+    ca-certificates-2026.5.14  |       h06a4308_0         107 KB
+    cffi-1.14.0                |   py27he30daa8_1         221 KB
+    chardet-3.0.4              |        py27_1003         171 KB
+    cryptography-2.8           |   py27h1ba5d50_0         547 KB
+    enum34-1.1.6               |           py27_1          58 KB
+    ftputil-3.2                |           py27_0          83 KB  bioconda
+    genometools-1.2.1          |           py27_0         104 KB  bioconda
+    idna-2.10                  |     pyhd3eb1b0_0          52 KB
+    intel-openmp-2025.0.0      |    h06a4308_1172        19.3 MB
+    ipaddress-1.0.23           |             py_0          22 KB
+    libgcc-15.2.0              |       h69a1729_8         803 KB
+    libgcc-ng-15.2.0           |       h166f726_8          28 KB
+    libstdcxx-15.2.0           |       h39759b7_8         3.7 MB
+    libstdcxx-ng-15.2.0        |       hc03a8fd_8          28 KB
+    pycparser-2.20             |             py_2          94 KB
+    pyopenssl-20.0.1           |     pyhd3eb1b0_1          49 KB
+    pysocks-1.7.1              |           py27_0          31 KB
+    python-2.7.18              |       ha1903f6_2         9.8 MB
+    requests-2.25.1            |     pyhd3eb1b0_0          52 KB
+    unicodecsv-0.14.1          |           py27_0          25 KB
+    urllib3-1.25.7             |           py27_0         169 KB
+    xmltodict-0.12.0           |     pyhd3eb1b0_0          13 KB
+    ------------------------------------------------------------
+                                           Total:        35.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-52_gnu 
+  asn1crypto         pkgs/main/noarch::asn1crypto-1.4.0-py_0 
+  blas               pkgs/main/linux-64::blas-1.0-mkl 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2026.5.14-h06a4308_0 
+  certifi            pkgs/main/noarch::certifi-2020.6.20-pyhd3eb1b0_3 
+  cffi               pkgs/main/linux-64::cffi-1.14.0-py27he30daa8_1 
+  chardet            pkgs/main/linux-64::chardet-3.0.4-py27_1003 
+  cryptography       pkgs/main/linux-64::cryptography-2.8-py27h1ba5d50_0 
+  enum34             pkgs/main/linux-64::enum34-1.1.6-py27_1 
+  ftputil            bioconda/linux-64::ftputil-3.2-py27_0 
+  genometools        bioconda/linux-64::genometools-1.2.1-py27_0 
+  idna               pkgs/main/noarch::idna-2.10-pyhd3eb1b0_0 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2025.0.0-h06a4308_1172 
+  ipaddress          pkgs/main/noarch::ipaddress-1.0.23-py_0 
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_8 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_8 
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-7.5.0-ha8ba4b0_17 
+  libgfortran4       pkgs/main/linux-64::libgfortran4-7.5.0-ha8ba4b0_17 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_8 
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-15.2.0-hc03a8fd_8 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.1-h47b2149_1 
+  mkl                pkgs/main/linux-64::mkl-2020.2-256 
+  mkl-service        pkgs/main/linux-64::mkl-service-2.3.0-py27he904b0f_0 
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.0.15-py27ha843d7b_0 
+  mkl_random         pkgs/main/linux-64::mkl_random-1.1.0-py27hd6b4f25_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.5-h7934f7d_0 
+  numpy              pkgs/main/linux-64::numpy-1.16.6-py27hbc911f0_0 
+  numpy-base         pkgs/main/linux-64::numpy-base-1.16.6-py27hde5b4d6_0 
+  openssl            pkgs/main/linux-64::openssl-1.1.1w-h7f8727e_0 
+  pip                pkgs/main/linux-64::pip-19.3.1-py27_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  pycparser          pkgs/main/noarch::pycparser-2.20-py_2 
+  pyopenssl          pkgs/main/noarch::pyopenssl-20.0.1-pyhd3eb1b0_1 
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py27_0 
+  python             pkgs/main/linux-64::python-2.7.18-ha1903f6_2 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  requests           pkgs/main/noarch::requests-2.25.1-pyhd3eb1b0_0 
+  setuptools         pkgs/main/linux-64::setuptools-44.0.0-py27_0 
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1 
+  sqlite             pkgs/main/linux-64::sqlite-3.51.2-h3e8d24a_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  unicodecsv         pkgs/main/linux-64::unicodecsv-0.14.1-py27_0 
+  urllib3            pkgs/main/linux-64::urllib3-1.25.7-py27_0 
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 
+  xmltodict          pkgs/main/noarch::xmltodict-0.12.0-pyhd3eb1b0_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+  zlib               pkgs/main/linux-64::zlib-1.3.1-h47b2149_1 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                                         
+Preparing transaction: done                                                                              
+Verifying transaction: done                                                                              
+Executing transaction: done                                                                              
+(genometools) [mbyct9@hpclogin02(Ada) ~]$ cd /share/hoverflies/Caleb/4137_Hoverfly_Project_2526/
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 3), reused 6 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 1.23 KiB | 90.00 KiB/s, done.                                             
+From github.com:cathorn03/4137_Hoverfly_Project_2526                                                     
+   3bb6bc4..40f89ff  main       -> origin/main                                                           
+hint: Waiting for your editor to close the file...                                                       
+Merge made by the 'recursive' strategy.
+ scripts/10_Annotation_prep.sh | 21 +++++++++++++++++++++                                                
+ scripts/11_Gene_check.sh      | 31 +++++++++++++++++++++++++++++++                                      
+ thesis_log.ipynb              | 18 ++++++++++++++++--                                                   
+ 3 files changed, 68 insertions(+), 2 deletions(-)                                                       
+ create mode 100644 scripts/10_Annotation_prep.sh                                                        
+ create mode 100644 scripts/11_Gene_check.sh                                                             
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh  
+Submitted batch job 6834120                                                                              
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9 
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834120      defq Annotati   mbyct9  R       1:22      1 comp008
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-Annotation_prep-6834120.err 
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda info env
+^C
+CondaError: KeyboardInterrupt
+
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda info --envs
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                     /gpfs01/home/mbyct9/miniconda3
+QC                       /gpfs01/home/mbyct9/miniconda3/envs/QC
+Rotation2                /gpfs01/home/mbyct9/miniconda3/envs/Rotation2
+Rotation3                /gpfs01/home/mbyct9/miniconda3/envs/Rotation3
+annotation               /gpfs01/home/mbyct9/miniconda3/envs/annotation
+assemblies               /gpfs01/home/mbyct9/miniconda3/envs/assemblies
+genometools          *   /gpfs01/home/mbyct9/miniconda3/envs/genometools
+hoverflies               /gpfs01/home/mbyct9/miniconda3/envs/hoverflies
+lectures                 /gpfs01/home/mbyct9/miniconda3/envs/lectures
+phylogeny                /gpfs01/home/mbyct9/miniconda3/envs/phylogeny
+python314                /gpfs01/home/mbyct9/miniconda3/envs/python314
+quast                    /gpfs01/home/mbyct9/miniconda3/envs/quast
+trim                     /gpfs01/home/mbyct9/miniconda3/envs/trim
+vcf                      /gpfs01/home/mbyct9/miniconda3/envs/vcf
+
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ which gt
+/usr/bin/which: no gt in (/gpfs01/home/mbyct9/miniconda3/envs/genometools/bin:/gpfs01/home/mbyct9/miniconda3/condabin:/gpfs01/home/mbyct9/.local/bin:/gpfs01/home/mbyct9/bin:/opt/slurm/23.02.6/bin:/opt/slurm/23.02.6/sbin:/usr/share/lmod/lmod/libexec:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin)
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda install -c bioconda genometools
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+2 channel Terms of Service accepted
+Channels:
+ - bioconda
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+# All requested packages already installed.
+
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ gt help
+-bash: gt: command not found
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ 
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ genbank_to_gff3
+-bash: genbank_to_gff3: command not found
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda list | grep genometools
+# packages in environment at /gpfs01/home/mbyct9/miniconda3/envs/genometools:
+genometools                1.2.1            py27_0           bioconda
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ find ~/miniconda3/envs/genometools/ -name gt
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ find ~/miniconda3/envs/genometools/ -type f | grep '/gt$'
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda deactivate
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda remove -n genometools --all
+2 channel Terms of Service accepted
+
+Remove all packages in environment /gpfs01/home/mbyct9/miniconda3/envs/genometools:
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/genometools
+
+
+The following packages will be REMOVED:
+
+  _libgcc_mutex-0.1-main
+  _openmp_mutex-5.1-52_gnu
+  asn1crypto-1.4.0-py_0
+  blas-1.0-mkl
+  ca-certificates-2026.5.14-h06a4308_0
+  certifi-2020.6.20-pyhd3eb1b0_3
+  cffi-1.14.0-py27he30daa8_1
+  chardet-3.0.4-py27_1003
+  cryptography-2.8-py27h1ba5d50_0
+  enum34-1.1.6-py27_1
+  ftputil-3.2-py27_0
+  genometools-1.2.1-py27_0
+  idna-2.10-pyhd3eb1b0_0
+  intel-openmp-2025.0.0-h06a4308_1172
+  ipaddress-1.0.23-py_0
+  libffi-3.3-he6710b0_2
+  libgcc-15.2.0-h69a1729_8
+  libgcc-ng-15.2.0-h166f726_8
+  libgfortran-ng-7.5.0-ha8ba4b0_17
+  libgfortran4-7.5.0-ha8ba4b0_17
+  libstdcxx-15.2.0-h39759b7_8
+  libstdcxx-ng-15.2.0-hc03a8fd_8
+  libxcb-1.17.0-h9b100fa_0
+  libzlib-1.3.1-h47b2149_1
+  mkl-2020.2-256
+  mkl-service-2.3.0-py27he904b0f_0
+  mkl_fft-1.0.15-py27ha843d7b_0
+  mkl_random-1.1.0-py27hd6b4f25_0
+  ncurses-6.5-h7934f7d_0
+  numpy-1.16.6-py27hbc911f0_0
+  numpy-base-1.16.6-py27hde5b4d6_0
+  openssl-1.1.1w-h7f8727e_0
+  pip-19.3.1-py27_0
+  pthread-stubs-0.3-h0ce48e5_1
+  pycparser-2.20-py_2
+  pyopenssl-20.0.1-pyhd3eb1b0_1
+  pysocks-1.7.1-py27_0
+  python-2.7.18-ha1903f6_2
+  readline-8.3-hc2a1206_0
+  requests-2.25.1-pyhd3eb1b0_0
+  setuptools-44.0.0-py27_0
+  six-1.16.0-pyhd3eb1b0_1
+  sqlite-3.51.2-h3e8d24a_0
+  tk-8.6.15-h54e0aa7_0
+  unicodecsv-0.14.1-py27_0
+  urllib3-1.25.7-py27_0
+  wheel-0.37.1-pyhd3eb1b0_0
+  xmltodict-0.12.0-pyhd3eb1b0_0
+  xorg-libx11-1.8.12-h9b100fa_1
+  xorg-libxau-1.0.12-h9b100fa_0
+  xorg-libxdmcp-1.1.5-h9b100fa_0
+  xorg-xorgproto-2024.1-h5eee18b_1
+  zlib-1.3.1-h47b2149_1
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Everything found within the environment (/gpfs01/home/mbyct9/miniconda3/envs/genometools), including any conda environment configurations and any non-conda files, will be deleted. Do you wish to continue?
+ (y/[n])? y
+
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda create -n genometools -c conda-forge -c bioconda genometools
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+2 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/genometools
+
+  added / updated specs:
+    - genometools
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-4.5          |           20_gnu          28 KB  conda-forge
+    brotlipy-0.7.0             |py27h516909a_1000         345 KB  conda-forge
+    ca-certificates-2026.5.20  |       hbd8a1cb_0         127 KB  conda-forge
+    certifi-2019.11.28         |   py27h8c360ce_1         149 KB  conda-forge
+    cffi-1.14.0                |   py27hd463f26_0         217 KB  conda-forge
+    chardet-3.0.4              |py27h8c360ce_1006         180 KB  conda-forge
+    cryptography-2.8           |   py27h2c19f6a_2         609 KB  conda-forge
+    enum34-1.1.10              |   py27h8c360ce_1          49 KB  conda-forge
+    ftputil-3.4                |             py_0          37 KB  conda-forge
+    idna-2.10                  |     pyh9f0ad1d_0          52 KB  conda-forge
+    ipaddress-1.0.23           |             py_0          19 KB  conda-forge
+    ld_impl_linux-64-2.45.1    |bootstrap_ha15bf96_2         714 KB  conda-forge
+    libblas-3.11.0             |7_h4a7cf45_openblas          18 KB  conda-forge
+    libcblas-3.11.0            |7_h0358290_openblas          18 KB  conda-forge
+    libffi-3.2.1               |    he1b5a44_1007          47 KB  conda-forge
+    libgcc-15.2.0              |      he0feb66_19        1017 KB  conda-forge
+    libgcc-ng-15.2.0           |      h69a702a_19          27 KB  conda-forge
+    libgfortran-15.2.0         |      h69a702a_19          27 KB  conda-forge
+    libgfortran5-15.2.0        |      h68bc16d_19         2.4 MB  conda-forge
+    libgomp-15.2.0             |      he0feb66_19         590 KB  conda-forge
+    liblapack-3.11.0           |7_h47877c9_openblas          18 KB  conda-forge
+    libopenblas-0.3.33         |pthreads_h94d23a6_0         5.7 MB  conda-forge
+    libsqlite-3.46.0           |       hde9e2c9_0         845 KB  conda-forge
+    libstdcxx-15.2.0           |      h934c35e_19         5.6 MB  conda-forge
+    libstdcxx-ng-15.2.0        |      hdf11a46_19          27 KB  conda-forge
+    libzlib-1.2.13             |       h4ab18f5_6          60 KB  conda-forge
+    ncurses-6.6                |       hdb14827_0         897 KB  conda-forge
+    numpy-1.16.5               |   py27h95a1406_0         4.3 MB  conda-forge
+    openssl-1.1.1w             |       hd590300_0         1.9 MB  conda-forge
+    pip-20.1.1                 |     pyh9f0ad1d_0         1.1 MB  conda-forge
+    pycparser-2.21             |     pyhd8ed1ab_0         100 KB  conda-forge
+    pyopenssl-19.1.0           |             py_1          47 KB  conda-forge
+    pysocks-1.7.1              |   py27h8c360ce_1          26 KB  conda-forge
+    python-2.7.15              |h5a48372_1011_cpython        12.2 MB  conda-forge
+    python_abi-2.7             |         1_cp27mu           4 KB  conda-forge
+    requests-2.25.1            |     pyhd3deb0d_0          51 KB  conda-forge
+    setuptools-44.0.0          |           py27_0         663 KB  conda-forge
+    six-1.16.0                 |     pyh6c4a22f_0          14 KB  conda-forge
+    sqlite-3.46.0              |       h6d4b2fc_0         840 KB  conda-forge
+    tk-8.6.13                  |noxft_h4845f30_101         3.2 MB  conda-forge
+    unicodecsv-0.14.1          |             py_1          12 KB  conda-forge
+    urllib3-1.26.15            |     pyhd8ed1ab_0         110 KB  conda-forge
+    wheel-0.37.1               |     pyhd8ed1ab_0          31 KB  conda-forge
+    xmltodict-0.12.0           |             py_0          11 KB  conda-forge
+    zlib-1.2.13                |       h4ab18f5_6          91 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        44.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  brotlipy           conda-forge/linux-64::brotlipy-0.7.0-py27h516909a_1000 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.5.20-hbd8a1cb_0 
+  certifi            conda-forge/linux-64::certifi-2019.11.28-py27h8c360ce_1 
+  cffi               conda-forge/linux-64::cffi-1.14.0-py27hd463f26_0 
+  chardet            conda-forge/linux-64::chardet-3.0.4-py27h8c360ce_1006 
+  cryptography       conda-forge/linux-64::cryptography-2.8-py27h2c19f6a_2 
+  enum34             conda-forge/linux-64::enum34-1.1.10-py27h8c360ce_1 
+  ftputil            conda-forge/noarch::ftputil-3.4-py_0 
+  genometools        bioconda/linux-64::genometools-1.2.1-py27_0 
+  idna               conda-forge/noarch::idna-2.10-pyh9f0ad1d_0 
+  ipaddress          conda-forge/noarch::ipaddress-1.0.23-py_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.45.1-bootstrap_ha15bf96_2 
+  libblas            conda-forge/linux-64::libblas-3.11.0-7_h4a7cf45_openblas 
+  libcblas           conda-forge/linux-64::libcblas-3.11.0-7_h0358290_openblas 
+  libffi             conda-forge/linux-64::libffi-3.2.1-he1b5a44_1007 
+  libgcc             conda-forge/linux-64::libgcc-15.2.0-he0feb66_19 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.2.0-h69a702a_19 
+  libgfortran        conda-forge/linux-64::libgfortran-15.2.0-h69a702a_19 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.2.0-h68bc16d_19 
+  libgomp            conda-forge/linux-64::libgomp-15.2.0-he0feb66_19 
+  liblapack          conda-forge/linux-64::liblapack-3.11.0-7_h47877c9_openblas 
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.33-pthreads_h94d23a6_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.46.0-hde9e2c9_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.2.0-h934c35e_19 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.2.0-hdf11a46_19 
+  libzlib            conda-forge/linux-64::libzlib-1.2.13-h4ab18f5_6 
+  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_0 
+  numpy              conda-forge/linux-64::numpy-1.16.5-py27h95a1406_0 
+  openssl            conda-forge/linux-64::openssl-1.1.1w-hd590300_0 
+  pip                conda-forge/noarch::pip-20.1.1-pyh9f0ad1d_0 
+  pycparser          conda-forge/noarch::pycparser-2.21-pyhd8ed1ab_0 
+  pyopenssl          conda-forge/noarch::pyopenssl-19.1.0-py_1 
+  pysocks            conda-forge/linux-64::pysocks-1.7.1-py27h8c360ce_1 
+  python             conda-forge/linux-64::python-2.7.15-h5a48372_1011_cpython 
+  python_abi         conda-forge/linux-64::python_abi-2.7-1_cp27mu 
+  readline           conda-forge/linux-64::readline-8.3-h853b02a_0 
+  requests           conda-forge/noarch::requests-2.25.1-pyhd3deb0d_0 
+  setuptools         conda-forge/linux-64::setuptools-44.0.0-py27_0 
+  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0 
+  sqlite             conda-forge/linux-64::sqlite-3.46.0-h6d4b2fc_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h4845f30_101 
+  unicodecsv         conda-forge/noarch::unicodecsv-0.14.1-py_1 
+  urllib3            conda-forge/noarch::urllib3-1.26.15-pyhd8ed1ab_0 
+  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0 
+  xmltodict          conda-forge/noarch::xmltodict-0.12.0-py_0 
+  zlib               conda-forge/linux-64::zlib-1.2.13-h4ab18f5_6 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                                         
+Preparing transaction: done                                                                              
+Verifying transaction: done                                                                              
+Executing transaction: done                                                                              
+#                                                                                                        
+# To activate this environment, use                                                                      
+#                                                                                                        
+#     $ conda activate genometools                                                                       
+#                                                                                                        
+# To deactivate an active environment, use                                                               
+#                                                                                                        
+#     $ conda deactivate                                                                                 
+                                                                                                         
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda activate genometools  
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ which gt
+/usr/bin/which: no gt in (/gpfs01/home/mbyct9/miniconda3/envs/genometools/bin:/gpfs01/home/mbyct9/miniconda3/condabin:/gpfs01/home/mbyct9/.local/bin:/gpfs01/home/mbyct9/bin:/opt/slurm/23.02.6/bin:/opt/slurm/23.02.6/sbin:/usr/share/lmod/lmod/libexec:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin)                                                                                
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ which genometools                     
+/usr/bin/which: no genometools in (/gpfs01/home/mbyct9/miniconda3/envs/genometools/bin:/gpfs01/home/mbyct9/miniconda3/condabin:/gpfs01/home/mbyct9/.local/bin:/gpfs01/home/mbyct9/bin:/opt/slurm/23.02.6/bin:/opt/slurm/23.02.6/sbin:/usr/share/lmod/lmod/libexec:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin)                                                                       
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 3), reused 8 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 1.16 KiB | 27.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   40f89ff..fe318a7  main       -> origin/main
+Merge made by the 'recursive' strategy.
+ scripts/10_Annotation_prep.sh | 18 ++++++++++++------
+ scripts/gbff_convert.py       | 17 +++++++++++++++++
+ 2 files changed, 29 insertions(+), 6 deletions(-)
+ create mode 100644 scripts/gbff_convert.py
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+sbatch: error: Invalid directive found in batch script: prep
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls scripts/
+10_Annotation_prep.sh  13_GWAS1.sh       3_trim.sh       8_VCF_filter.sh  gc_filter.sh  get_roots.sh
+10_BCF_view.sh         14_LD_Pruning.sh  4_BAM_prep.sh   9_fst_scan.sh    get_VCFs.sh   merge.sh
+11_Gene_check.sh       15_GWAS_PCA.sh    5_make_BAM.sh   XX_PCA.sh        get_bams.sh
+11_plink_setup.sh      1_QC.sh           6_VCF.sh        gbff_convert.py  get_chrs.sh
+12_QC_filter.sh        2_multiqc.sh      7_VCF_merge.sh  gc_filter.py     get_names.sh
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less scripts/10_Annotation_prep.sh 
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_Annotation_prep.sh 
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834214
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add scripts/10_Annotation_prep.sh (genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Fixing slurm header"
+[main 8a92298] Fixing slurm header
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 44, done.
+Counting objects: 100% (36/36), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (24/24), 287.72 MiB | 5.24 MiB/s, done.
+Total 24 (delta 11), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (11/11), completed with 6 local objects.
+remote: error: Trace: a4ba017c006dca5239f815b86c408058f0677fd016ddd2937ae995b4cb76adf3
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File VB-temporary.bed is 296.93 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File VB-temporary.bim is 769.29 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'github.com:cathorn03/4137_Hoverfly_Project_2526.git'
+(genometools) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cd ../
+(genometools) [mbyct9@hpclogin02(Ada) Caleb]$ rm -rf 4137_Hoverfly_Project_2526/
+(genometools) [mbyct9@hpclogin02(Ada) Caleb]$ git clone git@github.com:cathorn03/4137_Hoverfly_Project_2526.git
+Cloning into '4137_Hoverfly_Project_2526'...
+remote: Enumerating objects: 241, done.
+remote: Counting objects: 100% (241/241), done.
+remote: Compressing objects: 100% (151/151), done.
+remote: Total 241 (delta 143), reused 182 (delta 87), pack-reused 0 (from 0)
+Receiving objects: 100% (241/241), 35.92 KiB | 483.00 KiB/s, done.
+Resolving deltas: 100% (143/143), done.
+(genometools) [mbyct9@hpclogin02(Ada) Caleb]$ conda deactivate
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ conda remove -n genometools --all
+2 channel Terms of Service accepted
+
+Remove all packages in environment /gpfs01/home/mbyct9/miniconda3/envs/genometools:
+
+
+## Package Plan ##
+
+  environment location: /gpfs01/home/mbyct9/miniconda3/envs/genometools
+
+
+The following packages will be REMOVED:
+
+  _openmp_mutex-4.5-20_gnu
+  brotlipy-0.7.0-py27h516909a_1000
+  ca-certificates-2026.5.20-hbd8a1cb_0
+  certifi-2019.11.28-py27h8c360ce_1
+  cffi-1.14.0-py27hd463f26_0
+  chardet-3.0.4-py27h8c360ce_1006
+  cryptography-2.8-py27h2c19f6a_2
+  enum34-1.1.10-py27h8c360ce_1
+  ftputil-3.4-py_0
+  genometools-1.2.1-py27_0
+  idna-2.10-pyh9f0ad1d_0
+  ipaddress-1.0.23-py_0
+  ld_impl_linux-64-2.45.1-bootstrap_ha15bf96_2
+  libblas-3.11.0-7_h4a7cf45_openblas
+  libcblas-3.11.0-7_h0358290_openblas
+  libffi-3.2.1-he1b5a44_1007
+  libgcc-15.2.0-he0feb66_19
+  libgcc-ng-15.2.0-h69a702a_19
+  libgfortran-15.2.0-h69a702a_19
+  libgfortran5-15.2.0-h68bc16d_19
+  libgomp-15.2.0-he0feb66_19
+  liblapack-3.11.0-7_h47877c9_openblas
+  libopenblas-0.3.33-pthreads_h94d23a6_0
+  libsqlite-3.46.0-hde9e2c9_0
+  libstdcxx-15.2.0-h934c35e_19
+  libstdcxx-ng-15.2.0-hdf11a46_19
+  libzlib-1.2.13-h4ab18f5_6
+  ncurses-6.6-hdb14827_0
+  numpy-1.16.5-py27h95a1406_0
+  openssl-1.1.1w-hd590300_0
+  pip-20.1.1-pyh9f0ad1d_0
+  pycparser-2.21-pyhd8ed1ab_0
+  pyopenssl-19.1.0-py_1
+  pysocks-1.7.1-py27h8c360ce_1
+  python-2.7.15-h5a48372_1011_cpython
+  python_abi-2.7-1_cp27mu
+  readline-8.3-h853b02a_0
+  requests-2.25.1-pyhd3deb0d_0
+  setuptools-44.0.0-py27_0
+  six-1.16.0-pyh6c4a22f_0
+  sqlite-3.46.0-h6d4b2fc_0
+  tk-8.6.13-noxft_h4845f30_101
+  unicodecsv-0.14.1-py_1
+  urllib3-1.26.15-pyhd8ed1ab_0
+  wheel-0.37.1-pyhd8ed1ab_0
+  xmltodict-0.12.0-py_0
+  zlib-1.2.13-h4ab18f5_6
+
+
+Proceed ([y]/n)? y 
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Everything found within the environment (/gpfs01/home/mbyct9/miniconda3/envs/genometools), including any conda environment configurations and any non-conda files, will be deleted. Do you wish to continue?
+ (y/[n])? y
+
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-Annotation_prep-6834120.err 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/slurm-Annotation-6834214.err
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 4), reused 8 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 789 bytes | 13.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   fe318a7..98ac94d  main       -> origin/main
+Updating fe318a7..98ac94d
+Fast-forward
+ scripts/10_Annotation_prep.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834235
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-Annotation
+slurm-Annotation-6834214.err       slurm-Annotation_prep-6834235.err
+slurm-Annotation_prep-6834120.err  
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-Annotation_prep-6834235.err
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ conda install -c conda-forge -c bioconda biopython bcbio-gff
+Unexpected error writing token file:
+  path: /gpfs01/home/mbyct9/.conda/aau_token_host
+  exception: write() argument must be str, not None
+2 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+LibMambaUnsatisfiableError: Encountered problems while solving:
+  - package bcbio-gff-0.6.2-py_0 requires bx-python, but none of the providers can be installed
+
+Could not solve for environment specs
+The following packages are incompatible
+├─ bcbio-gff =* * is installable with the potential options
+│  ├─ bcbio-gff [0.6.2|0.6.4|...|0.7.1] would require
+│  │  └─ bx-python =* * with the potential options
+│  │     ├─ bx-python [0.10.0|0.11.0|...|0.9.0] would require
+│  │     │  └─ python >=3.10,<3.11.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.11.0|0.12.0|0.13.0|0.14.0] would require
+│  │     │  └─ python >=3.11,<3.12.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.11.0|0.12.0|0.13.0|0.14.0] would require
+│  │     │  └─ python >=3.12,<3.13.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.13.0|0.14.0] would require
+│  │     │  └─ python >=3.13,<3.14.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.10.0|0.11.0|...|0.9.0] would require
+│  │     │  └─ python >=3.8,<3.9.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.10.0|0.11.0|...|0.9.0] would require
+│  │     │  └─ python >=3.9,<3.10.0a0 *, which can be installed;
+│  │     ├─ bx-python [0.7.1|0.7.2|...|0.8.9] would require
+│  │     │  └─ python [=2.7 *|>=2.7,<2.8.0a0 *], which can be installed;
+│  │     ├─ bx-python [0.8.1|0.8.2] would require
+│  │     │  └─ python [=3.5 *|>=3.5,<3.6.0a0 *], which can be installed;
+│  │     ├─ bx-python 0.8.1 would require
+│  │     │  └─ python =3.6 *, which can be installed;
+│  │     ├─ bx-python [0.8.1|0.8.10|...|0.8.9] would require
+│  │     │  └─ python >=3.6,<3.7.0a0 *, which can be installed;
+│  │     └─ bx-python [0.8.10|0.8.11|...|0.9.0] would require
+│  │        └─ python >=3.7,<3.8.0a0 *, which can be installed;
+│  └─ bcbio-gff [0.6.2|0.6.4] would require
+│     └─ biopython <=1.78 * with the potential options
+│        ├─ biopython [1.66|1.67|...|1.76] would require
+│        │  └─ python [=2.7 *|>=2.7,<2.8.0a0 *], which can be installed;
+│        ├─ biopython [1.66|1.67|...|1.72] would require
+│        │  └─ python [=3.5 *|>=3.5,<3.6.0a0 *], which can be installed;
+│        ├─ biopython [1.66|1.67|1.69|1.70|1.71] would require
+│        │  └─ python =3.6 *, which can be installed;
+│        ├─ biopython [1.70|1.71|...|1.78] would require
+│        │  └─ python >=3.6,<3.7.0a0 *, which can be installed;
+│        ├─ biopython [1.71|1.72|...|1.78] would require
+│        │  └─ python >=3.7,<3.8.0a0 *, which can be installed;
+│        ├─ biopython [1.74|1.75|1.76|1.77|1.78] would require
+│        │  └─ python >=3.8,<3.9.0a0 *, which can be installed;
+│        ├─ biopython [1.77|1.78] would require
+│        │  └─ python >=3.9,<3.10.0a0 *, which can be installed;
+│        ├─ biopython 1.68 would require
+│        │  └─ python =3.4 *, which can be installed;
+│        ├─ biopython 1.78 would require
+│        │  └─ python >=3.10,<3.11.0a0 *, which can be installed;
+│        ├─ biopython 1.78 would require
+│        │  └─ python >=3.11,<3.12.0a0 *, which can be installed;
+│        └─ biopython 1.78 would require
+│           └─ python >=3.12,<3.13.0a0 *, which can be installed;
+└─ pin on python 3.14.* =* * is not installable because it requires
+   └─ python =3.14 *, which conflicts with any installable versions previously reported.
+
+Pins seem to be involved in the conflict. Currently pinned specs:
+ - python=3.14
+
+
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ pip install biopython bcbio-gff
+Requirement already satisfied: biopython in /gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages (1.87)
+Collecting bcbio-gff
+  Downloading bcbio_gff-0.7.1-py3-none-any.whl.metadata (343 bytes)
+Requirement already satisfied: numpy in /gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages (from biopython) (2.4.4)
+Collecting six (from bcbio-gff)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading bcbio_gff-0.7.1-py3-none-any.whl (16 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, bcbio-gff
+Successfully installed bcbio-gff-0.7.1 six-1.17.0
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834246
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834246      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834246      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834246      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834246      defq Annotati   mbyct9  R       0:57      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834246      defq Annotati   mbyct9  R       0:59      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ rm ../logsErr/slurm-Annotation-6834214.err 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-Annotation_prep-6834246.err 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/gbff_convert.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Fixing modules"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/gbff_convert.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add scripts/gbff_convert.py       
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Fixing modules"
+[main c690919] Fixing modules
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 441 bytes | 441.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+   98ac94d..c690919  main -> main
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834251
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834251      defq Annotati   mbyct9  R       0:45      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834251      defq Annotati   mbyct9  R       1:25      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834251      defq Annotati   mbyct9  R       1:26      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834251      defq Annotati   mbyct9  R       1:26      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834251.err 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add scripts/gbff_convert.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/gbff_convert.py 
+^[[A^[[A^[[A^[[A^[[B^[[B(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834263
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834263.err
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add * 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Troubleshooting"
+[main 2186eff] Troubleshooting
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 426 bytes | 426.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+   c690919..2186eff  main -> main
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 427 bytes | 61.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   2186eff..26709fa  main       -> origin/main
+Updating 2186eff..26709fa
+Fast-forward
+ scripts/10_Annotation_prep.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834268
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834268.err
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (2/2), done.
+Unpacking objects: 100% (5/5), 507 bytes | 3.00 KiB/s, done.
+remote: Total 5 (delta 3), reused 5 (delta 3), pack-reused 0 (from 0)
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   26709fa..54556fe  main       -> origin/main
+Updating 26709fa..54556fe
+Fast-forward
+ scripts/10_Annotation_prep.sh | 2 +-
+ scripts/gbff_convert.py       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834291
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834291      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834291*
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 464 bytes | 58.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   54556fe..879f412  main       -> origin/main
+Updating 54556fe..879f412
+Fast-forward
+ scripts/gbff_convert.py | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834293
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834293      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834293      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834293      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../references/
+GCA_949129095.1_idVolBomb1.1_genomic.fasta
+GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna
+GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+GCA_949129095.1_idVolBomb1.1_genomic.gbff
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+VolBomb1.1.gff3
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834293.err
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../references/
+GCA_949129095.1_idVolBomb1.1_genomic.fasta
+GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna
+GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+GCA_949129095.1_idVolBomb1.1_genomic.gbff
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+VolBomb1.1.gff3
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls -lh ../references/
+total 11G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 12 11:54 GCA_949129095.1_idVolBomb1.1_genomic.fasta
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12K May 12 11:57 GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May  5 11:31 GCA_949129095.1_idVolBomb1.1_genomic.fna
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  15K May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  37K May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12K May 12 11:14 GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 290M May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 579M May  5 12:08 GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.5G May  5 11:31 GCA_949129095.1_idVolBomb1.1_genomic.gbff
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 20 12:17 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 20 09:14 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly   52 May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 604K May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.1G May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 281M May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 561M May 20 12:40 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 475M May  5 11:31 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly   16 May 26 15:48 VolBomb1.1.gff3
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 341M May  5 11:31 idVolBomb13_plumata.fa.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 345M May  5 11:31 idVolBomb4_bombylans.fa.gz
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../references/VolBomb1.1.gff3 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ head ../references/GCA_949129095.1_idVolBomb1.1_genomic.gbff 
+LOCUS       OX422140           394411929 bp    DNA     linear   INV 07-FEB-2023
+DEFINITION  Volucella bombylans genome assembly, chromosome: 1.
+ACCESSION   OX422140
+VERSION     OX422140.1
+DBLINK      BioProject: PRJEB59521
+            BioSample: SAMEA7520691
+            Sequence Read Archive: ERR10224936, ERR10224937, ERR10297829,
+            ERR10297830, ERR10297831, ERR10297832, ERR10297833
+KEYWORDS    .
+SOURCE      Volucella bombylans
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cd ../
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ touch #!/usr/bin/env python3
+touch: missing file operand
+Try 'touch --help' for more information.
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ import sys
+-bash: import: command not found
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ from Bio import SeqIO
+-bash: from: command not found
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ records = SeqIO.parse(sys.stdin, "genbank")
+-bash: syntax error near unexpected token `('
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ for record in records:
+>     print(record.id)
+-bash: syntax error near unexpected token `print'
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$     print(len(record.features))
+-bash: syntax error near unexpected token `len'
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ touch test.py
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ vim test.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ chmod 774 test.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ ./test.py 
+^CTraceback (most recent call last):
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/share/hoverflies/Caleb/./test.py", line 8, in <module>
+    for record in records:
+                  ^^^^^^^
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/SeqIO/InsdcIO.py", line 109, in __next__
+    return next(self.records)
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/GenBank/Scanner.py", line 512, in parse_records
+    record = self.parse(handle, do_features)
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/GenBank/Scanner.py", line 495, in parse
+    if self.feed(handle, consumer, do_features):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/GenBank/Scanner.py", line 451, in feed
+    if not self.find_start():
+           ~~~~~~~~~~~~~~~^^
+  File "/gpfs01/home/mbyct9/miniconda3/envs/hoverflies/lib/python3.14/site-packages/Bio/GenBank/Scanner.py", line 87, in find_start
+    line = self.handle.readline()
+KeyboardInterrupt
+
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ mv test.py 4137_Hoverfly_Project_2526/scripts/
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ vim 4137_Hoverfly_Project_2526/scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/10_Annotation_prep.sh 
+Submitted batch job 6834304
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834304      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834304      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ ls    
+4137_Hoverfly_Project_2526  bam_list.txt      logsErr              pheno_numeric.txt  roots.txt
+BAM                         bombylans.txt     logsOut              pheno_plink.txt    trimmed
+FST                         chr_list.txt      multiqc_data         plink              vcf_list.txt
+PCA                         fastp.json        multiqc_report.html  plumata.txt
+QC                          high_GC           names.txt            pre_pheno.txt
+VCF                         high_gc_list.txt  pheno.txt            references
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/*6834304*
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ ls references/
+GCA_949129095.1_idVolBomb1.1_genomic.fasta
+GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna
+GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+GCA_949129095.1_idVolBomb1.1_genomic.gbff
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+VolBomb1.1.gff3
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+test.txt
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less references/test.txt 
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cp ../../reference_genomes/    
+GCA_949129095.1_idVolBomb1.1_genomic.fna.gz
+GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.gz
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cp ../../reference_genomes/GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz ../references/
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834315
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834315      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834315*
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../references/test.txt 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/gbff_convert.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/test.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834318
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834318      defq Annotati   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-
+slurm-Annotation_prep-6834120.err  slurm-BCF_view-6820376.err
+slurm-Annotation_prep-6834235.err  slurm-BCF_view-6820436.err
+slurm-Annotation_prep-6834246.err  slurm-FST_scan-6820382.err
+slurm-Annotation_prep-6834251.err  slurm-FST_scan-6820698.err
+slurm-Annotation_prep-6834263.err  slurm-FST_scan-6833455.err
+slurm-Annotation_prep-6834268.err  slurm-GWAS1-6820310.err
+slurm-Annotation_prep-6834291.err  slurm-GWAS1-6820317.err
+slurm-Annotation_prep-6834293.err  slurm-GWAS1-6820321.err
+slurm-Annotation_prep-6834304.err  slurm-GWAS1-6820329.err
+slurm-Annotation_prep-6834315.err  slurm-GWAS1-6820332.err
+slurm-Annotation_prep-6834318.err  slurm-QC_filter-6820307.err
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/*6834318*
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../references/VolBomb1.1.gff3 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../../reference_genomes/
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ vim scripts/10_Annotation_prep.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls ../references/
+GCA_949129095.1_idVolBomb1.1_genomic.fasta
+GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna
+GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+GCA_949129095.1_idVolBomb1.1_genomic.gbff
+GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+VolBomb1.1.gff3
+idVolBomb13_plumata.fa.gz
+idVolBomb4_bombylans.fa.gz
+test.txt
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ §:wq
+-bash: $'\302\247:wq': command not found
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/10_Annotation_prep.sh 
+Submitted batch job 6834321
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less -lh ../references/
+There is no -l option ("less --help" for help)
+../references/  (press RETURN)(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ ls -lh ../references/
+total 12G
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 12 11:54 GCA_949129095.1_idVolBomb1.1_genomic.fasta
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12K May 12 11:57 GCA_949129095.1_idVolBomb1.1_genomic.fasta.fai
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May  5 11:31 GCA_949129095.1_idVolBomb1.1_genomic.fna
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  15K May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.amb
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  37K May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.ann
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.bwt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly  12K May 12 11:14 GCA_949129095.1_idVolBomb1.1_genomic.fna.fai
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 290M May  5 11:52 GCA_949129095.1_idVolBomb1.1_genomic.fna.pac
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 579M May  5 12:08 GCA_949129095.1_idVolBomb1.1_genomic.fna.sa
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.5G May  5 11:31 GCA_949129095.1_idVolBomb1.1_genomic.gbff
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 485M May 26 16:08 GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 20 12:17 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.2G May 20 09:14 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly   52 May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.amb
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 604K May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.ann
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 1.1G May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.bwt
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 281M May 20 12:36 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.pac
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 561M May 20 12:40 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.sa
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 475M May  5 11:31 GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gbff.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 628K May 26 16:22 VolBomb1.1.gff3
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 341M May  5 11:31 idVolBomb13_plumata.fa.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly 345M May  5 11:31 idVolBomb4_bombylans.fa.gz
+-rw-r-----. 1 mbyct9 drs-10981-hoverfly    0 May 26 16:09 test.txt
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../references/VolBomb1.1.gff3 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/11_
+11_Gene_check.sh   11_plink_setup.sh  
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/11_
+11_Gene_check.sh   11_plink_setup.sh  
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ sbatch scripts/11_Gene_check.sh 
+Submitted batch job 6834327
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834327      defq Gene_Che   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less ../logsErr/slurm-Gene_Check-6834327.err 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ rm scripts/test.py 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git add *
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git commit -m "Fixed gbff_to_gff3"
+[main e4d8e06] Fixed gbff_to_gff3
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+ create mode 100644 candidate_genes.gff3
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 96 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 555 bytes | 555.00 KiB/s, done.
+Total 5 (delta 2), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:cathorn03/4137_Hoverfly_Project_2526.git
+   879f412..e4d8e06  main -> main
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ cd ../     
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ mkdir genes
+mkdir: cannot create directory 'genes': File exists
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ sbatch 4137_Hoverfly_Project_2526/scripts/11_Gene_check.sh 
+Submitted batch job 6834333
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834333      defq Gene_Che   mbyct9 PD       0:00      1 (None)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           6834333      defq Gene_Che   mbyct9  R       1:37      1 comp008
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ squeue -u mbyct9
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ less logsErr/*6834333*
+(hoverflies) [mbyct9@hpclogin02(Ada) Caleb]$ cd 4137_Hoverfly_Project_2526/
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 2 (delta 1), reused 2 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (2/2), 212 bytes | 26.00 KiB/s, done.
+From github.com:cathorn03/4137_Hoverfly_Project_2526
+   e4d8e06..f414089  main       -> origin/main
+Updating e4d8e06..f414089
+Fast-forward
+ candidate_genes.gff3 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 candidate_genes.gff3
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ less scripts/11_Gene_check.sh 
+(hoverflies) [mbyct9@hpclogin02(Ada) 4137_Hoverfly_Project_2526]$ git pull
+
