@@ -16,12 +16,8 @@ conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb/references
 
-gunzip $PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz
-
-REF=$PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gbff
-
 OUT=$PATH_TO/VolBomb1.1.gff3
-
 SCRIPT=/share/hoverflies/Caleb/4137_Hoverfly_Project_2526/scripts/gbff_convert.py
 
-python $SCRIPT $REF > $OUT
+gunzip -c $PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz | \
+python $SCRIPT > $OUT
