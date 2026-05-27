@@ -16,7 +16,7 @@ conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb
 
-REF=$PATH_TO/refereces/GCA_949129095.1_idVolBomb1.1_genomic.fasta
+REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fasta
 BED=$PATH_TO/genes/high_fst.bed
 OUT=$PATH_TO/genes/candidate_genes.fasta
 
