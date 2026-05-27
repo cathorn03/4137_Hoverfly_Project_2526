@@ -14,7 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb/
+PATH_TO=/share/hoverflies/Caleb
 
 REF=$PATH_TO/refereces/GCA_949129095.1_idVolBomb1.1_genomic.fasta
 BED=$PATH_TO/genes/high_fst.bed
