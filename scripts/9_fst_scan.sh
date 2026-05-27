@@ -29,5 +29,5 @@ vcftools --gzvcf $VCF \
 --maf 0.05 \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
---fst-window-size 1000 \
---fst-window-step 1000
+--fst-window-size 1500 \
+--fst-window-step 1500
