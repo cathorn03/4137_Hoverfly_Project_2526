@@ -19,7 +19,7 @@ module load bedtools-uoneasy/2.31.0-GCC-12.3.0
 
 PATH_TO=/share/hoverflies/Caleb
 
-REF=$PATH_TO/references/VolBomb1.1_genomic.gff3
+REF=$PATH_TO/references/VolBomb1.1.gff3
 GENES_BED=$PATH_TO/genes/genes.bed
 
 grep -v "^#" $REF| awk '$3=="gene"' | cut -f1,4,5,9 > $GENES_BED
