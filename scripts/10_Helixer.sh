@@ -14,6 +14,8 @@
 source $HOME/.bash_profile
 conda activate Helixer
 
+module load hdf5-uoneasy/1.12.2-gompi-2022a-UCX-1.15.0
+
 PATH_TO=/share/hoverflies/Caleb
 
 Helixer=$PATH_TO/Helixer/Helixer.py
