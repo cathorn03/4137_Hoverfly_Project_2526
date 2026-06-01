@@ -19,15 +19,15 @@ module load bedtools-uoneasy/2.31.0-GCC-12.3.0
 
 PATH_TO=/share/hoverflies/Caleb
 
-REF=$PATH_TO/references/VolBomb1.1.gff3
+REF=$PATH_TO/references/helixer_VolBomb1.1.gff3
 GENES_BED=$PATH_TO/genes/genes.bed
 
 grep -v "^#" $REF| awk '$3=="gene"' > $GENES_BED
 
-#FST_BED=$PATH_TO/genes/high_fst.bed
-#OUT=$PATH_TO/genes/genes_in_windows.txt
+FST_BED=$PATH_TO/genes/high_fst.bed
+OUT=$PATH_TO/genes/genes_in_windows.txt
 
-#bedtools intersect \
-#-a $FST_BED \
-#-b $GENES_BED \
-#-wo > $OUT
+bedtools intersect \
+-a $FST_BED \
+-b $GENES_BED \
+-wo > $OUT
