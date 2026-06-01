@@ -16,11 +16,11 @@ conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb
 
-mkdir -p $PATH_TO/FST
+mkdir -p $PATH_TO/haplotype_2/FST
 
-cd $PATH_TO/FST
+cd $PATH_TO/haplotype_2/FST
 
-VCF=$PATH_TO/VCF/VB.vcf.gz
+VCF=$PATH_TO/haplotype_2/VCF/VB.vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
 
