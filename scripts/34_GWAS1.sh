@@ -2,9 +2,9 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=16g
-#SBATCH --time=2:00:00
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32g
+#SBATCH --time=8:00:00
 #SBATCH --job-name=GWAS1
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
@@ -19,7 +19,8 @@ cd $PATH_TO/plink
 
 PHENO=$PATH_TO/pheno_numeric.txt
 
-plink --bfile VB_qc \
+plink --threads 16 \
+        --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
         --pheno $PHENO \
