@@ -16,8 +16,8 @@ conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb
 
-ANNOTATION=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.gff.gz
+ANNOTATION=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.gff
 REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fasta
-OUT=$PATH_TO/genes/high_fst_seqs.fasta
+OUT=$PATH_TO/haplotyope_1/genes/high_fst_seqs.fasta
 
 gffread -g $REF -w $OUT $ANNOTATION
