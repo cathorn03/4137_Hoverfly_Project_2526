@@ -14,9 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb/
-
-cd $PATH_TO/plink
+cd /share/hoverflies/Caleb/haplotype_1/plink
 
 plink --bfile VB_qc --allow-extra-chr --indep-pairwise 50 5 0.2 --out prune
 
