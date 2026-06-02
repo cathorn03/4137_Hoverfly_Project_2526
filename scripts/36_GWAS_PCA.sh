@@ -26,5 +26,5 @@ plink --bfile VB_qc \
         --pheno pheno.txt \
         --covar pca20.eigenvec \
         --covar-number 1-3 \
-        --linear \
+        --logistic \
         --out GWAS_PCA3
