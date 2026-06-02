@@ -14,11 +14,9 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb/haplotype_1
-
 module load plink-uoneasy/1.9b_6.21-x86_64
 
-cd plink
+cd /share/hoverflies/Caleb/haplotype_1/plink
 
 plink --threads 16 \
         --bfile VB_qc \
