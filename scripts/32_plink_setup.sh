@@ -22,7 +22,7 @@ PATH_TO=/share/hoverflies/Caleb/haplotype_1
 BCF_IN=$PATH_TO/VCF/VB_miss.vcf.gz
 BCF_OUT=$PATH_TO/VCF/VB_snps.vcf.gz
 
-bcftools view -m2 -M2 -v snps $BCF_IN -Oz -o $BCF_OUT
+bcftools view --threads 20 -m2 -M2 -v snps $BCF_IN -Oz -o $BCF_OUT
 #Cleans VCF, Keeps only Biallelic and varient SNPS
 
 bcftools index $BCF_OUT
@@ -32,10 +32,10 @@ mkdir -p $PATH_TO/plink
 
 cd $PATH_TO/plink
 
-plink --vcf $BCF_OUT --double-id --allow-extra-chr --make-bed --out VB_raw
+plink --threads 20 --vcf $BCF_OUT --double-id --allow-extra-chr --make-bed --out VB_raw
 #Turns VCF into plink accepted binary file
 #--allow-extra-chr allows non-human chr use
 #--double-id uses Sample ID for both that and family ID
 
-plink --bfile VB_raw --missing --allow-extra-chr --out VB_missing
+plink --threads 20 --bfile VB_raw --missing --allow-extra-chr --out VB_missing
 #Checks missingness
