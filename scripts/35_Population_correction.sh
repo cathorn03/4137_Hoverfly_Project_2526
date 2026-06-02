@@ -18,6 +18,6 @@ PATH_TO=/share/hoverflies/Caleb/
 
 cd $PATH_TO/plink
 
-plink --bfile dog_qc --allow-extra-chr --indep-pairwise 50 5 0.2 --out prune
+plink --bfile VB_qc --allow-extra-chr --indep-pairwise 50 5 0.2 --out prune
 
-plink --bfile dog_qc --allow-extra-chr --extract prune.prune.in --pca 20 --out pca20
+plink --bfile VB_qc --allow-extra-chr --extract prune.prune.in --pca 20 --out pca20
