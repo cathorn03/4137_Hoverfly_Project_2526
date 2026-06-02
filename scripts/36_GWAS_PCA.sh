@@ -17,12 +17,13 @@ conda activate hoverflies
 module load plink-uoneasy/1.9b_6.21-x86_64
 
 cd /share/hoverflies/Caleb/haplotype_1/plink
+PHENO=/share/hoverflies/Caleb/pheno_plink.txt
 
 plink --threads 16 \
         --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
-        --pheno pheno_plink.txt \
+        --pheno $PHENO \
         --covar pca20.eigenvec \
         --covar-number 1-3 \
         --logistic \
