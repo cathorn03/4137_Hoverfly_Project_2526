@@ -2,9 +2,9 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=1g
-#SBATCH --time=4mv:00:00
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32g
+#SBATCH --time=4:00:00
 #SBATCH --job-name=36_GWAS_PCA
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
@@ -14,13 +14,14 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb/
+PATH_TO=/share/hoverflies/Caleb/haplotype_1
 
 module load plink-uoneasy/1.9b_6.21-x86_64
 
-cd filtered
+cd plink
 
-plink --bfile VB_qc \
+plink --threads 16 \
+        --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
         --pheno pheno.txt \
