@@ -16,6 +16,6 @@ conda activate hoverflies
 
 cd /share/hoverflies/Caleb/haplotype_1/plink
 
-plink --threds 16 --bfile VB_qc --allow-extra-chr --indep-pairwise 50 5 0.2 --out prune
+plink --threads 16 --bfile VB_qc --allow-extra-chr --indep-pairwise 50 5 0.2 --out prune
 
-plink --threds 16 --bfile VB_qc --allow-extra-chr --extract prune.prune.in --pca 20 --out pca20
+plink --threads 16 --bfile VB_qc --allow-extra-chr --extract prune.prune.in --pca 20 --out pca20
