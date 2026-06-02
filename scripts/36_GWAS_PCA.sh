@@ -22,7 +22,7 @@ plink --threads 16 \
         --bfile VB_qc \
         --allow-extra-chr \
         --allow-no-sex \
-        --pheno pheno.txt \
+        --pheno pheno_plink.txt \
         --covar pca20.eigenvec \
         --covar-number 1-3 \
         --logistic \
