@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=1g
-#SBATCH --time=4mv:00:00
-#SBATCH --job-name=LD_pruning
+#SBATCH --time=4:00:00
+#SBATCH --job-name=35_Population_correction
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL

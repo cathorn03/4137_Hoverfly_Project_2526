@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=20
 #SBATCH --mem=8g
 #SBATCH --time=2:00:00
-#SBATCH --job-name=QC_filter
+#SBATCH --job-name=33_QC_filter
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -14,7 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-cd /share/hoverflies/Caleb/plink
+cd /share/hoverflies/Caleb/haplotype_1/plink
 
 plink --bfile VB_raw --allow-extra-chr \
 	--geno 0.05 \
