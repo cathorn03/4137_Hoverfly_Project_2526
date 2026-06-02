@@ -1,4 +1,4 @@
-l#!/bin/bash
+#!/bin/bash
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
