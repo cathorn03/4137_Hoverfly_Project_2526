@@ -16,7 +16,7 @@ conda activate hoverflies
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 
-PATH_TO=share/hoverflies/Caleb/haplotype_1
+PATH_TO=/share/hoverflies/Caleb/haplotype_1
 
 IN=$PATH_TO/VCF/VB.vcf.gz
 OUT=$PATH_TO/VCF/VB_miss.vcf.gz
