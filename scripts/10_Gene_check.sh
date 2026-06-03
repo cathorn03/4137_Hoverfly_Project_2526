@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=20g
+#SBATCH --mem=64g
 #SBATCH --time=8:00:00
 #SBATCH --job-name=10_Gene_Check
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
