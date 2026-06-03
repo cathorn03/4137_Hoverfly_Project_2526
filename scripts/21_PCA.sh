@@ -26,7 +26,7 @@ OUT=$PATH_TO/VCF/VB_chr6.vcf.gz
 
 bcftools index --threads 20 $IN
 
-bcftools view --threads 20 -r OX422145:10,000,000-12,000,000 -O z -o $OUT $IN
+bcftools view --threads 20 -r OX422145:10990001-11041001 -O z -o $OUT $IN
 
 VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
 
