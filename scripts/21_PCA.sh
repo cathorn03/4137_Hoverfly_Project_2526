@@ -14,6 +14,8 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
+module load bcftools-uoneasy/1.19-GCC-13.2.0
+
 PATH_TO=/share/hoverflies/Caleb/haplotype_1
 
 mkdir -p $PATH_TO/PCA
