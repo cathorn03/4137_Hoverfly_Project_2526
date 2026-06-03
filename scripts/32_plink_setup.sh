@@ -19,7 +19,7 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 
 PATH_TO=/share/hoverflies/Caleb/haplotype_1
 
-BCF_IN=$PATH_TO/VCF/VB_miss.vcf.gz
+BCF_IN=$PATH_TO/VCF/VB_chr6.vcf.gz
 BCF_OUT=$PATH_TO/VCF/VB_snps.vcf.gz
 
 bcftools view --threads 20 -m2 -M2 -v snps $BCF_IN -Oz -o $BCF_OUT

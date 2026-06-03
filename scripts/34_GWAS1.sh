@@ -25,4 +25,4 @@ plink --threads 16 \
         --allow-no-sex \
         --pheno $PHENO \
         --logistic \
-        --out GWAS1
+        --out GWAS_chr6

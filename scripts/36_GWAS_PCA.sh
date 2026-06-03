@@ -27,4 +27,4 @@ plink --threads 16 \
         --covar pca20.eigenvec \
         --covar-number 1-3 \
         --logistic \
-        --out GWAS_PCA3
+        --out GWAS_PCA3_chr6
