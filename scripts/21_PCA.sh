@@ -19,8 +19,8 @@ PATH_TO=/share/hoverflies/Caleb
 mkdir -p $PATH_TO/PCA
 cd $PATH_TO/PCA
 
-IN=$PATH_TO/VCF/VB.70b.vcf.gz
-OUT=$PATH_TO/VCF/VB_chr6.vcf.gz
+IN=$PATH_TO/haplotype_1/VCF/VB.70b.vcf.gz
+OUT=$PATH_TO/haplotype_1/VCF/VB_chr6.vcf.gz
 
 bcftools view --threads 20 -r OX422145:10,990,001-11,041,001 -O z -o $OUT $IN
 
