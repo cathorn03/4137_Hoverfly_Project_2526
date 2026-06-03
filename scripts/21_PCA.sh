@@ -2,8 +2,8 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=8g
+#SBATCH --cpus-per-task=20
+#SBATCH --mem=32g
 #SBATCH --time=4:00:00
 #SBATCH --job-name=21_PCA
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
