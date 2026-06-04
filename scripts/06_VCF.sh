@@ -10,7 +10,6 @@
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
-#SBATCH --array=0-5
 
 source $HOME/.bash_profile
 conda activate hoverflies
@@ -25,15 +24,8 @@ PATH_TO=/share/hoverflies/Caleb
 mkdir -p $PATH_TO/haplotype_2/VCF
 #Creates output directory
 
-mapfile -t CHRS < $PATH_TO/alt_chr_list.txt
-#Reads chr_list.txt and assigns to $CHRS
-#chr_list.txt contains chromosome names for VB
-
-CHROM=${CHRS[$SLURM_ARRAY_TASK_ID]}
-#Assigns chromosome
-
 REF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
-OUT=$PATH_TO/haplotype_2/VCF/VB.$CHROM.vcf.gz
+OUT=$PATH_TO/haplotype_2/VCF/VB.vcf.gz
 #Sets reference and output directory
 
 BAMS=$PATH_TO/bam_list.txt
@@ -48,8 +40,7 @@ bcftools mpileup \
   --min-BQ 30 \
   --platforms ILLUMINA \
   --annotate FORMAT/DP,FORMAT/AD \
-  --bam-list "$BAMS" \
-  -r "$CHROM" | \
+  --bam-list "$BAMS" | \
 bcftools call \
   --threads 20 \
   -m \
