@@ -32,7 +32,7 @@ mapfile -t CHRS < $PATH_TO/alt_chr_list.txt
 CHROM=${CHRS[$SLURM_ARRAY_TASK_ID]}
 #Assigns chromosome
 
-REF=$PATH_TO/ragtag/ragtag.scaffold.fasta
+REF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 OUT=$PATH_TO/haplotype_2/VCF/VB.$CHROM.vcf.gz
 #Sets reference and output directory
 
