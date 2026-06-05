@@ -28,7 +28,7 @@ test=/share/hoverflies/Caleb/PCA_test.txt
 
 bcftools view --threads 20 -r OX422145.1:10990001-11041001 -O z -o $OUT $IN
 
-bcftools index -s $IN | grep OX422145.1 > $test
+bcftools query -f '%CHROM\n' $IN | sort -u | head -50 > $test
 
 #VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
 
