@@ -26,12 +26,15 @@ OUT=$PATH_TO/VCF/VB_chr6.vcf.gz
 
 bcftools view --threads 20 -r OX422145.1:10990001-11041001 -O z -o $OUT $IN
 
-VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
+bcftools view -H $OUT | head
+bcftools view -H $OUT | wc -l
 
-plink --vcf "$VCF" --double-id --allow-extra-chr \
---set-missing-var-ids @:# \
---indep-pairwise 50 10 0.05 --out VB
+#VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
 
-plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
---extract VB.prune.in \
---make-bed --pca --out VB
+#plink --vcf "$VCF" --double-id --allow-extra-chr \
+#--set-missing-var-ids @:# \
+#--indep-pairwise 50 10 0.05 --out VB
+
+#plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
+#--extract VB.prune.in \
+#--make-bed --pca --out VB
