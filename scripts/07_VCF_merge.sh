@@ -22,7 +22,7 @@ LIST=/share/hoverflies/Caleb/vcf_list.txt
 #Sets VCF file list
 #vcf_list.txt contains the list of all VCF files
 
-OUT=/share/hoverflies/Caleb/haplotype_2/VCF/VB.vcf.gz
+OUT=/share/hoverflies/Caleb/haplotype_1/VCF/VB.vcf.gz
 #Sets output file
 
 bcftools concat --file-list $LIST -Oz --output $OUT
