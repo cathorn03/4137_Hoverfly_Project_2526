@@ -24,10 +24,12 @@ cd $PATH_TO/PCA
 IN=$PATH_TO/VCF/VB.70b.vcf.gz
 OUT=$PATH_TO/VCF/VB_chr6.vcf.gz
 
+test=/share/hoverflies/Caleb/PCA_test.txt
+
 bcftools view --threads 20 -r OX422145.1:10990001-11041001 -O z -o $OUT $IN
 
-bcftools view -H $OUT | head
-bcftools view -H $OUT | wc -l
+bcftools view -H $OUT > $test
+bcftools view -H $OUT >> $test
 
 #VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
 
