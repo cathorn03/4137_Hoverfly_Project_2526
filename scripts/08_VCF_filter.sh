@@ -19,8 +19,8 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 
 PATH_TO=/share/hoverflies/Caleb
 
-VCF_IN=$PATH_TO/haplotype_2/VCF/VB.vcf.gz
-VCF_OUT=$PATH_TO/haplotype_2/VCF/VB.70.vcf.gz
+VCF_IN=$PATH_TO/haplotype_1/VCF/VB.vcf.gz
+VCF_OUT=$PATH_TO/haplotype_1/VCF/VB.70.vcf.gz
 
 MAF=0.05
 MISS=0.7
@@ -46,4 +46,7 @@ bcftools index $VCF_OUT
 VCFB=$PATH_TO/haplotype_2/VCF/VCF.70b.vcf.gz
 
 bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF_OUT
+
+bcftools index $VCFB
+
 bcftools view -H $VCFB | wc -l > $VCFB.SNPS.txt
