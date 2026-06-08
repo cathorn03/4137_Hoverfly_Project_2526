@@ -10,6 +10,7 @@
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --array=0-6
 
 source $HOME/.bash_profile
 conda activate hoverflies
@@ -21,14 +22,21 @@ mkdir -p $PATH_TO/$HAPLOTYPE/FST
 
 cd $PATH_TO/$HAPLOTYPE/FST
 
-VCF=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
+VCF=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b,vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
+
+mapfile -t FST_WINDOWS < $PATH_TO/fst_windows.txt
+
+WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
 
 vcftools --gzvcf $VCF \
 --max-missing 0.7 \
 --maf 0.05 \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
---fst-window-size 750 \
---fst-window-step 750
+--fst-window-size $WINDOW \
+--fst-window-step $WINDOW \
+--out $WINDOW
+
+
