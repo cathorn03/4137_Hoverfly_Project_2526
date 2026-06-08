@@ -22,7 +22,7 @@ mkdir -p $PATH_TO/$HAPLOTYPE/FST
 
 cd $PATH_TO/$HAPLOTYPE/FST
 
-VCF=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b,vcf.gz
+VCF=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
 POP1=$PATH_TO/bombylans.txt
 POP2=$PATH_TO/plumata.txt
 
