@@ -22,7 +22,7 @@ HAPLOTYPE=haplotype_1
 mkdir -p $PATH_TO/$HAPLOTYPE/PCA
 cd $PATH_TO/$HAPLOTYPE/PCA
 
-IN=$PATH_TO/$HAPLOTYPE/VCF/VB.70b.vcf.gz
+IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 OUT=$PATH_TO/$HAPLOTYPE/VCF/VB_chr6.vcf.gz
 
 test=/share/hoverflies/Caleb/PCA_test.txt
@@ -31,12 +31,12 @@ bcftools view --threads 20 -r OX422145.1:10990001-11041001 -O z -o $OUT $IN
 
 bcftools query -f '%CHROM\n' $IN | sort -u | head -50 > $test
 
-#VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
+VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
 
-#plink --vcf "$VCF" --double-id --allow-extra-chr \
-#--set-missing-var-ids @:# \
-#--indep-pairwise 50 10 0.05 --out VB
+plink --vcf "$VCF" --double-id --allow-extra-chr \
+--set-missing-var-ids @:# \
+--indep-pairwise 50 10 0.05 --out VB
 
-#plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
-#--extract VB.prune.in \
-#--make-bed --pca --out VB
+plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
+--extract VB.prune.in \
+--make-bed --pca --out VB
