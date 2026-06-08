@@ -44,7 +44,7 @@ vcftools --gzvcf $VCF_IN \
 
 bcftools index $VCF_OUT
 
-VCFB=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
+VCFB=$PATH_TO/$HAPLOTYPE/VCF/VB.70b.vcf.gz
 
 bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF_OUT
 

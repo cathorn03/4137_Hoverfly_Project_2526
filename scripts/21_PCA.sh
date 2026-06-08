@@ -22,7 +22,7 @@ HAPLOTYPE=haplotype_1
 mkdir -p $PATH_TO/$HAPLOTYPE/PCA
 cd $PATH_TO/$HAPLOTYPE/PCA
 
-IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
+IN=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
 OUT=$PATH_TO/$HAPLOTYPE/VCF/VB_chr6.vcf.gz
 
 test=/share/hoverflies/Caleb/PCA_test.txt
