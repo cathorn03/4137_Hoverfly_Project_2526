@@ -16,14 +16,11 @@ conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb/references
 TARET_ROOT=idVolBomb13_plumata
-
-TARGET_GZ=$PATH_TO/$TARGET_ROOT.fa.gz
-
-gunzip $REF_GZ
+REF_ROOT=GCA_949129095.1_idVolBomb1.1_genomic
 
 TARGET=$PATH_TO/$TARGT_ROOT.fa
-REF=$PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.fasta
-GFF=$PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gff
+REF=$PATH_TO/$REF_ROOT.fasta
+GFF=$PATH_TO/$REF_ROOT.gff
 OUT=$PATH_TO/$TARGET_ROOT.gff
 
 liftoff -g $GFF \
