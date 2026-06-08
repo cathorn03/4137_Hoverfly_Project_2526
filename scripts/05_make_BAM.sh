@@ -21,6 +21,7 @@ module load picard-uoneasy/3.0.0-Java-17
 #Loads slurm modules
 
 PATH_TO=/share/hoverflies/Caleb
+REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #Sets directory paths
 
 mkdir -p $PATH_TO/BAM
@@ -40,7 +41,7 @@ FILE1=$FILE"_R1.trimmed.fastq.gz"
 FILE2=$FILE"_R2.trimmed.fastq.gz"
 #Sets input file names
 
-REF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+REF=$PATH_TO/references/$REF_NAME
 #Sets reference genome
 
 OUT=$FQ".sort.bam"

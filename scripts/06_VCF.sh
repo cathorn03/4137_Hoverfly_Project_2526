@@ -16,16 +16,18 @@ conda activate hoverflies
 #Activates conda env
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
-#Loads slurm modules
+#Loads slurm modulesql
 
 PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=haplotype_2
+REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #Sets directory path
 
-mkdir -p $PATH_TO/haplotype_2/VCF
+mkdir -p $PATH_TO/$HAPLOTYPE/VCF
 #Creates output directory
 
-REF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
-OUT=$PATH_TO/haplotype_2/VCF/VB.vcf.gz
+REF=$PATH_TO/references/$REF_NAME
+OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 #Sets reference and output directory
 
 BAMS=$PATH_TO/bam_list.txt

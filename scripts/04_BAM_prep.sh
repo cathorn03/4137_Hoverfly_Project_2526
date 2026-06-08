@@ -15,8 +15,10 @@ source $HOME/.bash_profile
 conda activate hoverflies
 # Activates conda env
 
-#gunzip /share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna.gz # Unzips reference genome
+REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+
+#gunzip /share/hoverflies/Caleb/references/$REF_NAME # Unzips reference genome
 #Unzips reference genome
 
-bwa index /share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna # Indexes reference genome
+bwa index /share/hoverflies/Caleb/references/$REF_NAME # Indexes reference genome
 #Indexes reference genome
