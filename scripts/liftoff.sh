@@ -20,7 +20,7 @@ REF_ROOT=GCA_949129095.1_idVolBomb1.1_genomic
 
 TARGET=$PATH_TO/$TARGT_ROOT.fa
 REF=$PATH_TO/$REF_ROOT.fasta
-GFF=$PATH_TO/$REF_ROOT.gff
+GFF=$PATH_TO/renamed_$REF_ROOT.gff
 OUT=$PATH_TO/$TARGET_ROOT.gff
 
 liftoff -g $GFF \
