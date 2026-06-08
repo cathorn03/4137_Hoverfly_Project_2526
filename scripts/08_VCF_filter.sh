@@ -18,7 +18,7 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
 
 PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_1
+HAPLOTYPE=haplotype_2
 
 VCF_IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 VCF_OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.70.vcf.gz
