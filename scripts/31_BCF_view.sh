@@ -16,9 +16,10 @@ conda activate hoverflies
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 
-PATH_TO=/share/hoverflies/Caleb/haplotype_1
+PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=haplotype_1
 
-IN=$PATH_TO/VCF/VB.70b.vcf.gz
-OUT=$PATH_TO/VCF/VB_chr6.vcf.gz
+IN=$PATH_TO/$HAPLOTYPE/VCF/VB.70b.vcf.gz
+OUT=$PATH_TO/$HAPLOTYPE/VCF/VB_chr6.vcf.gz
 
 bcftools view --threads 20 -r OX422145:10,990,001-11,041,001 -O z -o $OUT $IN

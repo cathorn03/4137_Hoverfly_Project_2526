@@ -18,9 +18,10 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
 
 PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=haplotype_1
 
-VCF_IN=$PATH_TO/haplotype_1/VCF/VB.vcf.gz
-VCF_OUT=$PATH_TO/haplotype_1/VCF/VB.70.vcf.gz
+VCF_IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
+VCF_OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.70.vcf.gz
 
 MAF=0.05
 MISS=0.7
@@ -43,7 +44,7 @@ vcftools --gzvcf $VCF_IN \
 
 bcftools index $VCF_OUT
 
-VCFB=$PATH_TO/haplotype_2/VCF/VCF.70b.vcf.gz
+VCFB=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
 
 bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF_OUT
 

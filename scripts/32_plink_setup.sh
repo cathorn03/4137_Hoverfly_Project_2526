@@ -17,10 +17,11 @@ conda activate hoverflies
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0 
 
-PATH_TO=/share/hoverflies/Caleb/haplotype_1
+PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=haplotype_1
 
-BCF_IN=$PATH_TO/VCF/VB_chr6.vcf.gz
-BCF_OUT=$PATH_TO/VCF/VB_snps.vcf.gz
+BCF_IN=$PATH_TO/$HAPLOTYPE/VCF/VB_chr6.vcf.gz
+BCF_OUT=$PATH_TO/$HAPLOTYPE/VCF/VB_snps.vcf.gz
 
 bcftools view --threads 20 -m2 -M2 -v snps $BCF_IN -Oz -o $BCF_OUT
 #Cleans VCF, Keeps only Biallelic and varient SNPS
@@ -28,9 +29,9 @@ bcftools view --threads 20 -m2 -M2 -v snps $BCF_IN -Oz -o $BCF_OUT
 bcftools index $BCF_OUT
 #Indexes VCF
 
-mkdir -p $PATH_TO/plink
+mkdir -p $PATH_TO/$HAPLOTYPE/plink
 
-cd $PATH_TO/plink
+cd $PATH_TO/$HAPLOTYPE/plink
 
 plink --threads 20 --vcf $BCF_OUT --double-id --allow-extra-chr --make-bed --out VB_raw
 #Turns VCF into plink accepted binary file

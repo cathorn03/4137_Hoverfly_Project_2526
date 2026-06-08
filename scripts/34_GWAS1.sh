@@ -14,8 +14,9 @@
 module load plink-uoneasy/1.9b_6.21-x86_64
 
 PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=haplotype_1
 
-cd $PATH_TO/haplotype_1/plink
+cd $PATH_TO/$HAPLOTYPE/plink
 
 PHENO=$PATH_TO/pheno_plink.txt
 

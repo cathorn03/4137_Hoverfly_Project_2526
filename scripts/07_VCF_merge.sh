@@ -27,5 +27,5 @@ OUT=/share/hoverflies/Caleb/haplotype_1/VCF/VB.vcf.gz
 
 bcftools concat --file-list $LIST -Oz --output $OUT
 #Concatinates all VCF files
-bcftools index $OUT
+bcftools -f index $OUT
 #Indexes output
