@@ -18,7 +18,7 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
 
 usage(){
-  echo "Usage: $0 [options]"
+  echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
   echo "  -v, --vcf            Input VCF file"
