@@ -18,8 +18,7 @@ module load bedtools-uoneasy/2.31.0-GCC-12.3.0
 #loads bedtools slurm module
 
 PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_2
-
+HAPLOTYPE=$1
 ANOT=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.gff
 GENES_BED=$PATH_TO/$HAPLOTYPE/genes/genes.bed
 

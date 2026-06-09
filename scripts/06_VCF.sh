@@ -19,7 +19,7 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 #Loads slurm modulesql
 
 PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_2
+HAPLOTYPE=$1
 REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #Sets directory path
 

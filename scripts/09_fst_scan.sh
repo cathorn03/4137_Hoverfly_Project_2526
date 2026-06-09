@@ -16,7 +16,7 @@ source $HOME/.bash_profile
 conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_2
+HAPLOTYPE=$1
 
 mkdir -p $PATH_TO/$HAPLOTYPE/FST
 

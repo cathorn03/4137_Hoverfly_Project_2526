@@ -18,11 +18,14 @@ conda activate hoverflies
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
 
-LIST=/share/hoverflies/Caleb/vcf_list.txt
+PATH_TO=/share/hoverflies/Caleb
+HAPLOTYPE=$1
+
+LIST=$PATH_TO/vcf_list.txt
 #Sets VCF file list
 #vcf_list.txt contains the list of all VCF files
 
-OUT=/share/hoverflies/Caleb/haplotype_1/VCF/VB.vcf.gz
+OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 #Sets output file
 
 bcftools concat --file-list $LIST -Oz --output $OUT

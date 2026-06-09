@@ -17,7 +17,7 @@ conda activate hoverflies
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 
 PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_1
+HAPLOTYPE=haplotype_2
 
 mkdir -p $PATH_TO/$HAPLOTYPE/PCA
 cd $PATH_TO/$HAPLOTYPE/PCA
