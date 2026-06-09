@@ -52,8 +52,5 @@ fi
 
 REF="${POSITIONAL[0]}"
 
-gunzip $REF # Unzips reference genome
-#Unzips reference genome
-
 bwa index $REF # Indexes reference genome
 #Indexes reference genome
