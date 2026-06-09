@@ -41,6 +41,11 @@ while [[ $# -gt 0 ]]; do
       REF="$2"
       shift 2 ;;
 
+    -v|--vcf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      VCF="$2"
+      shift 2 ;;
+
     -o|--out)
       [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
@@ -82,7 +87,7 @@ bcftools call \
   -v \
   -a GQ,GP \
   -Oz \
-  -o "$OUT"
+  -o "$VCF"
 #Generates VCF files
 
 bcftools index $OUT
