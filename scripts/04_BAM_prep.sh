@@ -45,8 +45,15 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
-gunzip /share/hoverflies/Caleb/references/$REF_NAME # Unzips reference genome
+if [[ ${#POSITIONAL[@]} -ne 1 ]]; then
+    echo "Error: expected one reference filename"
+    exit 1
+fi
+
+REF="${POSITIONAL[0]}"
+
+gunzip /share/hoverflies/Caleb/references/$REF # Unzips reference genome
 #Unzips reference genome
 
-bwa index /share/hoverflies/Caleb/references/$REF_NAME # Indexes reference genome
+bwa index /share/hoverflies/Caleb/references/$REF # Indexes reference genome
 #Indexes reference genome
