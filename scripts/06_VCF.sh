@@ -90,5 +90,5 @@ bcftools call \
   -o "$VCF"
 #Generates VCF files
 
-bcftools index $OUT
+bcftools index $VCF
 #Indexes VCF
