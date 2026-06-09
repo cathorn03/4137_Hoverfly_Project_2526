@@ -16,27 +16,72 @@ conda activate hoverflies
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 
-PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=haplotype_2
+usage(){
+  echo "Usage: $0 [options]"
+  echo
+  echo "Options:"
+  echo "  -v, --vcf       Input vcf file"
+  echo "  -f, --reference   Refernce genome in a fasta format"
+  echo "  -o, --out         Output file in a vcf.gz format"
+  echo "  -R, --region      The genomic region, where the pca will be ran"
+  echo "  -p, --prefix          Prefix for the PCA output files"
+  echo "  -fv, --filtered-vcf   Name of the filtered vcf output"
+  echo "  -h, --help        Show this help message"
+}
 
-mkdir -p $PATH_TO/$HAPLOTYPE/PCA
-cd $PATH_TO/$HAPLOTYPE/PCA
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -v|--vcf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      VCF="$2"
+      shift 2 ;;
 
-IN=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
-OUT=$PATH_TO/$HAPLOTYPE/VCF/VB_chr6.vcf.gz
+    -f|--reference)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      REF="$2"
+      shift 2 ;;
 
-test=/share/hoverflies/Caleb/PCA_test.txt
+    -o|--out)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      OUT_DIR="$2" 
+      shift 2 ;;
 
-bcftools view --threads 20 -r OX422145.1:10990001-11041001 -O z -o $OUT $IN
+     -p|--prefix)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      PRE="$2" 
+      shift 2 ;;
 
-bcftools query -f '%CHROM\n' $IN | sort -u | head -50 > $test
+    -R|--region)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      REGION="$2" 
+      shift 2 ;;
 
-VCF=$PATH_TO/VCF/VB_chr6.vcf.gz
+    -fv|--filtered-vcf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      FILTERED_VCF="$2" 
+      shift 2 ;;
 
-plink --vcf "$VCF" --double-id --allow-extra-chr \
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
+
+mkdir -p $OUT_DIR
+cd $OUT_DIR
+
+bcftools view --threads 20 -r $REGION -O z -o $FILTERED_VCF $VCF
+
+plink --vcf "$FILTERED_VCF" --double-id --allow-extra-chr \
 --set-missing-var-ids @:# \
---indep-pairwise 50 10 0.05 --out VB
+--indep-pairwise 50 10 0.05 --out $PRE
 
-plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
---extract VB.prune.in \
---make-bed --pca --out VB
+plink --vcf "$FILTERED_VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
+--extract $PRE.prune.in \
+--make-bed --pca --out $PRE
