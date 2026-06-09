@@ -16,22 +16,28 @@ source $HOME/.bash_profile
 conda activate hoverflies
 #Activates conda env
 
-PATH_TO=/share/hoverflies/Caleb
-#Sests working path
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  	-q|--fastq) SAMPLE_DIR="$OPTARG" ;;
+	-o|--out) OUT="$OPTARG" ;;
+	-n|--names) $NAME_FILE="$OPTARG" ;;
+	\?) echo "Invalid option: -$OPTARG" ;;
+	:) echo "Option -$OPTARG requires an argument" ;;
+  esac
+done
 
-mapfile -t NAMES < $PATH_TO/names.txt
+mapfile -t NAMES < $$NAME_FILE
 #Reads names.txt and assigns to $NAME
 #names.txt contains the names of all fastq files in /share/hoverflies/fastqs/
 
-mkdir -p $PATH_TO/QC
+mkdir -p $OUT
 #Makes output dir
 
-SAMPLE=$PATH_TO${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
-OUTDIR=$PATH_TO/QC #Sets output
+SAMPLE=$SAMPLE_DIR${NAMES[$SLURM_ARRAY_TASK_ID]} #Makes smaple name for arrays
 
 # Running QC Analysis
 fastqc \
  -t 8 \
  "$SAMPLE" \
- -o "$OUTDIR"
+ -o "$OUT"
 #Runs fastqc
