@@ -16,13 +16,40 @@ source $HOME/.bash_profile
 conda activate hoverflies
 #Activates conda env
 
+usage(){
+	echo "Usage: $0 [options]"
+	echo
+	echo "Options:"
+	echo "  -q, --fastq    Input FASTQ directory"
+	echo "  -n, --names    A .txt file containg the names of the fastq files"
+	echo "  -o, --out      Output directory"
+	echo "  -h, --help     Show this help message"
+}
+
 while [[ $# -gt 0 ]]; do
-  case $1 in
-  	-q|--fastq) SAMPLE_DIR="$OPTARG" ;;
-	-o|--out) OUT="$OPTARG" ;;
-	-n|--names) $NAME_FILE="$OPTARG" ;;
-	\?) echo "Invalid option: -$OPTARG" ;;
-	:) echo "Option -$OPTARG requires an argument" ;;
+  case "$1" in
+  	-q|--fastq)
+	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+	  	SAMPLE_DIR="$2"
+	  	shift 2 ;;
+
+	-o|--out)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		OUT="$2" 
+		shift 2 ;;
+
+	-n|--names)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		NAME_FILE="$2" 
+		shift 2 ;;
+
+	-h|--help)
+		usage()
+		exit 0
+		;;
+		
+	*) echo "Invalid option: $1" 
+		exit 1 ;;
   esac
 done
 
