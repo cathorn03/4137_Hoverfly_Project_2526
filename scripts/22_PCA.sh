@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=20
 #SBATCH --mem=32g
 #SBATCH --time=4:00:00
-#SBATCH --job-name=21_PCA
+#SBATCH --job-name=22_PCA
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -20,47 +20,28 @@ usage(){
   echo "Usage: $0 [options]"
   echo
   echo "Options:"
-  echo "  -v, --vcf       Input vcf file"
-  echo "  -f, --reference   Refernce genome in a fasta format"
-  echo "  -o, --out         Output file in a vcf.gz format"
-  echo "  -R, --region      The genomic region, where the pca will be ran"
-  echo "  -p, --prefix          Prefix for the PCA output files"
-  echo "  -fv, --filtered-vcf   Name of the filtered vcf output"
+  echo "  -v, --vcf         Input vcf file"
+  echo "  -o, --out         Output directory"
+  echo "  -p, --prefix      Prefix for the PCA output files"
   echo "  -h, --help        Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
 
-    -f|--reference)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-      REF="$2"
-      shift 2 ;;
-
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
 
      -p|--prefix)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       PRE="$2" 
       shift 2 ;;
-
-    -R|--region)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-      REGION="$2" 
-      shift 2 ;;
-
-    -fv|--filtered-vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-      FILTERED_VCF="$2" 
-      shift 2 ;;
-
 
     -h|--help)
       usage
@@ -76,12 +57,10 @@ done
 mkdir -p $OUT_DIR
 cd $OUT_DIR
 
-bcftools view --threads 20 -r $REGION -O z -o $FILTERED_VCF $VCF
-
-plink --vcf "$FILTERED_VCF" --double-id --allow-extra-chr \
+plink --vcf "$VCF" --double-id --allow-extra-chr \
 --set-missing-var-ids @:# \
 --indep-pairwise 50 10 0.05 --out $PRE
 
-plink --vcf "$FILTERED_VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
+plink --vcf "$VCF" --double-id --allow-extra-chr --set-missing-var-ids @:# \
 --extract $PRE.prune.in \
 --make-bed --pca --out $PRE
