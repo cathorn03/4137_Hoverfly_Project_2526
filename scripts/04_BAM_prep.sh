@@ -52,8 +52,8 @@ fi
 
 REF="${POSITIONAL[0]}"
 
-gunzip /share/hoverflies/Caleb/references/$REF # Unzips reference genome
+gunzip $REF # Unzips reference genome
 #Unzips reference genome
 
-bwa index /share/hoverflies/Caleb/references/$REF # Indexes reference genome
+bwa index $REF # Indexes reference genome
 #Indexes reference genome
