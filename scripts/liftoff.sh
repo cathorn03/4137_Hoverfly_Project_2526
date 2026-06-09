@@ -15,10 +15,10 @@ source $HOME/.bash_profile
 conda activate hoverflies
 
 PATH_TO=/share/hoverflies/Caleb/references
-TARET_ROOT=idVolBomb13_plumata
+TARGET_ROOT=idVolBomb13_plumata
 REF_ROOT=GCA_949129095.1_idVolBomb1.1_genomic
 
-TARGET=$PATH_TO/$TARGT_ROOT.fa
+TARGET=$PATH_TO/$TARGET_ROOT.fa
 REF=$PATH_TO/$REF_ROOT.fasta
 GFF=$PATH_TO/renamed_$REF_ROOT.gff
 OUT=$PATH_TO/$TARGET_ROOT.gff
