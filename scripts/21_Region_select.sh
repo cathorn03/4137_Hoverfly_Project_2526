@@ -43,11 +43,6 @@ while [[ $# -gt 0 ]]; do
       OUT="$2" 
       shift 2 ;;
 
-     -p|--prefix)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-      PRE="$2" 
-      shift 2 ;;
-
     -h|--help)
       usage
       exit 0
