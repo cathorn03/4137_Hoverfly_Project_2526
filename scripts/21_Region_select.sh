@@ -29,17 +29,17 @@ usage(){
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
 
     -r|--region)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       REGION="$2"
       shift 2 ;;
 
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
 

@@ -34,37 +34,37 @@ usage(){
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       SAMPLE_DIR="$2"
       shift 2 ;;
 
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
 
     -m|--maf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAF="$2" 
       shift 2 ;;
 
     -M|--miss)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MISS="$2" 
       shift 2 ;;
 
     -Q|--quality)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       QUAL="$2" 
       shift 2 ;;
 
     -d|--min-depth)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MIN_DEPTH="$2" 
       shift 2 ;;
 
     -D|--max-depth)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAX_DEPTH="$2" 
       shift 2 ;;
 

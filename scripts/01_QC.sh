@@ -32,28 +32,28 @@ usage(){
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-  	-q|--fastq)
-	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		-q|--fastq)
+	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
 
-	-o|--out)
-		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-		OUT="$2" 
-		shift 2 ;;
+		-o|--out)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			OUT="$2" 
+			shift 2 ;;
 
-	-n|--names)
-		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
-		NAME_FILE="$2" 
-		shift 2 ;;
+		-n|--names)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			NAME_FILE="$2" 
+			shift 2 ;;
 
-	-h|--help)
-		usage
-		exit 0
-		;;
+		-h|--help)
+			usage
+			exit 0
+			;;
 
-	*) echo "Invalid option: $1" 
-		exit 1 ;;
+		*) echo "Invalid option: $1" 
+			exit 1 ;;
   esac
 done
 

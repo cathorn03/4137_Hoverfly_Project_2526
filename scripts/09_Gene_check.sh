@@ -34,17 +34,17 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
 
     -b|--bed)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       BED="$2" 
       shift 2 ;;
 
     -g|--gff)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       $GFF="$2"
       shift 2 ;;
 
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
 

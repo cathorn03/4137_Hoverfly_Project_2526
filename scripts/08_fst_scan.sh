@@ -33,37 +33,37 @@ usage(){
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
 
     -w|--windows)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       WINDOWS_FILE="$2"
       shift 2 ;;
 
     -m|--maf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAF="$2" 
       shift 2 ;;
 
     -M|--miss)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MISS="$2" 
       shift 2 ;;
 
     -p1|--population1)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       POP1="$2"
       shift 2 ;;
 
     -p2|--population2)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       POP2="$2"
       shift 2 ;;
 
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
 

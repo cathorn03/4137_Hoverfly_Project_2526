@@ -32,17 +32,17 @@ usage(){
 while [[ $# -gt 0 ]]; do
   case "$1" in
   	-q|--fastq)
-	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
 
 	-o|--out)
-		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 		OUT_DIR="$2" 
 		shift 2 ;;
 
 	-r|--roots)
-		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 		ROOT_FILE="$2" 
 		shift 2 ;;
 

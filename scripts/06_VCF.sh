@@ -32,27 +32,27 @@ usage(){
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -q|--fastq)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       SAMPLE_DIR="$2"
       shift 2 ;;
 
     -f|--reference)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       REF="$2"
       shift 2 ;;
 
     -v|--vcf)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
 
     -o|--out)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
 
     -b|--bams)
-      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       BAMS="$2" 
       shift 2 ;;
 
@@ -65,7 +65,6 @@ while [[ $# -gt 0 ]]; do
       exit 1 ;;
   esac
 done
-
 
 mkdir -p $OUT_DIR
 #Creates output directory
