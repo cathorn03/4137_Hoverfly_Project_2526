@@ -18,21 +18,54 @@ conda activate hoverflies
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 #Loads slurm modulesql
 
-PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=$1
-REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
-#Sets directory path
+usage(){
+  echo "Usage: $0 [options]"
+  echo
+  echo "Options:"
+  echo "  -q, --fastq       Input FASTQ directory"
+  echo "  -f, --reference   Refernce genome in a fasta format"
+  echo "  -o, --out         Output file in a vcf.gz format"
+  echo "  -b, --bams       A .txt file containg the full path of all BAM files"
+  echo "  -h, --help        Show this help message"
+}
 
-mkdir -p $PATH_TO/$HAPLOTYPE/VCF
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -q|--fastq)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      SAMPLE_DIR="$2"
+      shift 2 ;;
+
+    -f|--reference)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      REF="$2"
+      shift 2 ;;
+
+    -o|--out)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      OUT_DIR="$2" 
+      shift 2 ;;
+
+    -b|--bams)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      BAMS="$2" 
+      shift 2 ;;
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
+
+mkdir -p $OUT_DIR
 #Creates output directory
-
-REF=$PATH_TO/references/$REF_NAME
-OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 #Sets reference and output directory
 
-BAMS=$PATH_TO/bam_list.txt
-#Assigns bam_list.txt to a variable
-#bam_list.txt contains the full path for each bam file
 
 bcftools mpileup \
   --threads 20 \

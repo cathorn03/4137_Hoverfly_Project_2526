@@ -15,24 +15,79 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=$1
+usage(){
+  echo "Usage: sbatch [slurm-options] $0 [options]"
+  echo
+  echo "slurm-options:"
+  echo "  --array=        Input array range for the number of windows to be tested"
+  echo
+  echo "Options:"
+  echo "  -v, --vcf       Input vcf file"
+  echo "  -w, --windows   A .txt file with window sizes wanting to be tested"
+  echo "  -m, --maf"
+  echo "  -M, --max-missing"
+  echo "  -o, --out       Output directory"
+  echo "  -h, --help      Show this help message"
+}
 
-mkdir -p $PATH_TO/$HAPLOTYPE/FST
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -v|--vcf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      VCF="$2"
+      shift 2 ;;
 
-cd $PATH_TO/$HAPLOTYPE/FST
+    -w|--windows)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      WINDOWS_FILE="$2"
+      shift 2 ;;
 
-VCF=$PATH_TO/$HAPLOTYPE/VCF/VCF.70b.vcf.gz
-POP1=$PATH_TO/bombylans.txt
-POP2=$PATH_TO/plumata.txt
+    -m|--maf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MAF="$2" 
+      shift 2 ;;
 
-mapfile -t FST_WINDOWS < $PATH_TO/fst_windows.txt
+    -M|--miss)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MISS="$2" 
+      shift 2 ;;
+
+    -p1|--population1)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      POP1="$2"
+      shift 2 ;;
+
+    -p2|--population2)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      POP2="$2"
+      shift 2 ;;
+
+    -o|--out)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      OUT_DIR="$2" 
+      shift 2 ;;
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
+mkdir -p $OUT_DIR
+
+cd $OUT_DIR
+
+mapfile -t FST_WINDOWS < $WINDOWS_FILE
 
 WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
 
 vcftools --gzvcf $VCF \
---max-missing 0.7 \
---maf 0.05 \
+--max-missing $MISS \
+--maf $MAF \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \

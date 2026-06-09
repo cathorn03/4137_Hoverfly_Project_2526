@@ -17,17 +17,72 @@ conda activate hoverflies
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
 
+usage(){
+  echo "Usage: $0 [options]"
+  echo
+  echo "Options:"
+  echo "  -v, --vcf            Input VCF file"
+  echo "  -o, --out            Output file in a vcf.gz format"
+  echo "  -m, --maf"
+  echo "  -M, --max-missing"
+  echo "  -Q, --quality"
+  echo "  -d, --min-depth"
+  echo "  -D, --max-depth"
+  echo "  -h, --help           Show this help message"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -v|--vcf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      SAMPLE_DIR="$2"
+      shift 2 ;;
+
+    -o|--out)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      OUT_DIR="$2" 
+      shift 2 ;;
+
+    -m|--maf)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MAF="$2" 
+      shift 2 ;;
+
+    -M|--miss)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MISS="$2" 
+      shift 2 ;;
+
+    -Q|--quality)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      QUAL="$2" 
+      shift 2 ;;
+
+    -d|--min-depth)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MIN_DEPTH="$2" 
+      shift 2 ;;
+
+    -D|--max-depth)
+      [[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+      MAX_DEPTH="$2" 
+      shift 2 ;;
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
 PATH_TO=/share/hoverflies/Caleb
 HAPLOTYPE=$1
 
 VCF_IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
 VCF_OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.70.vcf.gz
-
-MAF=0.05
-MISS=0.7
-QUAL=20
-MIN_DEPTH=1
-MAX_DEPTH=50
 
 vcftools --gzvcf $VCF_IN \
 	--remove-indels \

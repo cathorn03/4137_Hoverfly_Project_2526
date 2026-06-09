@@ -20,15 +20,57 @@ module load samtools-uoneasy/1.18-GCC-12.3.0
 module load picard-uoneasy/3.0.0-Java-17
 #Loads slurm modules
 
-PATH_TO=/share/hoverflies/Caleb
-REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
-#Sets directory paths
+usage(){
+	echo "Usage: sbatch [slurm-options] $0 [options]"
+	echo
+	echo "slurm-options:"
+	echo "  --array=          Array range for the number of samples"
+	echo
+	echo "Options:"
+	echo "  -q, --fastq       Input FASTQ directory"
+	echo "  -f  --reference   Refernce genome in a fasta format"
+	echo "  -o, --out         Output directory"
+	echo "  -r, --roots       A .txt file containg the roots of the fastq files"
+	echo "  -h, --help        Show this help message"
+}
 
-mkdir -p $PATH_TO/BAM
-cd $PATH_TO/BAM
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  	-q|--fastq)
+	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+	  	SAMPLE_DIR="$2"
+	  	shift 2 ;;
+
+  	-f|--reference)
+	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+	  	REF="$2"
+	  	shift 2 ;;
+
+	-o|--out)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		OUT_DIR="$2" 
+		shift 2 ;;
+
+	-r|--roots)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		ROOT_FILE="$2" 
+		shift 2 ;;
+
+	-h|--help)
+		usage
+		exit 0
+		;;
+
+	*) echo "Invalid option: $1" 
+		exit 1 ;;
+  esac
+done
+
+mkdir -p $OUT_DIR
+cd $OUT_DIR
 # Makes and enters output dir
 
-mapfile -t ROOTS < $PATH_TO/roots.txt
+mapfile -t ROOTS < $ROOT_FILE
 #Reads roots.txt and assigns to $ROOTS
 #roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
 #e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
@@ -36,15 +78,11 @@ mapfile -t ROOTS < $PATH_TO/roots.txt
 FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} 
 #Sets file for the array 
 
-FILE=$PATH_TO/trimmed/$FQ
-FILE1=$FILE"_R1.trimmed.fastq.gz"
-FILE2=$FILE"_R2.trimmed.fastq.gz"
+FILE1="$SAMPLE_DIR""$FQ""_R1.trimmed.fastq.gz"
+FILE2="$SAMPLE_DIR""$FQ""_R2.trimmed.fastq.gz"
 #Sets input file names
 
-REF=$PATH_TO/references/$REF_NAME
-#Sets reference genome
-
-OUT=$FQ".sort.bam"
+OUT="$OUT_DIR""$FQ"".sort.bam"
 #Sets output file
 
 bwa mem -M -t 16 $REF $FILE1 $FILE2 | \

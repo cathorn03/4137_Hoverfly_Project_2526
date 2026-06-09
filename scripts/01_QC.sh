@@ -17,12 +17,16 @@ conda activate hoverflies
 #Activates conda env
 
 usage(){
-	echo "Usage: $0 [options]"
+	echo "Usage: sbatch [slurm-options] $0 [options]"
+	echo
+	echo "slurm-options:"
+	echo "  --array=          Array range for the number of samples"
 	echo
 	echo "Options:"
 	echo "  -q, --fastq    Input FASTQ directory"
-	echo "  -n, --names    A .txt file containg the names of the fastq files"
 	echo "  -o, --out      Output directory"
+	echo "  -n, --names    A .txt file containg the names of the fastq files"
+
 	echo "  -h, --help     Show this help message"
 }
 
@@ -44,16 +48,16 @@ while [[ $# -gt 0 ]]; do
 		shift 2 ;;
 
 	-h|--help)
-		usage()
+		usage
 		exit 0
 		;;
-		
+
 	*) echo "Invalid option: $1" 
 		exit 1 ;;
   esac
 done
 
-mapfile -t NAMES < $$NAME_FILE
+mapfile -t NAMES < $NAME_FILE
 #Reads names.txt and assigns to $NAME
 #names.txt contains the names of all fastq files in /share/hoverflies/fastqs/
 

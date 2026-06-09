@@ -16,27 +16,62 @@ source $HOME/.bash_profile
 conda activate hoverflies
 #Activates conda env
 
-PATH_TO=/share/hoverflies
-#Sets path
+usage(){
+	echo "Usage: sbatch [slurm-options] $0 [options]"
+	echo
+	echo "slurm-options:"
+	echo "  --array=          Array range for the number of samples"
+	echo
+	echo "Options:"
+	echo "  -q, --fastq    Input FASTQ directory"
+	echo "  -o, --out      Output directory"
+	echo "  -r, --roots    A .txt file containg the roots of the fastq files"
+	echo "  -h, --help     Show this help message"
+}
 
-mapfile -t ROOTS < $PATH_TO/Caleb/roots.txt
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  	-q|--fastq)
+	  	[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+	  	SAMPLE_DIR="$2"
+	  	shift 2 ;;
+
+	-o|--out)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		OUT_DIR="$2" 
+		shift 2 ;;
+
+	-r|--roots)
+		[[ -z "$2" ]] && { echo "Missing argument for $1"; exit 1; }
+		ROOT_FILE="$2" 
+		shift 2 ;;
+
+	-h|--help)
+		usage
+		exit 0
+		;;
+
+	*) echo "Invalid option: $1" 
+		exit 1 ;;
+  esac
+done
+
+mapfile -t ROOTS < "$ROOT_FILE"
 #Reads roots.txt and assigns to $ROOTS
 #roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
 #e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
-R1=$PATH_TO/fastqs/${ROOTS[$SLURM_ARRAY_TASK_ID]}"_R1.fastq.gz"
-R2=$PATH_TO/fastqs/${ROOTS[$SLURM_ARRAY_TASK_ID]}"_R2.fastq.gz"
+R1="$SAMPLE_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R1.fastq.gz"
+R2="$SAMPLE_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R2.fastq.gz"
 #Sets names for each read
 
-mkdir -p $PATH_TO/Caleb/trimmed
+mkdir -p $OUT
 #Makes output directory
 
-OUT1=$PATH_TO/Caleb/trimmed/${ROOTS[$SLURM_ARRAY_TASK_ID]}_R1.trimmed.fastq.gz
-OUT2=$PATH_TO/Caleb/trimmed/${ROOTS[$SLURM_ARRAY_TASK_ID]}_R2.trimmed.fastq.gz
+OUT1="$OUT_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R1.trimmed.fastq.gz"
+OUT2="$OUT_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R2.trimmed.fastq.gz"
 #Sets output file names
 
-OUTDIR=$PATH_TO/Caleb/trimmed/
-#Sets output directory
 
 NAME=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 #Sets output file names

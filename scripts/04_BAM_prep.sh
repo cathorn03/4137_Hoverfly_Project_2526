@@ -15,9 +15,37 @@ source $HOME/.bash_profile
 conda activate hoverflies
 # Activates conda env
 
-REF_NAME=GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+usage(){
+	echo "Usage: $0 [options][refrence]"
+	echo
+	echo "Options:"
+	echo "  -h, --help    Show this help message"
+	echo "  [reference]   The refrence file needing to be indexed"
+}
 
-#gunzip /share/hoverflies/Caleb/references/$REF_NAME # Unzips reference genome
+POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+
+	-h|--help)
+		usage
+		exit 0
+		;;
+
+    *)
+        if [[ "$1" == -* ]]; then
+            echo "Invalid option: $1"
+            exit 1
+        fi
+
+        POSITIONAL+=("$1")
+        shift
+        ;;
+	esac
+done
+
+gunzip /share/hoverflies/Caleb/references/$REF_NAME # Unzips reference genome
 #Unzips reference genome
 
 bwa index /share/hoverflies/Caleb/references/$REF_NAME # Indexes reference genome
