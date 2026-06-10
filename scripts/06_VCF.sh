@@ -19,13 +19,13 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 #Loads slurm modulesql
 
 usage(){
-  echo "Usage: $0 [options]"
+  echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
   echo "  -q, --fastq       Input FASTQ directory"
   echo "  -f, --reference   Refernce genome in a fasta format"
   echo "  -o, --out         Output file in a vcf.gz format"
-  echo "  -b, --bams       A .txt file containg the full path of all BAM files"
+  echo "  -b, --bams        A .txt file containg the full path of all BAM files"
   echo "  -h, --help        Show this help message"
 }
 

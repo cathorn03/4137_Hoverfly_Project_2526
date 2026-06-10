@@ -19,9 +19,9 @@ usage(){
 	echo "Usage: sbatch $0 [options]"
 	echo
 	echo "Options:"
-	echo "  -q, --fastq    Input FASTQ directory"
-	echo "  -o, --out      Output directory"
-	echo "  -h, --help     Show this help message"
+	echo "  -q, --fastq		Input FASTQ directory"
+	echo "  -o, --out			Output directory"
+	echo "  -h, --help		Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

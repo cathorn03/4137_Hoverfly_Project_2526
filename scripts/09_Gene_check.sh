@@ -21,13 +21,13 @@ usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
   echo "slurm-options:"
-  echo "  --array=        Input array range for the number of windows to be tested"
+  echo "  --array=		Input array range for the number of windows to be tested"
   echo
   echo "Options:"
-  echo "  -b, --bed    Input vcf file"
-  echo "  -g, --gff    Annotation file in a gff format"
-  echo "  -o, --out    Output directory"
-  echo "  -h, --help   Show this help message"
+  echo "  -b, --bed		Input vcf file"
+  echo "  -g, --gff		nnotation file in a gff format"
+  echo "  -o, --out		Output directory"
+  echo "  -h, --help	Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

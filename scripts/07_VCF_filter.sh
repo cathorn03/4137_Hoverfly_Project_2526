@@ -21,14 +21,14 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -v, --vcf            Input VCF file"
-  echo "  -o, --out            Output file in a vcf.gz format"
+  echo "  -v, --vcf           Input VCF file"
+  echo "  -o, --out           Output file in a vcf.gz format"
   echo "  -m, --maf"
   echo "  -M, --max-missing"
   echo "  -Q, --quality"
   echo "  -d, --min-depth"
   echo "  -D, --max-depth"
-  echo "  -h, --help           Show this help message"
+  echo "  -h, --help          Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

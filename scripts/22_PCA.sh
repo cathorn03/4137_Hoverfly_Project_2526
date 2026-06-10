@@ -20,10 +20,10 @@ usage(){
   echo "Usage: $0 [options]"
   echo
   echo "Options:"
-  echo "  -v, --vcf         Input vcf file"
-  echo "  -o, --out         Output directory"
-  echo "  -p, --prefix      Prefix for the PCA output files"
-  echo "  -h, --help        Show this help message"
+  echo "  -v, --vcf			Input vcf file"
+  echo "  -o, --out			Output directory"
+  echo "  -p, --prefix		Prefix for the PCA output files"
+  echo "  -h, --help		Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

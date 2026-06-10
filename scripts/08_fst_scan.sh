@@ -19,15 +19,15 @@ usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
   echo "slurm-options:"
-  echo "  --array=        Input array range for the number of windows to be tested"
+  echo "  --array=            Input array range for the number of windows to be tested"
   echo
   echo "Options:"
-  echo "  -v, --vcf       Input vcf file"
-  echo "  -w, --windows   A .txt file with window sizes wanting to be tested"
+  echo "  -v, --vcf           Input vcf file"
+  echo "  -w, --windows       A .txt file with window sizes wanting to be tested"
   echo "  -m, --maf"
   echo "  -M, --max-missing"
-  echo "  -o, --out       Output directory"
-  echo "  -h, --help      Show this help message"
+  echo "  -o, --out           Output directory"
+  echo "  -h, --help          Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do
