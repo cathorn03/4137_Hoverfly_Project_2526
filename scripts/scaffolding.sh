@@ -14,19 +14,60 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb
+usage(){
+  echo "Usage: sbatch $0 [options]"
+  echo
+  echo "Options:"
+  echo "  -f, --reference	Input vcf file"
+  echo "  -t, --target		A .txt file with window sizes wanting to be tested"
+  echo "  -o, --out			Output directory for ragtag"
+  echo "  -g, --gff			Annotation file as a gff to be transfered"
+  echo "  -go, --gff-out	Output file for the updated gff"
+  echo "  -h, --help		Show this help message"
+}
 
-mkdir -p $PATH_TO/ragtag
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -f|--reference)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      REF="$2"
+      shift 2 ;;
 
-REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fasta
-TARGET=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
-FA_OUT=$PATH_TO/ragtag
+    -t|--target)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      TARGET="$2"
+      shift 2 ;;
 
-GFF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gff
-AGP=$PATH_TO/ragtag/ragtag.scaffold.agp
-GFF_OUT=$PATH_TO/ragtag/ragtag.scaffold.gff
+    -o|--out)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      MAF="$2" 
+      shift 2 ;;
 
-ragtag.py scaffold -o $FA_OUT $REF $TARGET
+    -g|--gff)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      GFF="$2" 
+      shift 2 ;;
+
+    -go|--gff-out)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      GFF_OUT="$2" 
+      shift 2 ;;
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
+mkdir -p $OUT_DIR
+
+AGP=$OUT_DIR/ragtag.scaffold.agp
+
+ragtag.py scaffold -o $OUT_DIR $REF $TARGET
 
 ragtag.py updategff \
 	$GFF \
