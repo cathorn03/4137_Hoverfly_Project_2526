@@ -11,7 +11,7 @@ usage(){
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-		-q|--fastq)
+		-f|--reference)
 		  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 		  	FILE="$2"
 		  	shift 2 ;;
@@ -19,11 +19,6 @@ while [[ $# -gt 0 ]]; do
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
-			shift 2 ;;
-
-		-n|--names)
-			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-			NAME_FILE="$2" 
 			shift 2 ;;
 
 		-h|--help)
