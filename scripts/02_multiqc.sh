@@ -16,7 +16,7 @@ conda activate hoverflies
 #Activates conda env
 
 usage(){
-	echo "Usage: $0 [options]"
+	echo "Usage: sbatch $0 [options]"
 	echo
 	echo "Options:"
 	echo "  -q, --fastq    Input FASTQ directory"

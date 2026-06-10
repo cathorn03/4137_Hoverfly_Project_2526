@@ -16,7 +16,7 @@ conda activate hoverflies
 # Activates conda env
 
 usage(){
-	echo "Usage: $0 [options][refrence]"
+	echo "Usage: sbatch $0 [options][refrence]"
 	echo
 	echo "Options:"
 	echo "  -h, --help    Show this help message"
