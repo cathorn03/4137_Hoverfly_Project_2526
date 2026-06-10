@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      MAF="$2" 
+      OUT_DIR="$2" 
       shift 2 ;;
 
     -g|--gff)
