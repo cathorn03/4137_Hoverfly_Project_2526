@@ -72,5 +72,5 @@ ragtag.py scaffold -o $OUT_DIR $REF $TARGET
 ragtag.py updategff \
 	$GFF \
 	$AGP \
-	> $PATH_TO/ragtag/ragtag.scaffold.agp
+	> $GFF_OUT
 
