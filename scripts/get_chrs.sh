@@ -1,6 +1,39 @@
 #!/bin/bash
 
-FILE=/share/hoverflies/Caleb/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
-OUT=/share/hoverflies/Caleb/alt_chr_list.txt
+usage(){
+	echo "Usage: $0 [options]"
+	echo
+	echo "Options:"
+	echo "  -f, --reference    Input reference file as a fasta"
+	echo "  -o, --out          Output file"
+	echo "  -h, --help         Show this help message"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+		-q|--fastq)
+		  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+		  	FILE="$2"
+		  	shift 2 ;;
+
+		-o|--out)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			OUT="$2" 
+			shift 2 ;;
+
+		-n|--names)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			NAME_FILE="$2" 
+			shift 2 ;;
+
+		-h|--help)
+			usage
+			exit 0
+			;;
+
+		*) echo "Invalid option: $1" 
+			exit 1 ;;
+  esac
+done
 
 grep "^>" $FILE | grep -o '>[^ ]*' | sed 's/^>//' > $OUT

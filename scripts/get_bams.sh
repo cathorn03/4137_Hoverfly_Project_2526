@@ -1,15 +1,44 @@
 #!/bin/bash
 
+usage(){
+    echo "Usage: $0 [options]"
+    echo
+    echo "Options:"
+    echo "  -d, --directory    Path to the directory containing the bam files"
+    echo "  -o, --out    Output file"
+    echo "  -h, --help   Show this help message"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+        -d|--directory)
+            [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+            BAM="$2"
+            shift 2 ;;
+
+        -o|--out)
+            [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+            OUT="$2" 
+            shift 2 ;;
+
+        -h|--help)
+            usage
+            exit 0
+            ;;
+
+        *) echo "Invalid option: $1" 
+            exit 1 ;;
+  esac
+done
+
+
 cd /share/hoverflies/Caleb/
 
-#Path to fastqs
-FQ_PATH=/share/hoverflies/Caleb/BAM/
 
-# Output file
-OUT="bam_list.txt" > "$OUT"  # Clear file if it exists
+
 
 # Loop through matching files
-for file in "$FQ_PATH"*.rmd.bam; do
+for file in "$BAM"*.rmd.bam; do
     echo "$file" >> "$OUT"
 done
 
