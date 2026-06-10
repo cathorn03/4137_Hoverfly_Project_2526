@@ -20,6 +20,16 @@ mkdir -p $PATH_TO/ragtag
 
 REF=$PATH_TO/references/GCA_949129095.1_idVolBomb1.1_genomic.fasta
 TARGET=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fasta
-OUT=$PATH_TO/ragtag
+FA_OUT=$PATH_TO/ragtag
 
-ragtag.py scaffold -o $OUT $REF $TARGET
+GFF=$PATH_TO/references/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.gff
+AGP=$PATH_TO/ragtag/ragtag.scaffold.agp
+GFF_OUT=$PATH_TO/ragtag/ragtag.scaffold.gff
+
+ragtag.py scaffold -o $FA_OUT $REF $TARGET
+
+ragtag.py updategff \
+	$GFF \
+	$AGP \
+	> $PATH_TO/ragtag/ragtag.scaffold.agp
+
