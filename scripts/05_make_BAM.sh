@@ -28,7 +28,7 @@ usage(){
 	echo
 	echo "Options:"
 	echo "  -q, --fastq				Input FASTQ directory"
-	echo "  -f  --reference		Refernce genome in a fasta format"
+	echo "  -f, --reference		Refernce genome in a fasta format"
 	echo "  -o, --out					Output directory"
 	echo "  -r, --roots				A .txt file containg the roots of the fastq files"
 	echo "  -h, --help				Show this help message"
