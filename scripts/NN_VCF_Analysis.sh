@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=12g
-#SBATCH --time=48:00:00
+#SBATCH --mem=24g
+#SBATCH --time=30
 #SBATCH --job-name=NN_VCF
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
@@ -31,17 +31,17 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      SAMPLE_DIR="$2"
+      VCF="$2"
       shift 2 ;;
 
     -so|--stats-out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      OUT_DIR="$2" 
+      STATS_OUT="$2" 
       shift 2 ;;
 
     -vo|--view-out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      MAF="$2" 
+      VIEW_OUT="$2" 
       shift 2 ;;
 
     -h|--help)
@@ -54,4 +54,5 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-bcftools stats input.vcf.gz > stats.txt
+bcftools view $VCF | head > $VIEW_OUT
+bcftools stats $VCF > $STATS_OUT
