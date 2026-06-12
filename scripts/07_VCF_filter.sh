@@ -35,7 +35,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      SAMPLE_DIR="$2"
+      VCF="$2"
       shift 2 ;;
 
     -o|--out)
@@ -68,6 +68,11 @@ while [[ $# -gt 0 ]]; do
       MAX_DEPTH="$2" 
       shift 2 ;;
 
+    -b|--biallelic)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      VCFB="$2" 
+      shift 2 ;; 
+
     -h|--help)
       usage
       exit 0
@@ -78,13 +83,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-PATH_TO=/share/hoverflies/Caleb
-HAPLOTYPE=$1
-
-VCF_IN=$PATH_TO/$HAPLOTYPE/VCF/VB.vcf.gz
-VCF_OUT=$PATH_TO/$HAPLOTYPE/VCF/VB.70.vcf.gz
-
-vcftools --gzvcf $VCF_IN \
+vcftools --gzvcf $VCF \
 	--remove-indels \
 	--maf $MAF \
 	--max-missing $MISS \
@@ -95,13 +94,11 @@ vcftools --gzvcf $VCF_IN \
 	--maxDP $MAX_DEPTH \
 	--recode \
 	--stdout | bgzip -c > \
-	$VCF_OUT
+	$OUT
 
-bcftools index $VCF_OUT
+bcftools index $OUT
 
-VCFB=$PATH_TO/$HAPLOTYPE/VCF/VB.70b.vcf.gz
-
-bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF_OUT
+bcftools view -Oz --max-alleles 2 --exclude-types indels -o $VCFB $VCF
 
 bcftools index $VCFB
 
