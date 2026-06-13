@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=64g
+#SBATCH --mem=128g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=05_make_BAM
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
