@@ -23,7 +23,7 @@ usage(){
   echo "Options:"
   echo "  -v, --vcf           Input VCF file"
   echo "  -o, --out           Output file in a vcf.gz format"
-  echo "  -m, --maf"
+  echo "  -m, --mac"
   echo "  -M, --max-missing"
   echo "  -Q, --quality"
   echo "  -d, --min-depth"
@@ -43,9 +43,9 @@ while [[ $# -gt 0 ]]; do
       OUT="$2" 
       shift 2 ;;
 
-    -m|--maf)
+    -m|--mac)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      MAF="$2" 
+      MAC="$2" 
       shift 2 ;;
 
     -M|--miss)
@@ -85,7 +85,7 @@ done
 
 vcftools --gzvcf $VCF \
 	--remove-indels \
-	--maf $MAF \
+	--mac $MAC \
 	--max-missing $MISS \
 	--minQ $QUAL \
 	--min-meanDP $MIN_DEPTH \
