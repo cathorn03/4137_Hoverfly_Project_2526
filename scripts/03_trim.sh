@@ -17,6 +17,7 @@ conda activate hoverflies
 #Activates conda env
 
 usage(){
+	#Help message for the script
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "slurm-options:"
@@ -29,52 +30,57 @@ usage(){
 	echo "  -h, --help		Show this help message"
 }
 
+#Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
   	-q|--fastq)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
+	  	# Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
 
-	-o|--out)
-		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-		OUT_DIR="$2" 
-		shift 2 ;;
+		-o|--out)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			OUT_DIR="$2" 
+			shift 2 ;;
+			# Sets -o to $OUT_DIR. Should be the output directory
 
-	-r|--roots)
-		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-		ROOT_FILE="$2" 
-		shift 2 ;;
+		-r|--roots)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			ROOT_FILE="$2" 
+			shift 2 ;;
+			# Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
+			# roots.txt contains sample names for samples in $SAMPLE_DIR without read direction and file extension
+			# e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
-	-h|--help)
-		usage
-		exit 0
-		;;
+		-h|--help)
+			usage
+			exit 0
+			;;
+			# Runs usage
 
-	*) echo "Invalid option: $1" 
-		exit 1 ;;
+		*) echo "Invalid option: $1" 
+			exit 1 ;;
+			# Error handling for incorrect options
   esac
 done
 
 mapfile -t ROOTS < "$ROOT_FILE"
-#Reads roots.txt and assigns to $ROOTS
-#roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
-#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
+#Reads file from $ROOT_FILE and assigns to $ROOTS
 
 R1="$SAMPLE_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R1.fastq.gz"
 R2="$SAMPLE_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R2.fastq.gz"
-#Sets names for each read
+#Sets variable for each read
 
 mkdir -p $OUT
-#Makes output directory
+#Makes output directory if it doesn't already exist
 
 OUT1="$OUT_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R1.trimmed.fastq.gz"
 OUT2="$OUT_DIR""${ROOTS[$SLURM_ARRAY_TASK_ID]}""_R2.trimmed.fastq.gz"
 #Sets output file names
 
-
 NAME=${ROOTS[$SLURM_ARRAY_TASK_ID]}
-#Sets output file names
+#Gets the root from $ROOTS to use in report outputs
 
 fastp --in1 $R1 --in2 $R2 \
 	--out1 $OUT1 --out2 $OUT2 \

@@ -16,6 +16,7 @@ conda activate hoverflies
 #Activates conda env
 
 usage(){
+	#Help message for the script
 	echo "Usage: sbatch $0 [options]"
 	echo
 	echo "Options:"
@@ -24,32 +25,36 @@ usage(){
 	echo "  -h, --help		Show this help message"
 }
 
+#Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
-  	-d|--QC-dir)
+  	-q|--fastq)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	QC="$2"
 	  	shift 2 ;;
+	  	# Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
 			shift 2 ;;
+			# Sets -o to $OUT. Should be the output directory
 
 		-h|--help)
 			usage
 			exit 0
 			;;
+			# Runs usage
 
 		*) echo "Invalid option: $1" 
 			exit 1 ;;
   esac
 done
 
-cd $QC
+cd $QC #Enters QC directory
 
-mkdir -p $OUT
+mkdir -p $OUT #Makes output directory if it doesn't already exists
 
 multiqc $OUT
-#Runs multiqc
+#Runs multiqc, and outputs to $OUT
 

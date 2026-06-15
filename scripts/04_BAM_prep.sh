@@ -24,7 +24,7 @@ usage(){
 }
 
 POSITIONAL=()
-
+#Allows a positional argument
 while [[ $# -gt 0 ]]; do
   case "$1" in
 
@@ -32,9 +32,10 @@ while [[ $# -gt 0 ]]; do
 		usage
 		exit 0
 		;;
+		# Runs usage
 
     *)
-        if [[ "$1" == -* ]]; then
+    	if [[ "$1" == -* ]]; then
             echo "Invalid option: $1"
             exit 1
         fi
@@ -50,7 +51,7 @@ if [[ ${#POSITIONAL[@]} -ne 1 ]]; then
     exit 1
 fi
 
-REF="${POSITIONAL[0]}"
+REF=${POSITIONAL[0]}
+#Sets the the psoitional arg to $REF
 
-bwa index $REF # Indexes reference genome
-#Indexes reference genome
+bwa index $REF #Indexes reference genome

@@ -17,6 +17,7 @@ conda activate hoverflies
 #Activates conda env
 
 usage(){
+	#Help message for the script
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "slurm-options:"
@@ -29,36 +30,41 @@ usage(){
 	echo "  -h, --help		Show this help message"
 }
 
+#Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
 		-q|--fastq)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
+	  	# Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
 			shift 2 ;;
+			# Sets -o to $OUT. Should be the output directory
 
 		-n|--names)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			NAME_FILE="$2" 
 			shift 2 ;;
+			# Sets -n to $NAME_FILE. Should be a .txt file with the names of all the files in $SAMPEL_DIR
 
 		-h|--help)
 			usage
 			exit 0
 			;;
+			# Runs usage
 
 		*) echo "Invalid option: $1" 
 			exit 1 ;;
   esac
 done
 
+
 mapfile -t NAMES < $NAME_FILE
-#Reads names.txt and assigns to $NAME
-#names.txt contains the names of all fastq files in /share/hoverflies/fastqs/
+#Reads .txt file from $NAME_FILE and assigns to $NAME
 
 mkdir -p $OUT
 #Makes output dir
@@ -70,4 +76,4 @@ fastqc \
  -t 8 \
  "$SAMPLE" \
  -o "$OUT"
-#Runs fastqc
+#Runs fastqc using 8 cores
