@@ -2,7 +2,7 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=20
+#SBATCH --cpus-per-task=32
 #SBATCH --mem=128g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=06_VCF
@@ -22,11 +22,12 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -q, --fastq       Input FASTQ directory"
-  echo "  -f, --reference   Refernce genome in a fasta format"
-  echo "  -o, --out         Output file in a vcf.gz format"
-  echo "  -b, --bams        A .txt file containg the full path of all BAM files"
-  echo "  -h, --help        Show this help message"
+  echo "  -q, --fastq           Input FASTQ directory"
+  echo "  -f, --reference       Refernce genome in a fasta format"
+  echo "  -v, --vcf             File name for VCF ouput"
+  echo "  -o, --out_directory   Output directory"
+  echo "  -b, --bams            A .txt file containg the full path of all BAM files"
+  echo "  -h, --help            Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do
@@ -67,9 +68,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 mkdir -p $OUT_DIR
-#Creates output directory
-#Sets reference and output directory
-
+cd $OUT_DIR
 
 bcftools mpileup \
   --threads 20 \
