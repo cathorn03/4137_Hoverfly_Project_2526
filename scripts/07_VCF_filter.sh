@@ -29,7 +29,7 @@ usage(){
   echo "  -Q, --quality"
   echo "  -d, --min-depth"
   echo "  -D, --max-depth"
-  echo "  -ob, --biallelic-out    "
+  echo "  -bo, --biallelic-out    "
   echo "  -h, --help          Show this help message"
 }
 
@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
-      # Sets -v to $VCF. SHould be the VCF file
+
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }

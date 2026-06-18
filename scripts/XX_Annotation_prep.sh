@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64g
 #SBATCH --time=1:00:00
-#SBATCH --job-name=Annotation_prep
+#SBATCH --job-name=VCF_Scan
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -14,10 +14,7 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies/Caleb/references
+module load bcftools-uoneasy/1.19-GCC-13.2.0
 
-OUT=$PATH_TO/VolBomb1.1.gff3
-SCRIPT=/share/hoverflies/Caleb/4137_Hoverfly_Project_2526/scripts/gbff_convert.py
-
-gunzip -c $PATH_TO/GCA_949129095.1_idVolBomb1.1_genomic.gbff.gz | \
-python $SCRIPT > $OUT
+bcftools query -f '%QUAL\n' /share/hoverflies/Caleb/haplotype_1/VCF/VB.vcf.gz \
+	> /share/hoverflies/Caleb/haplotype_1/VCF/qual.txt
