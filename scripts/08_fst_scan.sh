@@ -19,28 +19,32 @@ usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
   echo "slurm-options:"
-  echo "  --array=            Input array range for the number of windows to be tested"
+  echo "  --array=                Input array range for the number of windows to be tested"
   echo
   echo "Options:"
-  echo "  -v, --vcf           Input vcf file"
-  echo "  -w, --windows       A .txt file with window sizes wanting to be tested"
+  echo "  -v, --vcf               Input vcf file"
+  echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
   echo "  -m, --maf"
   echo "  -M, --max-missing"
-  echo "  -o, --out           Output directory"
-  echo "  -h, --help          Show this help message"
+  echo "  -o, --out               Output directory"
+  echo "  -ob, --biallelic-out    "
+  echo "  -h, --help              Show this help message"
 }
 
+#Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -v|--vcf)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
+      # Sets -v to $VCF. Should be the VCF file
 
     -w|--windows)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       WINDOWS_FILE="$2"
       shift 2 ;;
+      # Sets -w to $WINDOWS_FILE. Should be a .txt file containing the window sizes wanting to be used on different lines. 
 
     -m|--maf)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
@@ -86,8 +90,6 @@ mapfile -t FST_WINDOWS < $WINDOWS_FILE
 WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
 
 vcftools --gzvcf $VCF \
---max-missing $MISS \
---maf $MAF \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \
