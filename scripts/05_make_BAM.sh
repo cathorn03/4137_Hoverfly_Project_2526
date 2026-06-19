@@ -2,8 +2,8 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=24
-#SBATCH --mem=32g
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=40g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=05_make_BAM
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
@@ -21,6 +21,7 @@ module load picard-uoneasy/3.0.0-Java-17
 #Loads slurm modules
 
 usage(){
+	#Help message for the script
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "slurm-options:"
@@ -34,6 +35,7 @@ usage(){
 	echo "  -h, --help				Show this help message"
 }
 
+#Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
   	-q|--fastq)
@@ -78,10 +80,13 @@ mkdir -p $OUT_DIR
 cd $OUT_DIR
 # Makes and enters output dir
 
+echo "#### OPTIONS ####"
+echo "-q -- $SAMPLE_DIR"
+echo "-f -- $REF"
+echo "-r -- $ROOTS"
+
 mapfile -t ROOTS < $ROOT_FILE
-#Reads roots.txt and assigns to $ROOTS
-#roots.txt contains sample names for samples in /share/hoverflies/fastqs/ without read direction and file extension
-#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
+#Reads file from $ROOT_FILE and assigns to $ROOTS
 
 FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} 
 #Sets file for the array 
