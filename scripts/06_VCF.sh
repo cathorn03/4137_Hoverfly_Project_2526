@@ -27,7 +27,6 @@ usage(){
   echo "  -f, --reference       Refernce genome in a fasta format"
   echo "  -v, --vcf             File name for VCF ouput"
   echo "  -o, --out_directory   Output directory"
-  echo "  -b, --bams            A .txt file containg the full path of all BAM files"
   echo "  -h, --help            Show this help message"
 }
 

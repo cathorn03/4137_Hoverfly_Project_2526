@@ -50,7 +50,7 @@ while [[ $# -gt 0 ]]; do
 			ROOT_FILE="$2" 
 			shift 2 ;;
 			# Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
-			# roots.txt contains sample names for samples in $SAMPLE_DIR without read direction and file extension
+			# The file should contain sample names for samples in $SAMPLE_DIR without read direction and file extension
 			# e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
 		-h|--help)

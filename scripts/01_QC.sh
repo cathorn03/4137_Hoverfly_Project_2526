@@ -59,6 +59,7 @@ while [[ $# -gt 0 ]]; do
 
 		*) echo "Invalid option: $1" 
 			exit 1 ;;
+			# Error handling for incorrect options
   esac
 done
 
