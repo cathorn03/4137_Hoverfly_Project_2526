@@ -37,7 +37,7 @@ while [[ $# -gt 0 ]]; do
 
     -c|--chr_file)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      CHRS="$2"
+      CHR_FILE="$2"
       shift 2 ;;
 
     -o|--out)
@@ -54,5 +54,7 @@ while [[ $# -gt 0 ]]; do
       exit 1 ;;
   esac
 done
+
+CHRS=$(<"$CHR_FILE")
 
 bcftools view "$VCF" --regions "$CHRS" -Oz -o "$OUT"
