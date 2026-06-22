@@ -63,11 +63,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-mkdir -p $OUT_DIR
+#mkdir -p $OUT_DIR
 
-ragtag.py scaffold -o $OUT_DIR $REF $TARGET
+#ragtag.py scaffold -o $OUT_DIR $REF $TARGET
 
-AGP=$OUT_DIR/ragtag.scaffold.agp
+AGP="$OUT_DIR"ragtag.scaffold.agp
 
 ragtag.py updategff \
 	$GFF \
