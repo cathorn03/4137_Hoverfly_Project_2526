@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=20g
 #SBATCH --time=8:00:00
-#SBATCH --job-name=08_VCF_filter
+#SBATCH --job-name=07_VCF_filter
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -22,15 +22,15 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -v, --vcf           Input VCF file"
-  echo "  -o, --out           Output file in a vcf.gz format"
-  echo "  -m, --mac"
-  echo "  -M, --max-missing"
-  echo "  -Q, --quality"
-  echo "  -d, --min-depth"
-  echo "  -D, --max-depth"
-  echo "  -bo, --biallelic-out    "
-  echo "  -h, --help          Show this help message"
+  echo "  -v, --vcf               Input VCF file"
+  echo "  -o, --out               Output file in a vcf.gz format"
+  echo "  -m, --mac               Minor alllel count filter"
+  echo "  -M, --max-missing       Missingness filter"
+  echo "  -Q, --quality           Quality filter"
+  echo "  -d, --min-depth         Minimum depth filter"
+  echo "  -D, --max-depth         Maximum depth filter"
+  echo "  -bo, --biallelic-out    Output file for biallic only VCF file"
+  echo "  -h, --help              Show this help message"
 }
 
 #Option handling
