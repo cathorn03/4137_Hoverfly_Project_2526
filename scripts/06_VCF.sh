@@ -23,7 +23,6 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -q, --fastq           Input FASTQ directory"
   echo "  -f, --reference       Refernce genome in a fasta format"
   echo "  -v, --vcf             File name for VCF ouput"
   echo "  -b, --bams            A .txt file with the full file paths and names of the BAM files"
@@ -34,11 +33,6 @@ usage(){
 #Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -q|--fastq)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      SAMPLE_DIR="$2"
-      shift 2 ;;
-      # Sets -q to $SAMPLE_DIR. Should be a directory containg the sample fastq files
 
     -f|--reference)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
