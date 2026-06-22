@@ -16,7 +16,7 @@ conda activate hoverflies
 #Activates conda env
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
-#Loads slurm modulesql
+#Loads slurm modules
 
 usage(){
   #Help message for the script
@@ -26,6 +26,7 @@ usage(){
   echo "  -q, --fastq           Input FASTQ directory"
   echo "  -f, --reference       Refernce genome in a fasta format"
   echo "  -v, --vcf             File name for VCF ouput"
+  echo "  -b, --bams            A .txt file with the full file paths and names of the BAM files"
   echo "  -o, --out_directory   Output directory"
   echo "  -h, --help            Show this help message"
 }
