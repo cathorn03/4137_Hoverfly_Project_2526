@@ -65,9 +65,9 @@ done
 
 mkdir -p $OUT_DIR
 
-AGP=$OUT_DIR/ragtag.scaffold.agp
-
 ragtag.py scaffold -o $OUT_DIR $REF $TARGET
+
+AGP=$OUT_DIR/ragtag.scaffold.agp
 
 ragtag.py updategff \
 	$GFF \
