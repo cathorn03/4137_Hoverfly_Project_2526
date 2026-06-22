@@ -51,7 +51,7 @@ The environments provided contain the following software, each is provided with 
 This script runs FastQC on the fastq files within a directory. It will produce a .html report file and a zipped directory containing the report data.
 
 ```
-Usage: sbatch [slurm-options] $0 [options]
+Usage: sbatch [slurm-options] 01_QC.sh [options]
 
 slurm-options:
 --array=			Array range for the number of files
@@ -86,7 +86,7 @@ VB20005_R2.fastq.gz
 Uses multiqc to compile the report files from `01_QC.sh` into one report.
 
 ```
-Usage: sbatch $0 [options]"
+Usage: sbatch 02_multiqc [options]"
 
 Options:"
 -q, --fastq		Input FASTQ directory
@@ -100,7 +100,7 @@ A trimming script for the fastq files. It takes a directory contain fastq files,
 The trimmed fastq files are outputted to provided directory.
 
 ```
-Usage: sbatch [slurm-options] $0 [options]
+Usage: sbatch [slurm-options] 03_trim.sh [options]
 
 slurm-options:
   --array=			Array range for the number of samples
@@ -133,7 +133,7 @@ The output files will have the file extension `.trimmed.fastq.gz`.
 Indexes references fasta files to make them suitable for use in the next script.
 
 ```
-Usage: sbatch $0 [options][refrence]
+Usage: sbatch 04_BAM_prep.sh [options][refrence]
 
 Options:
   -h, --help		Show this help message
@@ -150,7 +150,7 @@ This will produce BAM files of all samples in the roots file.
 Duplicates reads will be removed.
 
 ```
-Usage: sbatch [slurm-options] $0 [options]
+Usage: sbatch [slurm-options] 05_make_BAM.sh [options]
 
 slurm-options:
   --array=					Array range for the number of samples
@@ -176,6 +176,53 @@ VB20004
 VB20005
 ```
 
-The produced BAM files ewill be outputted into the provided directory. If the directory does not exist it will be made.
+The produced BAM files will be outputted into the provided directory. If the directory does not exist it will be made.
 The files will have the extension `.rmd.bam`.
 
+#### 06_VCF.sh
+
+Conducts variant calling on the BAM files to produce a single gzipped VCF file.
+It takes an indexed reference fasta, and a .txt file with the full path and name of any BAM files.
+The output directory and output file name are provided separately.
+The produced VCF file will be indexed.
+
+```
+Usage: sbatch 06_VCF.sh [options]
+
+Options:
+  -q, --fastq           Input FASTQ directory
+  -f, --reference       Refernce genome in a fasta format
+  -v, --vcf             File name for VCF ouput
+  -b, --bams            A .txt file with the full file paths and names of the BAM files
+  -o, --out_directory   Output directory
+  -h, --help            Show this help message
+```
+
+#### 07_VCF_filter.sh
+
+Filters a VCF file based on chosen parameters. It filters by minor allele count, missingness, quality, minimum depth, and maximum depth.
+
+```
+Usage: sbatch 07_VCF_filter.sh [options]
+
+Options:
+  -v, --vcf               Input VCF file
+  -o, --out               Output file in a vcf.gz format
+  -m, --mac               Minor alllel count filter
+  -M, --max-missing       Missingness filter
+  -Q, --quality           Quality filter
+  -d, --min-depth         Minimum depth filter
+  -D, --max-depth         Maximum depth filter
+  -bo, --biallelic-out    Output file for biallic only VCF file
+  -h, --help              Show this help message
+```
+
+All filters are passed in as numerical values.
+
+Two filtered VCF files are made by the script.
+The first is filtered by the given criteria and passed through as --out, while the second keeps only the biallelic SNPS and is assigned to --biallelic-out.
+
+#### 08_VCF_Chrom_Select.sh
+
+
+#### 09_FST_scan.sh

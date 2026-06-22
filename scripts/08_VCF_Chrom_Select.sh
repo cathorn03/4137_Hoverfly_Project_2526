@@ -2,7 +2,7 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=20
+#SBATCH --cpus-per-task=40
 #SBATCH --mem=32g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=08_VCF_Chrom_Select
@@ -57,4 +57,4 @@ done
 
 CHRS=$(<"$CHR_FILE")
 
-bcftools view --threads 20 --regions "$CHRS" -Oz -o "$OUT" "$VCF" 
+bcftools view --threads 40 --regions "$CHRS" -Oz -o "$OUT" "$VCF" 
