@@ -2,8 +2,8 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=8g
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=32g
 #SBATCH --time=1:00:00
 #SBATCH --job-name=08_VCF_Chrom_Select
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
