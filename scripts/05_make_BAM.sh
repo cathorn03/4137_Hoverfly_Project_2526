@@ -98,12 +98,12 @@ FILE2="$SAMPLE_DIR""$FQ""_R2.trimmed.fastq.gz"
 OUT="$OUT_DIR""$FQ"".sort.bam"
 #Sets output file
 
-bwa mem -M -t 16 $REF $FILE1 $FILE2 | \
+bwa mem -M -t 32 $REF $FILE1 $FILE2 | \
 	samtools view -b | \
 	samtools sort -T $FQ -o $OUT
 #Makes BAM file
 
-java -Xmx1g -jar $EBROOTPICARD/picard.jar \
+java -Xmx40g -jar $EBROOTPICARD/picard.jar \
 MarkDuplicates REMOVE_DUPLICATES=true \
 ASSUME_SORTED=true VALIDATION_STRINGENCY=SILENT \
 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
@@ -112,7 +112,7 @@ OUTPUT=$FQ.rmd.bam \
 METRICS_FILE=$FQ.rmd.bam.metrics
 #Runs picard
 
-samtools index $FQ.rmd.bam
+samtools index -@ 32 $FQ.rmd.bam
 #Indexes output
 
 rm $OUT
