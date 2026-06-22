@@ -55,4 +55,4 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-bcftools view "$VCF" --regions $CHRS -Oz -o "$OUT"
+bcftools view "$VCF" --regions "$CHRS" -Oz -o "$OUT"
