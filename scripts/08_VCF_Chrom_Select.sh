@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
 #SBATCH --mem=32g
-#SBATCH --time=1:00:00
+#SBATCH --time=48:00:00
 #SBATCH --job-name=08_VCF_Chrom_Select
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
