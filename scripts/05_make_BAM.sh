@@ -98,7 +98,7 @@ FILE2="$SAMPLE_DIR""$FQ""_R2.trimmed.fastq.gz"
 OUT="$OUT_DIR""$FQ"".sort.bam"
 #Sets output file
 
-bwa mem -M -t 32 $REF $FILE1 $FILE2 | \
+bwa mem -M -t 8 $REF $FILE1 $FILE2 | \
 	samtools view -b | \
 	samtools sort -T $FQ -o $OUT
 #Makes BAM file
@@ -112,7 +112,7 @@ OUTPUT=$FQ.rmd.bam \
 METRICS_FILE=$FQ.rmd.bam.metrics
 #Runs picard
 
-samtools index -@ 32 $FQ.rmd.bam
+samtools index -@ 8 $FQ.rmd.bam
 #Indexes output
 
 rm $OUT
