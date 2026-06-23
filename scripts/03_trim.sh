@@ -83,6 +83,7 @@ NAME=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 #Gets the root from $ROOTS to use in report outputs
 
 fastp --in1 $R1 --in2 $R2 \
+	-2 -q 20 -l 50 \
 	--out1 $OUT1 --out2 $OUT2 \
 	-l 50 \
 	-h "$OUTDIR""$NAME".html" \

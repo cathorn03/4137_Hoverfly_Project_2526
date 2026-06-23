@@ -24,10 +24,7 @@ usage(){
   echo "Options:"
   echo "  -v, --vcf               Input vcf file"
   echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
-  echo "  -m, --maf"
-  echo "  -M, --max-missing"
   echo "  -o, --out               Output directory"
-  echo "  -ob, --biallelic-out    "
   echo "  -h, --help              Show this help message"
 }
 
@@ -45,16 +42,6 @@ while [[ $# -gt 0 ]]; do
       WINDOWS_FILE="$2"
       shift 2 ;;
       # Sets -w to $WINDOWS_FILE. Should be a .txt file containing the window sizes wanting to be used on different lines. 
-
-    -m|--maf)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      MAF="$2" 
-      shift 2 ;;
-
-    -M|--miss)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      MISS="$2" 
-      shift 2 ;;
 
     -p1|--population1)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
@@ -94,6 +81,6 @@ vcftools --gzvcf $VCF \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \
 --fst-window-step $WINDOW \
---out $WINDOW
+--out $OUT_DIR
 
 
