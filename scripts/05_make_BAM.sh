@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=40g
+#SBATCH --mem=128g
 #SBATCH --time=48:00:00
 #SBATCH --job-name=05_make_BAM
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
@@ -29,7 +29,7 @@ usage(){
 	echo
 	echo "Options:"
 	echo "  -q, --fastq				Input FASTQ directory"
-	echo "  -f, --reference		Refernce genome in a fasta format"
+	echo "  -f, --reference		Indexed reference genome in a fasta format"
 	echo "  -o, --out					Output directory"
 	echo "  -r, --roots				A .txt file containg the roots of the fastq files"
 	echo "  -h, --help				Show this help message"
@@ -103,7 +103,7 @@ bwa mem -M -t 32 $REF $FILE1 $FILE2 | \
 	samtools sort -T $FQ -o $OUT
 #Makes BAM file
 
-java -Xmx40g -jar $EBROOTPICARD/picard.jar \
+java -Xmx128g -jar $EBROOTPICARD/picard.jar \
 MarkDuplicates REMOVE_DUPLICATES=true \
 ASSUME_SORTED=true VALIDATION_STRINGENCY=SILENT \
 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
