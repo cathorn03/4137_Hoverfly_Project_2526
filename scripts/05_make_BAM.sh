@@ -91,11 +91,11 @@ mapfile -t ROOTS < $ROOT_FILE
 FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]} 
 #Sets file for the array 
 
-FILE1="$SAMPLE_DIR""$FQ""_R1.trimmed.fastq.gz"
-FILE2="$SAMPLE_DIR""$FQ""_R2.trimmed.fastq.gz"
+FILE1=$SAMPLE_DIR$FQ"_R1.trimmed.fastq.gz"
+FILE2=$SAMPLE_DIR$FQ"_R2.trimmed.fastq.gz"
 #Sets input file names
 
-OUT="$OUT_DIR""$FQ"".sort.bam"
+OUT=$OUT_DIR$FQ.sort.bam
 #Sets output file
 
 bwa mem -M -t 8 $REF $FILE1 $FILE2 | \
@@ -107,7 +107,7 @@ java -Xmx64g -jar $EBROOTPICARD/picard.jar \
 MarkDuplicates REMOVE_DUPLICATES=true \
 ASSUME_SORTED=true VALIDATION_STRINGENCY=SILENT \
 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
-INPUT="$OUT" \
+INPUT=$OUT \
 OUTPUT=$FQ.rmd.bam \
 METRICS_FILE=$FQ.rmd.bam.metrics
 #Runs picard
