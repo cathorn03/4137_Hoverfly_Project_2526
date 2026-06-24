@@ -81,6 +81,6 @@ vcftools --gzvcf $VCF \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \
 --fst-window-step $WINDOW \
---out $OUT_DIR
+--out $WINDOW
 
 
