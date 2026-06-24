@@ -18,12 +18,12 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -f, --reference	Input vcf file"
-  echo "  -t, --target		A .txt file with window sizes wanting to be tested"
-  echo "  -o, --out			Output directory for ragtag"
-  echo "  -g, --gff			Annotation file as a gff to be transfered"
-  echo "  -go, --gff-out	Output file for the updated gff"
-  echo "  -h, --help		Show this help message"
+  echo "  -f, --reference   Input vcf file"
+  echo "  -t, --target      A .txt file with window sizes wanting to be tested"
+  echo "  -o, --out         Output directory for ragtag"
+  echo "  -g, --gff         Annotation file as a gff to be transfered"
+  echo "  -go, --gff-out    Output file for the updated gff"
+  echo "  -h, --help        Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

@@ -77,11 +77,18 @@ VB20003_R1.fastq.gz
 VB20003_R2.fastq.gz
 VB20004_R1.fastq.gz
 VB20004_R2.fastq.gz
-VB20005_R1.fastq.gz
-VB20005_R2.fastq.gz
 ```
 
-#### 02_multiqc
+An example use of the script is below.
+
+```
+sbatch --array=0-3 01_QC.sh \ #Runs script with an array of 4
+  -q ~/hoverflies/fastq_files/ \ #Provides the directory with the fastq files
+  -o ~/hoverflies/QC/ \ #Sets the output directory
+  -n ~/hoverflies/fastq_names.txt #Provides the file with the list of fastq files
+```
+
+#### 02_multiqc.sh
 
 Uses multiqc to compile the report files from `01_QC.sh` into one report.
 
@@ -92,6 +99,13 @@ Options:"
 -q, --fastq		Input FASTQ directory
 -o, --out			Output directory
 -h, --help		Show this help message
+```
+
+An example usage of the script is below
+
+```
+sbatch 02_multiqc.sh -q ~/hoverflies/QC/ \ #Sets where the QC files out
+  -o ~/hoverflies/QC/multi_qc/ #Sets the output for multiqc
 ```
 
 #### 03_trim.sh
@@ -122,13 +136,50 @@ VB20001
 VB20002
 VB20003
 VB20004
-VB20005
 ```
 
 The files will be outputted into the provided directory. If the directory does not already exist, it will be made. 
 The output files will have the file extension `.trimmed.fastq.gz`.
 
-#### 04_BAM_prep.sh
+An example use of the script is below.
+
+```
+sbatch --array=0-3 03_trim.sh \ #Runs the script with an array of 4
+  -q ~/hoverflies/fastq_files/ \ #Sets thelocation of the fastq files
+  -o ~/hoverflies/trimmed_fastqs/ \ #Sets the output location for the trimmed fastq files
+  -r ~/hoverflies/fastq_roots.txt #Provides the roots of all the fastq files
+```
+
+#### 04a_scaffolding.sh
+
+Three of the used assemblies were not arranged by chromosomes.
+This script uses ragtag to scaffold those assemblies in the same arrangement as the main assembly.
+It takes a target assembly, alongside a reference assembly to do this.
+It will also produce a reformatted GFF file for the scaffolded assembly.
+
+```
+Usage: sbatch 04a_scaffolding.sh [options]
+
+Options:
+  -f, --reference	Input vcf file
+  -t, --target    A .txt file with window sizes wanting to be tested
+  -o, --out       Output directory for ragtag
+  -g, --gff       Annotation file as a gff to be transfered
+  -go, --gff-out  Output file for the updated gff
+  -h, --help      Show this help message
+```
+
+An example use of the script is below.
+
+```
+sbatch 04a_scaffolding.sh -f ~/hoverflies/references/reference_main.fasta \ #Sets refrence assembly
+  -t ~/hoverflies/references/reference_alternate.fasta \ #Sets target assembly
+  -o ~/hoverflies/scaffolds/alternate/ \ #Sets the output directory
+  -g ~/hoverflies/references/reference_alternate.gff \ #Selects GFF to be remapped
+  -go ~/hoverflies/scaffolds/alternate/scaffold_alterante.gff #Sets output file for the new GFF
+```
+
+#### 04b_BAM_prep.sh
 
 Indexes references fasta files to make them suitable for use in the next script.
 
@@ -198,7 +249,29 @@ Options:
   -h, --help            Show this help message
 ```
 
-#### 07_VCF_filter.sh
+#### 08_VCF_Chrom_Select.sh
+
+Removes the non-chromosomal contigs from the VCF file.
+Keeps the chromosomes which are provided in a .txt file as comma separated list.
+
+```
+Usage: sbatch [slurm-options] 8_VCF_Chrom_Select.sh [options]
+
+Options:
+  -v, --vcf				Input vcf file
+  -c, --chr_file	Comma seperated file with the names of the wanted chromosomes
+  -o, --out				Output file
+  -h, --help			Show this help message
+```
+
+The file with the commaseparted list will need the full chromsome names of what you want to include in the VCF file.
+An example is below.
+
+```
+OX422140.1,OX422141.1,OX422142.1,OX422143.1,OX422144.1,OX422145.1
+```
+
+#### 08_VCF_filter.sh
 
 Filters a VCF file based on chosen parameters. It filters by minor allele count, missingness, quality, minimum depth, and maximum depth.
 
@@ -221,8 +294,5 @@ All filters are passed in as numerical values.
 
 Two filtered VCF files are made by the script.
 The first is filtered by the given criteria and passed through as --out, while the second keeps only the biallelic SNPS and is assigned to --biallelic-out.
-
-#### 08_VCF_Chrom_Select.sh
-
 
 #### 09_FST_scan.sh
