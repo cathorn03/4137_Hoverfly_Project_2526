@@ -22,7 +22,7 @@ usage(){
   echo
   echo "Options:"
   echo "  -v, --vcf				Input vcf file"
-  echo "  -c, --chr_file		Comma seperated file with the names of the wanted chromosomes"
+  echo "  -c, --chr_file	Comma seperated file with the names of the wanted chromosomes"
   echo "  -o, --out				Output file"
   echo "  -h, --help			Show this help message"
 }

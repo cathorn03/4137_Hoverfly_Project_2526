@@ -24,6 +24,9 @@ usage(){
   echo "Options:"
   echo "  -v, --vcf               Input vcf file"
   echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
+  echo "  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
+  echo "  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
+  echo "  -p3, --population3      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -o, --out               Output directory"
   echo "  -h, --help              Show this help message"
 }

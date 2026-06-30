@@ -224,11 +224,20 @@ VB20001
 VB20002
 VB20003
 VB20004
-VB20005
 ```
 
 The produced BAM files will be outputted into the provided directory. If the directory does not exist it will be made.
 The files will have the extension `.rmd.bam`.
+
+An example use of the script is below.
+
+```
+sbatch --array=0-3 05_make_bam.sh \ #Starts the script and sets the array
+  -q ~/hoverflies/trimmed/ \ #Sets the input fastq directory
+  -f ~/hoverflies/reference/idVolBomb.fasta \ #Sts the reference fasta file
+  -o ~/hoverflies/BAM/ #Sets the output directory
+  -r ~/hoverflies/roots.txt #Sets the file containing roots
+```
 
 #### 06_VCF.sh
 
@@ -249,13 +258,22 @@ Options:
   -h, --help            Show this help message
 ```
 
-#### 08_VCF_Chrom_Select.sh
+An example use of this script is below.
+
+```
+sbatch 06_VCF.sh -b ~/path/bams.txt \ #Runs scripts and sets the bam files
+  -f ~/hoverflies/references/idVolBomb.fasta \ #Sets the reference file
+  -v VB.vcf.gz \ #Sets the name of the VCF output
+  -o ~/hoverflies/VCF/ #Sets the output directory
+```
+
+#### 07_VCF_Chrom_Select.sh
 
 Removes the non-chromosomal contigs from the VCF file.
 Keeps the chromosomes which are provided in a .txt file as comma separated list.
 
 ```
-Usage: sbatch [slurm-options] 8_VCF_Chrom_Select.sh [options]
+Usage: sbatch [slurm-options] 07_VCF_Chrom_Select.sh [options]
 
 Options:
   -v, --vcf				Input vcf file
@@ -264,7 +282,7 @@ Options:
   -h, --help			Show this help message
 ```
 
-The file with the commaseparted list will need the full chromsome names of what you want to include in the VCF file.
+The file with the commaseparted list will need the full chromosome names of what you want to include in the VCF file.
 An example is below.
 
 ```
@@ -276,7 +294,7 @@ OX422140.1,OX422141.1,OX422142.1,OX422143.1,OX422144.1,OX422145.1
 Filters a VCF file based on chosen parameters. It filters by minor allele count, missingness, quality, minimum depth, and maximum depth.
 
 ```
-Usage: sbatch 07_VCF_filter.sh [options]
+Usage: sbatch 08_VCF_filter.sh [options]
 
 Options:
   -v, --vcf               Input VCF file
@@ -296,3 +314,43 @@ Two filtered VCF files are made by the script.
 The first is filtered by the given criteria and passed through as --out, while the second keeps only the biallelic SNPS and is assigned to --biallelic-out.
 
 #### 09_FST_scan.sh
+
+Carries out fixation index scanning on a provided VCF file.
+Takes text files of the paths for the different populations, containing the full path to the BAM files.
+
+```
+Usage: sbatch [slurm-options] 09_FST_scan.sh [options]
+
+slurm-options:
+  --array=                Input array range for the number of windows to be tested
+
+Options:
+  -v, --vcf               Input vcf file
+  -w, --windows           A .txt file with window sizes wanting to be tested
+  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population
+  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population
+  -p3, --population3      A file containg the full paths of the BAM files for the samples in a specific population
+  -o, --out               Output directory
+  -h, --help              Show this help message
+```
+
+#### 10_Gene_check.sh
+
+Takes a .bed file and finds the genes which are within the region from a GFF file
+
+```
+Usage: sbatch [slurm-options] 10_Gene_check.sh [options]
+
+slurm-options:
+  --array=		Input array range for the number of windows to be tested
+
+Options:
+  -b, --bed		Input vcf file
+  -g, --gff		nnotation file in a gff format
+  -o, --out		Output directory
+  -h, --help	Show this help message
+```
+
+The script will make a temporary bed file of the provided gff while it is running.
+
+It outputs the file in a gff format.
