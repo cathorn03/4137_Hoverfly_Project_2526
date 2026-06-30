@@ -26,7 +26,6 @@ usage(){
   echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
   echo "  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
-  echo "  -p3, --population3      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -o, --out               Output directory"
   echo "  -h, --help              Show this help message"
 }
@@ -56,11 +55,6 @@ while [[ $# -gt 0 ]]; do
       POP2="$2"
       shift 2 ;;
 
-    -p3|--population3)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      POP3="$2"
-      shift 2 ;;
-
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
@@ -87,7 +81,6 @@ WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]}
 vcftools --gzvcf $VCF \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
---weir-fst-pop $POP3 \
 --fst-window-size $WINDOW \
 --fst-window-step $WINDOW \
 --out $WINDOW

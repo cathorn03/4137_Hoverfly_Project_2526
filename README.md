@@ -24,6 +24,11 @@ This repository contains two directories.
 
 Contains all scripts used in this project.
 
+#### additional_scripts
+
+Contains aditional scripts which are not part of the the main pipeline.
+These do not use a SLURM task manager. Many of them are used to create the .txt files required by some of the scripts in the main pipeline.
+
 ## Software
 
 The environments provided contain the following software, each is provided with the version.
@@ -354,3 +359,5 @@ Options:
 The script will make a temporary bed file of the provided gff while it is running.
 
 It outputs the file in a gff format.
+
+#### 11_
