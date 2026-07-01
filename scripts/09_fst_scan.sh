@@ -10,7 +10,6 @@
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
-#SBATCH --array=0-6
 
 source $HOME/.bash_profile
 conda activate hoverflies
@@ -41,10 +40,15 @@ while [[ $# -gt 0 ]]; do
 
     -w|--windows)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      WINDOWS_FILE="$2"
+      WINDOW="$2"
       shift 2 ;;
       # Sets -w to $WINDOWS_FILE. Should be a .txt file containing the window sizes wanting to be used on different lines. 
 
+    -s|--step-size)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      STEP="$2"
+      shift 2 ;;
+      
     -p1|--population1)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       POP1="$2"
@@ -74,15 +78,15 @@ mkdir -p $OUT_DIR
 
 cd $OUT_DIR
 
-mapfile -t FST_WINDOWS < $WINDOWS_FILE
+#mapfile -t FST_WINDOWS < $WINDOWS_FILE
 
-WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
+#WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
 
 vcftools --gzvcf $VCF \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \
---fst-window-step $WINDOW \
+--fst-window-step $STEP \
 --out $WINDOW
 
 
