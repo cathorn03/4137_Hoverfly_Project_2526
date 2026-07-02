@@ -26,6 +26,7 @@ usage(){
   echo "  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -o, --out               Output directory"
+  echo "  -p, --prefix"
   echo "  -h, --help              Show this help message"
 }
 
@@ -64,6 +65,11 @@ while [[ $# -gt 0 ]]; do
       OUT_DIR="$2" 
       shift 2 ;;
 
+    -p|--prefix)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      PREFIX="$2" 
+      shift 2 ;;
+
     -h|--help)
       usage
       exit 0
@@ -87,6 +93,6 @@ vcftools --gzvcf $VCF \
 --weir-fst-pop $POP2 \
 --fst-window-size $WINDOW \
 --fst-window-step $STEP \
---out $WINDOW
+--out $PREFIX
 
 
