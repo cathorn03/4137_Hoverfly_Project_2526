@@ -37,7 +37,7 @@ while [[ $# -gt 0 ]]; do
 
     -g|--gff)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      $GFF="$2"
+      GFF="$2"
       shift 2 ;;
 
     -o|--out)
