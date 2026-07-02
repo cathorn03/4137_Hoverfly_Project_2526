@@ -20,10 +20,10 @@ usage(){
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
-  echo "  -v, --vcf			Input vcf file"
+  echo "  -v, --vcf       Input vcf file"
   echo "  -r, --region		Selected region to filter"
-  echo "  -o, --out			Output vcf file"
-  echo "  -h, --help		Show this help message"
+  echo "  -o, --out       Output vcf file"
+  echo "  -h, --help      Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do
@@ -54,4 +54,5 @@ while [[ $# -gt 0 ]]; do
 done
 
 bcftools view --threads 20 -r $REGION -O z -o $OUT $VCF
+bcftools index $OUT
 
