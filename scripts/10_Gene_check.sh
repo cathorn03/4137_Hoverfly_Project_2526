@@ -62,6 +62,6 @@ sortBed -i $GFF | gff2bed --max-mem 128G > $GENES_BED
 bedtools intersect \
 -a $BED \
 -b $GENES_BED \
--wo > $OUT
+-wo | grep -E $'\tgene\t' > $OUT
 
 rm $GENES_BED
