@@ -35,14 +35,19 @@ while [[ $# -gt 0 ]]; do
       BED="$2" 
       shift 2 ;;
 
+    -gb|--gff-bed)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      BED="$2" 
+      shift 2 ;;
+
     -g|--gff)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       GFF="$2"
       shift 2 ;;
 
-    -o|--out)
+    -go|--gff-out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      OUT="$2" 
+      GFF_OUT="$2" 
       shift 2 ;;
 
     -h|--help)
@@ -55,13 +60,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-GENES_BED=~/Thesis/tmp_genes.bed
-
-sortBed -i $GFF | gff2bed --max-mem 128G > $GENES_BED
+sortBed -i $GFF | gff2bed --max-mem 128G > $GFF_BED
 
 bedtools intersect \
 -a $BED \
--b $GENES_BED \
--wo | grep -E $'\tgene\t' > $OUT
+-b $GFF_BED \
+-wo | grep -E $'\tgene\t' > $GFF_OUT
 
 
