@@ -55,7 +55,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-GENES_BED=tmp_genes.bed
+GENES_BED=~/Thesis/tmp_genes.bed
 
 sortBed -i $GFF | gff2bed --max-mem 128G > $GENES_BED
 
