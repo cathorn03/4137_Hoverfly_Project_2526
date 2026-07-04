@@ -64,4 +64,4 @@ bedtools intersect \
 -b $GENES_BED \
 -wo | grep -E $'\tgene\t' > $OUT
 
-rm $GENES_BED
+
