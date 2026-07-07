@@ -53,6 +53,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-bcftools view --threads 20 -r $REGION -O z -o $OUT $VCF
+bcftools view --threads 20 -r $REGION -Oz -o $OUT $VCF
 bcftools index $OUT
 

@@ -80,11 +80,6 @@ mkdir -p $OUT_DIR
 cd $OUT_DIR
 # Makes and enters output dir
 
-echo "#### OPTIONS ####"
-echo "-q -- $SAMPLE_DIR"
-echo "-f -- $REF"
-echo "-r -- $ROOTS"
-
 mapfile -t ROOTS < $ROOT_FILE
 #Reads file from $ROOT_FILE and assigns to $ROOTS
 
@@ -94,6 +89,13 @@ FQ=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 FILE1=$SAMPLE_DIR$FQ"_R1.trimmed.fastq.gz"
 FILE2=$SAMPLE_DIR$FQ"_R2.trimmed.fastq.gz"
 #Sets input file names
+
+echo "#### OPTIONS ####"
+echo "-q -- $SAMPLE_DIR"
+echo "-f -- $REF"
+echo "-r -- $ROOTS"
+echo "FILE1 -- $FILE1"
+echo "FILE2 -- $FILE2"
 
 OUT=$OUT_DIR$FQ.sort.bam
 #Sets output file

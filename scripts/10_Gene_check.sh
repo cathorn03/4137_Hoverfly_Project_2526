@@ -55,8 +55,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-bedtools intersect \
--a $GFF \
+
+sortBed -i $GFF | bedtools intersect \
+-a - \
 -b $BED \
 -u | awk '$3 == "gene"' > $OUT
 
