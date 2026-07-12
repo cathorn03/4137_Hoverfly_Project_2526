@@ -7,7 +7,17 @@ from Bio.SeqUtils import gc_fraction
 
 def gc_filter(fq, gc_min = 0.4, gc_max = 0.6):
 
+	"""
+	Filters reads in a fastq file by their GC content.
 
+	Args: 
+	fq - The fastq file to be filtered
+	gc_min - The minimum value for GC to filter
+	gc_max - The maximum value for GC to filter
+
+	Output:
+	A fasta file containing only reads with GC contents that pass the filters
+	"""
 
 	fq_list = list(SeqIO.parse(fq, "fastq")) #Reads in file as a list
 
@@ -26,9 +36,12 @@ def gc_filter(fq, gc_min = 0.4, gc_max = 0.6):
 		print(record.format("fasta")) #Sends fastq data to stdout
 
 def main():
-	fq_in = sys.stdin.read() #Accepts stdin
+	fq_in = float(sys.argv[1])
+	MIN_GC = float(sys.argv[2])
+	MAX_GC = float(sys.argv[3])
+	#Accepts inputs from gc_filter.sh
 
-	gc_filter(fq_in, 0.65, 75) #Runs gc_filter
+	gc_filter(fq_in, MIN_GC, MAX_GC) #Runs gc_filter
 
 if __name__ == "__main__":
 	main() 

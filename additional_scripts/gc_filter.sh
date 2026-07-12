@@ -15,25 +15,91 @@
 source $HOME/.bash_profile
 conda activate hoverflies
 
-PATH_TO=/share/hoverflies
+usage(){
+	#Help message for the script
+	echo "Usage: sbatch [slurm-options] $0 [options]"
+	echo
+	echo "Options:"
+	echo "  -f, --fastq	Directory containing the FASTQ files"
+	echo "  -n, --names	File containging the name and extension of the FASTQS of interest"
+	echo "  -m, --min-GC	The minmum value of GC content to be filtered for"
+	echo "  -M, --max-GC	The maximum value of GC content to be filtered for" 
+	echo "  -o, --out		Output directory"
+	echo "  -h, --help	Show this help message"
+}
 
-mapfile -t NAMES < $PATH_TO/Caleb/high_gc_list.txt
+#Option handling
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+
+    -f|--fastq-files)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      FQ_DIR="$2" 
+      shift 2 ;;
+
+    -n|--names-file)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      NAMES_FILE="$2" 
+      shift 2 ;;
+
+    -m|--min-GC)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      MIN_GC="$2"
+      shift 2 ;;
+
+    -M|--max-GC)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      MAX_GC="$2"
+      shift 2 ;;
+
+    -o|--out)
+      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+      OUT_DIR="$2" 
+      shift 2 ;;
+
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+  esac
+done
+
+
+mapfile -t NAMES < $NAMES_FILE
+#Maps the names file to a list variable
 
 SAMPLE_NAME=${NAMES[$SLURM_ARRAY_TASK_ID]}
+#Sets file for the array 
 
-SAMPLE_gz=$PATH_TO/fastqs/$SAMPLE_NAME
+SAMPLE_gz=$FQ_DIR$SAMPLE_NAME
+#Creates full path for the inout file
 
 SAMPLE_ROOT=$(basename $SAMPLE_NAME .fastq.gz)
+#Creates a root for the input file by removing the file path
 OUT_NAME=${SAMPLE_ROOT}".filtered.fasta"
+#Creates output file name
 
-gunzip -c $SAMPLE_gz > $PATH_TO/Caleb/high_GC/$SAMPLE_ROOT".fastq"
+gunzip -c $SAMPLE_gz > $OUT_DIR$SAMPLE_ROOT".fastq"
+#Unzips the fastq file and outputs it to the output directory
 
-SAMPLE=$PATH_TO/Caleb/high_GC/$SAMPLE_ROOT".fastq"
+SAMPLE=$OUT_DIR$SAMPLE_ROOT".fastq"
+#Sets the unzipped fastq file
 
 echo "$SAMPLE_NAME filtered by GC"
 
 OUT=$PATH_TO/Caleb/high_GC/$OUT_NAME
+#Sets output file path
 
-SCRIPT=/gpfs01/home/mbyct9/GIT/4137_Hoverfly_Project_2526/scripts/gc_filter.py
+SCRIPT_DIR=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
+#Calls path to this script
+SCRIPT=$SCRIPT_DIR/gc_filter.py
+#Gives the file path to the python script
 
-printf "%s" "$SAMPLE" | python $SCRIPT > $OUT
+python $SCRIPT $SAMPLE $MIN_GC $MAX_GC > $OUT
+#Runs gc_filter.py
+
+rm $OUT_DIR$SAMPLE_ROOT".fastq"
+#Removes unzipped fastq file
