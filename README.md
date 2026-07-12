@@ -143,6 +143,8 @@ VB20003
 VB20004
 ```
 
+The input file extenions must be in the standard illumina format (`_R1.fastq.gz` for the forward reads, and  `_R2.fastq.gz` for the reverse reads.)
+
 The files will be outputted into the provided directory. If the directory does not already exist, it will be made. 
 The output files will have the file extension `.trimmed.fastq.gz`.
 
@@ -183,6 +185,11 @@ sbatch 04a_scaffolding.sh -f ~/hoverflies/references/reference_main.fasta \ #Set
   -g ~/hoverflies/references/reference_alternate.gff \ #Selects GFF to be remapped
   -go ~/hoverflies/scaffolds/alternate/scaffold_alterante.gff #Sets output file for the new GFF
 ```
+
+This produces a fasta file named `ragtag.scaffold.fasta`.
+RagTag also produces an AGP file to which is used to produce the rescaffolded GFF file.
+
+The scaffolded chromosomes will carry the suffix '_RagTag'.
 
 #### 04b_BAM_prep.sh
 
@@ -339,7 +346,29 @@ Options:
   -h, --help              Show this help message
 ```
 
-#### 10_Gene_check.sh
+#### 10_Region_select.sh
+
+Crops a VCF file to contain only a specific region.
+
+```
+Usage: sbatch 10_Region_select.sh [options]
+
+Options:
+  -v, --vcf       Input vcf file
+  -r, --region		Selected region to filter
+  -o, --out       Output vcf file
+  -h, --help      Show this help message
+```
+
+Example usage is below.
+
+```
+sbatch 10_Region_select.sh -v ~/hoverflies/VCF/VB.vcf.gz \
+  -r OX422140.1:75000000-100000000 \
+  -o ~/hoverflies/VCF/VB.85M.vcf.gz
+```
+
+#### 11_Gene_check.sh
 
 Takes a .bed file and finds the genes which are within the region from a GFF file
 
@@ -356,8 +385,117 @@ Options:
   -h, --help	Show this help message
 ```
 
-The script will make a temporary bed file of the provided gff while it is running.
+The input GFF file does not need to be sorted
 
-It outputs the file in a gff format.
+It outputs the file in a GFF format.
+This will contain any genomic features which over lap with the coordinates in the bed file.
 
-#### 11_
+Example usage can be seen below.
+
+```
+sbatch 11_Gene_check.sh -b ~/hoverflies/ROI.bed \
+  -g ~/hoverflies/scaffolds/alternate/scaffold_alterante.gff \
+  -o ~/hoverflies/genes_in_region.gff
+```
+
+## additional_scripts
+
+#### gc_filter.py and gc_filter.sh
+
+Filters the reads within a FASTQ file based on their GC content.
+Outputs the reads to a FASTA format.
+`gc_filter.sh` is used to run the script. It is provided with arguments which it passes into `gc_filter.py`. 
+`gc_filter.py` does not need to be ran on its own. Below is the usage for `gc_filter.sh`.
+
+```
+Usage: sbatch [slurm-options] gc_filter.sh [options]
+
+slurm-options:
+  --array=      Input array range for the number of windows to be tested
+
+Options:
+  -f, --fastq   Directory containing the FASTQ files
+  -n, --names   File containging the name and extension of the FASTQS of interest
+  -m, --min-GC  The minmum value of GC content to be filtered for
+  -M, --max-GC  The maximum value of GC content to be filtered for"
+  -o, --out     Output directory
+  -h, --help    Show this help message
+```
+
+The inputted FASTA files can be gzipped.
+Outputs a FASTA file containing the reads which meet the filter requirements.
+
+Example usage is show below.
+
+```
+sbatch --array=0-1 gc_filter.sh -f ~/hoverflies/trimmed/ \
+  -n ~/hoverflies/to_filter.txt \
+  -m 0.65 \
+  -M 0.75 \
+  -o ~/hoverflies/high_GC/
+```
+
+#### get_bams.sh
+
+Creates a text file with the full filepath to files in a specified directory, and outputs it to a .txt file.
+This script does not require the use of the SLURM job manager.
+
+```
+Usage: ./get_bams [options]
+
+Options:
+  -d, --directory    Path to the directory containing the bam files
+  -o, --out    Output file
+  -h, --help   Show this help message
+```
+
+This script can be used to get the BAM file needed for BCFtools mpileup in `06_VCF.sh`.
+
+#### get_chrs.sh
+
+Creates a text file containing all the chromosomes within a reference FASTA file. It returns all contigs which start with "OX".
+It outputs this to a .txt file, as a comma separted list.
+This script does not require the use of the SLURM job manager.
+
+```
+Usage: ./get_chrs.sh [options]
+
+Options:
+  -f, --reference    Input reference file as a fasta
+  -o, --out          Output file
+  -h, --help         Show this help message
+```
+
+This script can be used before `07_VCF_Chrom_Select`. This is used as the regions to filter for by BCFtools view.
+
+#### get_names.sh
+
+Returns file names of gzipped FASTQ files within a specified directory. This outputs them to a .txt file.
+This script does not require the use of the SLURM job manager.
+
+```
+Usage: ./get_names.sh [options]
+
+Options:
+  -d, --directory    Path to the directory containing the fastq files
+  -o, --out          Output file
+  -h, --help         Show this help message
+```
+
+This script can be used before `01_QC.sh` to get the file needed for the array.
+
+#### get_roots.sh
+
+Returns the roots of all gzipped FASTQ files within a specified directory. It removes the full file path and file extension from the files. It outputs this to a .txt file.
+This script does not require the use of the SLURM job manager.
+
+```
+Usage: ./get_roots.sh [options]
+
+Options:
+  -d, --directory    Path to file containg fastqs
+  -o, --out          Output file
+  -h, --help         Show this help message
+```
+
+This script can be used to get the roots file needed for `03_trim.sh` and `05_make_BAM.sh`.
