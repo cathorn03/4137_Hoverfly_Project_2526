@@ -12,7 +12,7 @@
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
 source $HOME/.bash_profile
-conda activate hoverflies
+conda activate hoverflies`
 
 usage(){
   echo "Usage: sbatch $0 [options]"
@@ -73,4 +73,6 @@ ragtag.py updategff \
 	$GFF \
 	$AGP \
 	> $GFF_OUT
+
+
 

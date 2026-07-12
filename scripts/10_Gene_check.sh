@@ -22,7 +22,7 @@ usage(){
   echo
   echo "Options:"
   echo "  -b, --bed		Input vcf file"
-  echo "  -g, --gff		nnotation file in a gff format"
+  echo "  -g, --gff		Annotation file in a gff format"
   echo "  -o, --out		Output file"
   echo "  -h, --help	Show this help message"
 }
