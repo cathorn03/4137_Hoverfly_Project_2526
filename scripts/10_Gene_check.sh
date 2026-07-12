@@ -56,8 +56,8 @@ while [[ $# -gt 0 ]]; do
 done
 
 
-sortBed -i $GFF | bedtools intersect \
--a - \
+bedtools intersect \
+-a $GFF \
 -b $BED \
 -u | awk '$3 == "gene"' > $OUT
 

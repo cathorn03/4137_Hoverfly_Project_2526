@@ -16,6 +16,7 @@ source $HOME/.bash_profile
 conda activate hoverflies
 #Activates conda env
 
+module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
 module load samtools-uoneasy/1.18-GCC-12.3.0
 module load picard-uoneasy/3.0.0-Java-17
 #Loads slurm modules

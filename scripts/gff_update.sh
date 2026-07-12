@@ -5,14 +5,14 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=12g
 #SBATCH --time=4:00:00
-#SBATCH --job-name=scaffolding
+#SBATCH --job-name=gff_update
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
 source $HOME/.bash_profile
-conda activate hoverflies`
+conda activate hoverflies
 
 usage(){
   echo "Usage: sbatch $0 [options]"
@@ -25,34 +25,20 @@ usage(){
   echo "  -go, --gff-out    Output file for the updated gff"
   echo "  -h, --help        Show this help message"
 }
-
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -f|--reference)
+    -a|--agp)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      REF="$2"
+      AGP="$2"
       shift 2 ;;
-
-    -t|--target)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      TARGET="$2"
-      shift 2 ;;
-
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      OUT_DIR="$2" 
+      OUT="$2" 
       shift 2 ;;
-
     -g|--gff)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       GFF="$2" 
       shift 2 ;;
-
-    -go|--gff-out)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      GFF_OUT="$2" 
-      shift 2 ;;
-
     -h|--help)
       usage
       exit 0
@@ -63,16 +49,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-mkdir -p $OUT_DIR
-
-ragtag.py scaffold -o $OUT_DIR $REF $TARGET
-
-AGP="$OUT_DIR"ragtag.scaffold.agp
-
 ragtag.py updategff \
 	$GFF \
 	$AGP \
-	> $GFF_OUT
-
-
-
+	> $OUT
