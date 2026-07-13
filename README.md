@@ -54,8 +54,8 @@ The environments provided contain the following software, each is provided with 
 
 For script overviews and usage, see each directories' README.md
 
-- scripts/README.md(./scripts/README.md)
-- scripts/README.md(./additional_scripts/README.md)
+- [scripts/README.md](./scripts/README.md)
+- [scripts/README.md](./additional_scripts/README.md)
 
 # Author
 
