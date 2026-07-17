@@ -57,3 +57,6 @@ while [[ $# -gt 0 ]]; do
 done
 
 delly sr -g $REF $BAM > $OUT
+
+bcftools index $VCF
+#Indexes VCF
