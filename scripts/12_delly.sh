@@ -31,7 +31,7 @@ usage(){
 #Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
-		-q|--fastq)
+		-f|--reference)
 	  		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  		REF="$2"
 	  		shift 2 ;;
@@ -55,6 +55,7 @@ while [[ $# -gt 0 ]]; do
 			exit 1 ;;
   esac
 done
+
 
 delly sr -g $REF $BAM > $OUT
 
