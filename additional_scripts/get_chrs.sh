@@ -31,4 +31,4 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-grep "^>" $FILE | grep -o '>OX[^ ]*' | sed 's/^>//' > $OUT
+grep "^>" $FILE | grep -o '>OX[^ ]*' | sed 's/^>//' | paste -sd, - > $OUT

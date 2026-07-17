@@ -1,4 +1,5 @@
 # scripts
+
 #### 01_QC.sh
 
 This script runs FastQC on the fastq files within a directory. It will produce a .html report file and a zipped directory containing the report data.

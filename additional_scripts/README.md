@@ -1,39 +1,6 @@
 # additional_scripts
 
-#### gc_filter.py and gc_filter.sh
-
-Filters the reads within a FASTQ file based on their GC content.
-Outputs the reads to a FASTA format.
-`gc_filter.sh` is used to run the script. It is provided with arguments which it passes into `gc_filter.py`. 
-`gc_filter.py` does not need to be ran on its own. Below is the usage for `gc_filter.sh`.
-
-```
-Usage: sbatch [slurm-options] gc_filter.sh [options]
-
-slurm-options:
-  --array=      Input array range for the number of windows to be tested
-
-Options:
-  -f, --fastq   Directory containing the FASTQ files
-  -n, --names   File containging the name and extension of the FASTQS of interest
-  -m, --min-GC  The minmum value of GC content to be filtered for
-  -M, --max-GC  The maximum value of GC content to be filtered for"
-  -o, --out     Output directory
-  -h, --help    Show this help message
-```
-
-The inputted FASTA files can be gzipped.
-Outputs a FASTA file containing the reads which meet the filter requirements.
-
-Example usage is show below.
-
-```
-sbatch --array=0-1 gc_filter.sh -f ~/hoverflies/trimmed/ \
-  -n ~/hoverflies/to_filter.txt \
-  -m 0.65 \
-  -M 0.75 \
-  -o ~/hoverflies/high_GC/
-```
+## Utility Scripts
 
 #### get_bams.sh
 
@@ -99,3 +66,40 @@ Options:
 ```
 
 This script can be used to get the roots file needed for `03_trim.sh` and `05_make_BAM.sh`.
+
+## Analysis Scripts
+
+#### gc_filter.py and gc_filter.sh
+
+Filters the reads within a FASTQ file based on their GC content.
+Outputs the reads to a FASTA format.
+`gc_filter.sh` is used to run the script. It is provided with arguments which it passes into `gc_filter.py`. 
+`gc_filter.py` does not need to be ran on its own. Below is the usage for `gc_filter.sh`.
+
+```
+Usage: sbatch [slurm-options] gc_filter.sh [options]
+
+slurm-options:
+  --array=      Input array range for the number of windows to be tested
+
+Options:
+  -f, --fastq   Directory containing the FASTQ files
+  -n, --names   File containging the name and extension of the FASTQS of interest
+  -m, --min-GC  The minmum value of GC content to be filtered for
+  -M, --max-GC  The maximum value of GC content to be filtered for"
+  -o, --out     Output directory
+  -h, --help    Show this help message
+```
+
+The inputted FASTA files can be gzipped.
+Outputs a FASTA file containing the reads which meet the filter requirements.
+
+Example usage is show below.
+
+```
+sbatch --array=0-1 gc_filter.sh -f ~/hoverflies/trimmed/ \
+  -n ~/hoverflies/to_filter.txt \
+  -m 0.65 \
+  -M 0.75 \
+  -o ~/hoverflies/high_GC/
+```

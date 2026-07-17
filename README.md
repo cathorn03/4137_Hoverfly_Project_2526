@@ -19,6 +19,7 @@ This repository contains two directories.
 
   - scripts
   - additional_scripts
+  - env
 
 #### scripts
 
@@ -48,16 +49,101 @@ The environments provided contain the following software, each is provided with 
 | hdf5        | 1.12.2   | https://github.com/HDFGroup/hdf5 |
 | gff2bed     | 1.0.3    | https://gitlab.com/salk-tm/gff2bed |
 
-# Script Overview and Usage
+## Installation
 
-# Documentation
+### Prerequisits
+
+This pipline was developed, and tested on a Linux-based high performance computing cluster using the SLURM workload manager. 
+
+Before running the pipline insure the following software is available:
+
+- Git
+- Conda
+- SLURM
+- Bash
+
+### Clone the Repository
+
+Clone the repository from GitHub:
+
+```
+git clone https://github.com/cathorn034138_Hoverfly_Project_2526.git
+cd 4138_Hoverfly_Project_2526
+```
+
+### Install the Conda Environment
+
+The software required for this pipeline is provided in `enviroment.yml`.
+
+Create the enivronment using:
+
+```
+conda env create -f environment.yml
+```
+
+Activate the environment using:
+
+```
+conda activate hoverflies
+```
+
+## Pipeline Overview
+
+### Inputs
+
+This pipline takes raw FASTQ read data from Illumina sequencers. It requires reference assemblies with a complementary GFF file.
+
+### Workflow
+
+The main analysis pipline is in the `scripts/` directory. The scriots are intedned to be run in numerical order. Each script will rpoduce the inputs needed for the subsequent stage. Several scripts require additional files which can be produced from scripts within `./additional_scripts.`.
+
+The pipeline performs the following analysis:
+
+1. Quality control on the raw sequence data
+2. Compilation of the quality control reports
+3. Trimming of the raw sequence data
+4a. Carry over GFF file from one reference to another
+4b. Reformat reference files to a structure of a different reference
+4c. Index reference files
+5. Allignment of reads, and production of BAM files
+6. Vsrient calling to produce raw VCFs
+7. Removal of non chromosomal varients
+8. Filtering of the VCF file
+9. Genome wide FST scanning
+10. Extraction of regions of interest
+11. Identifcation of genetic features overlapping with selected genomic regions
+
+### Outputs
+
+The pipline produces the following outputs:
+
+- Individual fastQC reports for each FASTQ file
+- A combined MultiQC report
+- Indexed reference genome files
+- Duplicate marked, and indexed BAM files
+- Indexed VCF files containing:
+  - Raw variant calls
+  - Chromosomes-only varients
+  - Filtered varients
+- Genome wide FST scan file
+- Gene annotations for candidate regions 
+
+The accompanying R script performs downstream statistical analysis and visualisation.
+
+### Execution
+
+The main pipeline (found in `scritps/`) is to be ran in numerical order. They are designed to be run using the SLURM workload manager. 
+
+The utility scripts in `additional_cripts/` can be run directly from the command line as they do not use the SLURM workload manager.
+
+## Documentation
 
 For script overviews and usage, see each directories' README.md
 
 - [scripts/README.md](./scripts/README.md)
-- [scripts/README.md](./additional_scripts/README.md)
+- [additional_scripts/README.md](./additional_scripts/README.md)
 
-# Author
+## Author
 
 Caleb Thornber
 School of Life Sciences

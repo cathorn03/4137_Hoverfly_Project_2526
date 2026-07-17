@@ -31,12 +31,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-
-cd /share/hoverflies/Caleb/
-
-
-
-
 # Loop through matching files
 for file in "$BAM"*.rmd.bam; do
     echo "$file" >> "$OUT"
