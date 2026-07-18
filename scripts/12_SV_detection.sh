@@ -50,12 +50,12 @@ while [[ $# -gt 0 ]]; do
 
 		-o|--out_dir)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-			BAM="$2" 
+			OUT="$2" 
 			shift 2 ;;
 
 		-v|--vcf)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-			OUT="$2" 
+			VCF="$2" 
 			shift 2 ;;
 
 		-h|--help)
