@@ -71,7 +71,7 @@ done
 mkdir -p $OUT
 cd $OUT
 
-dysgu run $REF $TEMP $BAM > $VCF
+dysgu run -x $REF $TEMP $BAM > $VCF
 
 bgzip $VCF
 
