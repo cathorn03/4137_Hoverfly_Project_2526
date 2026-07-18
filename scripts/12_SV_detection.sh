@@ -73,5 +73,7 @@ cd $OUT
 
 dysgu run $REF $TEMP $BAM > $VCF
 
-bcftools index $VCF
+bgzip $VCF
+
+bcftools index $VCF.gz
 #Indexes VCF
