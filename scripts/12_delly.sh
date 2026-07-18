@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=20
 #SBATCH --mem=32g
 #SBATCH --time=4:00:00
-#SBATCH --job-name=12_delly
+#SBATCH --job-name=12_SV_detection
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -13,6 +13,8 @@
 
 source $HOME/.bash_profile
 conda activate hoverflies
+
+module load bcftools-uoneasy/1.19-GCC-13.2.0
 
 usage(){
 	#Help message for the script
@@ -41,7 +43,17 @@ while [[ $# -gt 0 ]]; do
 			BAM="$2" 
 			shift 2 ;;
 
-		-o|--out)
+		-t|--temp_dir)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			TEMP="$2" 
+			shift 2 ;;
+
+		-o|--out_dir)
+			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
+			BAM="$2" 
+			shift 2 ;;
+
+		-v|--vcf)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
 			shift 2 ;;
@@ -56,8 +68,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+mkdir -p $OUT
+cd $OUT
 
-delly sr -g $REF $BAM > $OUT
+dysgu run $REF $TEMP $BAM > $VCF
 
 bcftools index $VCF
 #Indexes VCF
