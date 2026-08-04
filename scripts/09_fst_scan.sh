@@ -17,16 +17,13 @@ conda activate hoverflies
 usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
-  echo "slurm-options:"
-  echo "  --array=                Input array range for the number of windows to be tested"
-  echo
   echo "Options:"
   echo "  -v, --vcf               Input vcf file"
   echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
   echo "  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -o, --out               Output directory"
-  echo "  -p, --prefix"
+  echo "  -p, --prefix            Prefix for the output file name"
   echo "  -h, --help              Show this help message"
 }
 

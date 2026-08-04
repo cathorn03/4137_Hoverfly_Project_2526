@@ -18,14 +18,17 @@ conda activate hoverflies
 usage(){
 	#Help message for the script
 	echo "Usage: sbatch [slurm-options] $0 [options]"
+  echo
+  echo "slurm-options:"
+  echo "  --array=      Array range for the number of samples"
 	echo
 	echo "Options:"
-	echo "  -f, --fastq	Directory containing the FASTQ files"
-	echo "  -n, --names	File containging the name and extension of the FASTQS of interest"
-	echo "  -m, --min-GC	The minmum value of GC content to be filtered for"
-	echo "  -M, --max-GC	The maximum value of GC content to be filtered for" 
-	echo "  -o, --out		Output directory"
-	echo "  -h, --help	Show this help message"
+	echo "  -f, --fastq    Directory containing the FASTQ files"
+	echo "  -n, --names	   File containging the name and extension of the FASTQS of interest"
+	echo "  -m, --min-GC   The minmum value of GC content to be filtered for"
+	echo "  -M, --max-GC   The maximum value of GC content to be filtered for" 
+	echo "  -o, --out      Output directory"
+	echo "  -h, --help     Show this help message"
 }
 
 #Option handling

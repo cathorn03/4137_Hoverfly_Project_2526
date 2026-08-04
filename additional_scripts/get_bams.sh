@@ -4,9 +4,9 @@ usage(){
     echo "Usage: $0 [options]"
     echo
     echo "Options:"
-    echo "  -d, --directory    Path to the directory containing the bam files"
-    echo "  -o, --out    Output file"
-    echo "  -h, --help   Show this help message"
+    echo "  -d, --directory   Path to the directory containing the bam files"
+    echo "  -o, --out         Output file"
+    echo "  -h, --help        Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

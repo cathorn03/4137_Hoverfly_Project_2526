@@ -21,7 +21,7 @@ usage(){
   echo
   echo "Options:"
   echo "  -v, --vcf       Input vcf file"
-  echo "  -r, --region		Selected region to filter"
+  echo "  -r, --region    Selected region to filter"
   echo "  -o, --out       Output vcf file"
   echo "  -h, --help      Show this help message"
 }

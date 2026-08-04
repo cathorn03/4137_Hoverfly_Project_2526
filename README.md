@@ -15,19 +15,39 @@ In this project we aim to understand the causues of genetic polymorphism within 
 
 ## Repository layout
 
-This repository contains two directories.
+This repository contains two directories, and two files.
 
   - scripts
   - additional_scripts
-  - env
+  - environment.yml
+  - hoverfly_metadata.tsv
 
 #### scripts
 
-Primary SLURM pipeline used in the analysis
+Primary SLURM pipeline used in the analysis. Contains a README file outline how each script is used and their requirements.
 
 #### additional_scripts
 
-Contains utility scripts which are not part of the the main pipeline. These are used for generating inpur files and preprocessing. This also contains scripts used for exploratory analysis that do not form part of the main pipeline.
+Contains utility scripts which are not part of the the main pipeline. These are used for generating inpur files and preprocessing. This also contains scripts used for exploratory analysis that do not form part of the main pipeline. Contains a README file outline how each script is used and their requirements.
+
+#### enviroment.yml
+
+The yml file containing all software required to use all the scripts in this repository.
+
+How to install the environment can be found in Installation.
+
+#### hoverfly_metadata.tsv
+
+Contains all the metadata for individuals used in this study.
+
+Information included
+  - Individual
+  - Morph
+  - Sex
+  - Lattitude
+  - Longtitude
+  - Location
+  - Year
 
 ## Software
 
@@ -36,18 +56,19 @@ The environments provided contain the following software, each is provided with 
 | Tool name   | Version  | Link |
 |-------------|----------|------|
 | FastQC      | 0.12.1   | https://github.com/s-andrews/FastQC |
-| multiqc     | 1.0.dev0 | https://github.com/MultiQC/MultiQC |
-| fastp       | 0.23.4   | https://github.com/opengene/fastpbwa |
-| bwa         | 0.7.19   | https://github.com/lh3/BWA |
-| samtools    | 1.18     | https://github.com/samtools/samtools |
-| picard      | 3.0.0    | https://github.com/broadinstitute/picard |
-| bcftools    | 1.19     | https://github.com/samtools/bcftools |
-| seqkit      | 2.13.0   | https://github.com/shenwei356/seqkit |
-| biopython   | 1.87     | https://github.com/biopython/biopython |
-| plink       | 1.90b7.7 | https://github.com/chrchang/plink-ng |
+| MultiQC     | 1.0.dev0 | https://github.com/MultiQC/MultiQC |
+| FastP       | 0.23.4   | https://github.com/opengene/fastpbwa |
+| RagTag      | 2.1.0    | https://github.com/malonge/RagTag |
+| Liftoff     | 1.6.3    | https://github.com/agshumate/Liftoff |
+| BWA         | 0.7.19   | https://github.com/lh3/BWA |
+| SAMtools    | 1.18     | https://github.com/samtools/samtools |
+| Picard      | 3.0.0    | https://github.com/broadinstitute/picard |
+| BCFtools    | 1.19     | https://github.com/samtools/bcftools |
+| VCFtools    | 0.1.17   | https://github.com/vcftools/vcftools
 | bedtools    | 2.31.0   | https://github.com/arq5x/bedtools2 |
+| Dysgu       | 1.9.0    | https://github.com/kcleal/dysgu |
 | hdf5        | 1.12.2   | https://github.com/HDFGroup/hdf5 |
-| gff2bed     | 1.0.3    | https://gitlab.com/salk-tm/gff2bed |
+| biopython   | 1.87     | https://github.com/biopython/biopython |
 
 ## Installation
 
@@ -112,6 +133,8 @@ The pipeline performs the following analysis:
 9. Genome wide FST scanning
 10. Extraction of regions of interest
 11. Identifcation of genetic features overlapping with selected genomic regions
+12. Identifcation of structural varients in the VCF file
+13. Filtering for inversions within the VCF containing only structural varients
 
 ### Outputs
 

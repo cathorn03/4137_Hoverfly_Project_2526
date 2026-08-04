@@ -26,14 +26,14 @@ usage(){
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "slurm-options:"
-	echo "  --array=					Array range for the number of samples"
+	echo "  --array=          Array range for the number of samples"
 	echo
 	echo "Options:"
-	echo "  -q, --fastq				Input FASTQ directory"
-	echo "  -f, --reference		Indexed reference genome in a fasta format"
-	echo "  -o, --out					Output directory"
-	echo "  -r, --roots				A .txt file containg the roots of the fastq files"
-	echo "  -h, --help				Show this help message"
+	echo "  -q, --fastq       Input FASTQ directory"
+	echo "  -f, --reference   Indexed reference genome in a fasta format"
+	echo "  -o, --out         Output directory"
+	echo "  -r, --roots       A .txt file containg the roots of the fastq files"
+	echo "  -h, --help        Show this help message"
 }
 
 #Option handling

@@ -21,10 +21,10 @@ usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
   echo "Options:"
-  echo "  -b, --bed		Input vcf file"
-  echo "  -g, --gff		Annotation file in a gff format"
-  echo "  -o, --out		Output file"
-  echo "  -h, --help	Show this help message"
+  echo "  -b, --bed   Input vcf file"
+  echo "  -g, --gff   Annotation file in a gff format"
+  echo "  -o, --out   Output file"
+  echo "  -h, --help  Show this help message"
 }
 
 while [[ $# -gt 0 ]]; do

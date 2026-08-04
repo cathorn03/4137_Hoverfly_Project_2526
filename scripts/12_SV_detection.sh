@@ -18,16 +18,15 @@ module load bcftools-uoneasy/1.19-GCC-13.2.0
 
 usage(){
 	#Help message for the script
-	echo "Usage: sbatch [slurm-options] $0 [options]"
-	echo
-	echo "slurm-options:"
-	echo "  --array=			Array range for the number of samples"
+	echo "Usage: sbatch $0 [options]"
 	echo
 	echo "Options:"
-	echo "  -f, --reference		Input FASTQ directory"
-	echo "  -o, --out			Output directory"
-	echo "  -n, --names		A .txt file containg the names of the fastq files"
-	echo "  -h, --help		Show this help message"
+	echo "  -f, --reference   Refernce files"
+	echo "	-b, --BAM         BAM files to produce VCF files from"
+	echo "  -o, --out_dir     Output directory"
+	echo "  -v, --vcf         Output file name"
+	echo "  -t, --temp_dir    Directory for temporary files"
+	echo "  -h, --help        Show this help message"
 }
 
 #Option handling

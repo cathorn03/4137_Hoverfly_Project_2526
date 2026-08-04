@@ -21,10 +21,10 @@ usage(){
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "Options:"
-	echo "  -t, --type		Type of SV to filter for"
-	echo "	-v, --vcf		VCF file to filter"
-	echo "  -o, --out		Output file"
-	echo "  -h, --help		Show this help message"
+	echo "  -t, --type    Type of SV to filter for"
+	echo "	-v, --vcf     VCF file to filter"
+	echo "  -o, --out     Output file"
+	echo "  -h, --help    Show this help message"
 }
 
 #Option handling
