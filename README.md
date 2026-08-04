@@ -67,7 +67,6 @@ The environments provided contain the following software, each is provided with 
 | VCFtools    | 0.1.17   | https://github.com/vcftools/vcftools
 | bedtools    | 2.31.0   | https://github.com/arq5x/bedtools2 |
 | Dysgu       | 1.9.0    | https://github.com/kcleal/dysgu |
-| hdf5        | 1.12.2   | https://github.com/HDFGroup/hdf5 |
 | biopython   | 1.87     | https://github.com/biopython/biopython |
 
 ## Installation
