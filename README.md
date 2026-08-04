@@ -120,19 +120,33 @@ The main analysis pipline is in the `scripts/` directory. The scriots are intedn
 The pipeline performs the following analysis:
 
 1\. Quality control on the raw sequence data
+
 2\. Compilation of the quality control reports
+
 3\. Trimming of the raw sequence data
+
 4a\. Carry over GFF file from one reference to another
+
 4b\. Reformat reference files to a structure of a different reference
+
 4c\. Index reference files
+
 5\. Allignment of reads, and production of BAM files
+
 6\. Vsrient calling to produce raw VCFs
+
 7\. Removal of non chromosomal varients
+
 8\. Filtering of the VCF file
+
 9\. Genome wide FST scanning
+
 10\. Extraction of regions of interest
+
 11\. Identifcation of genetic features overlapping with selected genomic regions
+
 12\. Identifcation of structural varients in the VCF file
+
 13\. Filtering for inversions within the VCF containing only structural varients
 
 ### Outputs
