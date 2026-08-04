@@ -122,15 +122,10 @@ The pipeline performs the following analysis:
 1. Quality control on the raw sequence data
 2. Compilation of the quality control reports
 3. Trimming of the raw sequence data
-<ol start="4">
-  <li>Reference assembly preparation
-    <ol type="a">
-      <li>Carry over GFF file from one reference to another</li>
-      <li>Reformat reference files to a structure of a different reference</li>
-      <li>Index reference files</li>
-    </ol>
-  </li>
-</ol>
+4. Reference assembly preparation
+  i. Carry over GFF file from one reference to another
+  ii. Reformat reference files to a structure of a different reference
+  iii. Index reference files
 5. Allignment of reads, and production of BAM files
 6. Vsrient calling to produce raw VCFs
 7. Removal of non chromosomal varients
