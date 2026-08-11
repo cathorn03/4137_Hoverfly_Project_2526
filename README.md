@@ -71,9 +71,9 @@ The environments provided contain the following software, each is provided with 
 | Picard      | 3.0.0    | https://github.com/broadinstitute/picard |
 | BCFtools    | 1.19     | https://github.com/samtools/bcftools |
 | VCFtools    | 0.1.17   | https://github.com/vcftools/vcftools
-| bedtools    | 2.31.0   | https://github.com/arq5x/bedtools2 |
+| BEDtools    | 2.31.0   | https://github.com/arq5x/bedtools2 |
 | Dysgu       | 1.9.0    | https://github.com/kcleal/dysgu |
-| biopython   | 1.87     | https://github.com/biopython/biopython |
+| BioPython   | 1.87     | https://github.com/biopython/biopython |
 
 ## Installation
 
