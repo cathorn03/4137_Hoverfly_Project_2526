@@ -19,7 +19,7 @@ usage(){
   echo
   echo "Options:"
   echo "  -t, --target      Target reference fasta"
-  echo "  -f, --refernce    reference file gff file"
+  echo "  -f, --refernce    reference fasta file to lift annotations from"
   echo "  -g, --gff         gff annotation file to lift genes from"
   echo "  -o, --out         Output file for the liftoff gff"
   echo "  -h, --help        Show this help message"
