@@ -1,5 +1,7 @@
 # scripts
 
+This contains an overview of all scripts used in the main analytical pipeline for the project. It provides a description of the script, the arguemnts required to run the script, example usage of some scripts. It also provides example formats of any additional files, which are needed for the scripts. Several of these can be made directly using the scripts within `additional_scripts`. 
+
 #### 01_QC.sh
 
 This script runs FastQC on the fastq files within a directory. It will produce a .html report file and a zipped directory containing the report data.
@@ -436,3 +438,14 @@ sbatch 12_SV_detection.sh -f ~/hoverflies/references/idVolBomb.fasta \
 
 #### 13_INV_filter.sh
 
+Filters the structural variant VCF file for only inversions. 
+
+```
+Usage: sbatch 13_INV_filter.sh [options]
+
+Options:
+  -t, --type    Type of SV to filter for
+  -v, --vcf     VCF file to filter
+  -o, --out     Output file
+  -h, --help    Show this help message
+```

@@ -1,5 +1,16 @@
 # additional_scripts
 
+This contains an overview of any additional scripts used within this project. It contains two types of scripts:
+
+ - Utility scripts
+ - Analysis scripts
+
+ The utility scripts contains any scripts which are used to produce the additional files for the pipeline. This includes producing .txt files contain a list of all files within a directory and listing all chromosomes and contigs within a FASTA file. For these scripts a description and the arguments required for the script to run are provided.
+
+ The analysis scripts contain scripts which were used for exploratory analysis which did not form part of the main analytical pipeline. For these scripts a description, the arguments required for the script to run, and an example usage are provided.
+
+
+
 ## Utility Scripts
 
 #### get_bams.sh
@@ -12,8 +23,8 @@ Usage: ./get_bams [options]
 
 Options:
   -d, --directory    Path to the directory containing the bam files
-  -o, --out    Output file
-  -h, --help   Show this help message
+  -o, --out          Output file
+  -h, --help         Show this help message
 ```
 
 This script can be used to get the BAM file needed for BCFtools mpileup in `06_VCF.sh`.

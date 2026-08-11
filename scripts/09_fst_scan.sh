@@ -19,7 +19,8 @@ usage(){
   echo
   echo "Options:"
   echo "  -v, --vcf               Input vcf file"
-  echo "  -w, --windows           A .txt file with window sizes wanting to be tested"
+  echo "  -w, --window            Size of sliding window for scan"
+  echo "  -s, --step-size         Step size for the window to take"
   echo "  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
   echo "  -o, --out               Output directory"
