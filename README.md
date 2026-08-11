@@ -1,4 +1,4 @@
-# 4138_Hoverfly_Project_2526
+# 4137_Hoverfly_Project_2526
 
 ## Introduction
 
@@ -17,18 +17,24 @@ In this project we aim to understand the causues of genetic polymorphism within 
 
 This repository contains two directories, and two files.
 
-  - scripts
   - additional_scripts
+  - scripts
+  - supplementary_data
   - environment.yml
   - hoverfly_metadata.tsv
+
+
+#### additional_scripts
+
+Contains utility scripts which are not part of the the main pipeline. These are used for generating inpur files and preprocessing. This also contains scripts used for exploratory analysis that do not form part of the main pipeline. Contains a README file outline how each script is used and their requirements.
 
 #### scripts
 
 Primary SLURM pipeline used in the analysis. Contains a README file outline how each script is used and their requirements.
 
-#### additional_scripts
+#### supplementary_data
 
-Contains utility scripts which are not part of the the main pipeline. These are used for generating inpur files and preprocessing. This also contains scripts used for exploratory analysis that do not form part of the main pipeline. Contains a README file outline how each script is used and their requirements.
+Contains the supplementary tables and figures which are referenced in the thesis
 
 #### enviroment.yml
 
