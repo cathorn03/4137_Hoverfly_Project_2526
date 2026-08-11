@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=12g
 #SBATCH --time=4:00:00
-#SBATCH --job-name=scaffolding
+#SBATCH --job-name=04c_scaffolding
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL

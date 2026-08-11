@@ -15,7 +15,7 @@ source $HOME/.bash_profile
 conda activate hoverflies
 
 usage(){
-  echo "Usage: sbatch [slurm-options] $0 [options]"
+  echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
   echo "  -v, --vcf               Input vcf file"

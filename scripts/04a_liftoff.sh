@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=12g
 #SBATCH --time=48:00:00
-#SBATCH --job-name=liftoff
+#SBATCH --job-name=04a_liftoff
 #SBATCH --output=/share/hoverflies/Caleb/logsOut/slurm-%x-%j.out
 #SBATCH --error=/share/hoverflies/Caleb/logsErr/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -19,7 +19,7 @@ usage(){
   echo
   echo "Options:"
   echo "  -t, --target      Target reference fasta"
-  echo "  -f, --refernce    reference fasta file gff file"
+  echo "  -f, --refernce    reference file gff file"
   echo "  -g, --gff         gff annotation file to lift genes from"
   echo "  -o, --out         Output file for the liftoff gff"
   echo "  -h, --help        Show this help message"

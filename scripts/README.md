@@ -71,13 +71,13 @@ The trimmed fastq files are outputted to provided directory.
 Usage: sbatch [slurm-options] 03_trim.sh [options]
 
 slurm-options:
-  --array=			Array range for the number of samples
+  --array=      Array range for the number of samples
 
 Options:
-  -q, --fastq		Input FASTQ directory
-  -o, --out			Output directory
-  -r, --roots		A .txt file containg the roots of the fastq files
-  -h, --help		Show this help message
+  -q, --fastq   Input FASTQ directory
+  -o, --out     Output directory
+  -r, --roots   A .txt file containg the roots of the fastq files
+  -h, --help    Show this help message
 ```
 
 The array size should be for the number of samples. This will be the same as the number of lines in the provided roots file.
@@ -106,7 +106,31 @@ sbatch --array=0-3 03_trim.sh \ #Runs the script with an array of 4
   -r ~/hoverflies/fastq_roots.txt #Provides the roots of all the fastq files
 ```
 
-#### 04a_scaffolding.sh
+#### 04a_liftoff.sh
+
+Lift GFF from a chosen reference FASTA file to a chosen target FASTA reference file. Produces a new GFF file for the target FASTA.
+
+```
+Usage: 04a_liftoff.sh [options]
+
+Options:
+  -t, --target      Target reference fasta
+  -f, --refernce    reference fasta file to lift annotations from
+  -g, --gff         gff annotation file to lift genes from
+  -o, --out         Output file for the liftoff gff
+  -h, --help        Show this help message
+```
+
+An example use of the script is below.
+
+```
+sbatch 04a_liftoff.sh -t ~/hoverflies/references/reference_alternate.fasta \
+  -f ~/hoverflies/references/reference_main.fasta \
+  -g ~/hoverflies/references/reference_main.gff \
+  -o ~/hoverflies/reference_alternate.gff
+```
+
+#### 04b_scaffolding.sh
 
 Three of the used assemblies were not arranged by chromosomes.
 This script uses ragtag to scaffold those assemblies in the same arrangement as the main assembly.
@@ -128,7 +152,7 @@ Options:
 An example use of the script is below.
 
 ```
-sbatch 04a_scaffolding.sh -f ~/hoverflies/references/reference_main.fasta \ #Sets refrence assembly
+sbatch 04b_scaffolding.sh -f ~/hoverflies/references/reference_main.fasta \ #Sets refrence assembly
   -t ~/hoverflies/references/reference_alternate.fasta \ #Sets target assembly
   -o ~/hoverflies/scaffolds/alternate/ \ #Sets the output directory
   -g ~/hoverflies/references/reference_alternate.gff \ #Selects GFF to be remapped
@@ -140,12 +164,12 @@ RagTag also produces an AGP file to which is used to produce the rescaffolded GF
 
 The scaffolded chromosomes will carry the suffix `_RagTag`.
 
-#### 04b_BAM_prep.sh
+#### 04c_BAM_prep.sh
 
 Indexes references fasta files to make them suitable for use in the next script.
 
 ```
-Usage: sbatch 04_BAM_prep.sh [options][refrence]
+Usage: sbatch 04c_BAM_prep.sh [options][refrence]
 
 Options:
   -h, --help		Show this help message
@@ -280,19 +304,16 @@ Carries out fixation index scanning on a provided VCF file.
 Takes text files of the paths for the different populations, containing the full path to the BAM files.
 
 ```
-Usage: sbatch [slurm-options] 09_FST_scan.sh [options]
-
-slurm-options:
-  --array=                Input array range for the number of windows to be tested
+Usage: sbatch  09_FST_scan.sh [options]
 
 Options:
-  -v, --vcf               Input vcf file
-  -w, --windows           A .txt file with window sizes wanting to be tested
-  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population
-  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population
-  -p3, --population3      A file containg the full paths of the BAM files for the samples in a specific population
-  -o, --out               Output directory
-  -h, --help              Show this help message
+  -v, --vcf               Input vcf file"
+  -w, --windows           A .txt file with window sizes wanting to be tested"
+  -p1, --population1      A file containg the full paths of the BAM files for the samples in a specific population"
+  -p2, --population2      A file containg the full paths of the BAM files for the samples in a specific population"
+  -o, --out               Output directory"
+  -p, --prefix            Prefix for the output file name"
+  -h, --help              Show this help message"
 ```
 
 #### 10_Region_select.sh
@@ -346,3 +367,12 @@ sbatch 11_Gene_check.sh -b ~/hoverflies/ROI.bed \
   -g ~/hoverflies/scaffolds/alternate/scaffold_alterante.gff \
   -o ~/hoverflies/genes_in_region.gff
 ```
+
+#### 12_SV_detection.sh
+
+Filters a VCF file to contain only structural varients.
+
+```
+
+```
+#### 13_INV_filter.sh
