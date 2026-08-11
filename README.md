@@ -93,8 +93,8 @@ Before running the pipline insure the following software is available:
 Clone the repository from GitHub:
 
 ```
-git clone https://github.com/cathorn034138_Hoverfly_Project_2526.git
-cd 4138_Hoverfly_Project_2526
+git clone https://github.com/cathorn03/4137_Hoverfly_Project_2526.git
+cd 4137_Hoverfly_Project_2526
 ```
 
 ### Install the Conda Environment

@@ -86,6 +86,8 @@ Filters the reads within a FASTQ file based on their GC content.
 Outputs the reads to a FASTA format.
 `gc_filter.sh` is used to run the script. It is provided with arguments which it passes into `gc_filter.py`. 
 `gc_filter.py` does not need to be ran on its own. Below is the usage for `gc_filter.sh`.
+`gc_filter.py` was mad using Biopython for run this analysis.
+
 
 ```
 Usage: sbatch [slurm-options] gc_filter.sh [options]
