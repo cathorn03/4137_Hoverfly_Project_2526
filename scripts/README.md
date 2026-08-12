@@ -450,7 +450,7 @@ Options:
   -h, --help    Show this help message
 ```
 
-#### analysis.r
+#### analysis.R
 
 This script produces the plots and carries out the analysis for the project. It is an R script to be ran on a PC. It produces, FST plots, genotype plots and PCA plots for each assembly. It requires the outputs of the F<sub>ST</sub> scan, VCF files for the potential canddiate regions, population map files and covariate files.
 
