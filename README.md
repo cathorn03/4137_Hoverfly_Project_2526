@@ -139,11 +139,12 @@ The pipeline performs the following analysis:
 6. Vsrient calling to produce raw VCFs
 7. Removal of non chromosomal varients
 8. Filtering of the VCF file
-9. Genome wide FST scanning
+9. Genome wide F<sub>ST</sub> scanning
 10. Extraction of regions of interest
 11. Identifcation of genetic features overlapping with selected genomic regions
 12. Identifcation of structural varients in the VCF file
 13. Filtering for inversions within the VCF containing only structural varients
+14. Analysis of output files and plotting of data
 
 ### Outputs
 
@@ -157,8 +158,9 @@ The pipline produces the following outputs:
   - Raw variant calls
   - Chromosomes-only varients
   - Filtered varients
-- Genome wide FST scan file
-- Gene annotations for candidate regions 
+- Genome wide F<sub>ST</sub> scan file
+- Gene annotations for candidate regions
+- Plots for the different analyses conducted
 
 The accompanying R script performs downstream statistical analysis and visualisation.
 
