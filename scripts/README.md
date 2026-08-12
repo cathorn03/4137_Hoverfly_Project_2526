@@ -330,7 +330,7 @@ sbatch  08_VCF_filter.sh -v ~/hoverflies/VCF/ref_VB.vcf.gz \   #Runs script and 
 
 Carries out fixation index scanning on a provided VCF file.
 Takes text files of the paths for the different populations, containing the full path to the BAM files.
-FST calculations are carried out using VCFtools.
+F<sub>ST</sub> calculations are carried out using VCFtools.
 
 ```
 Usage: sbatch  09_FST_scan.sh [options]
@@ -448,4 +448,29 @@ Options:
   -v, --vcf     VCF file to filter
   -o, --out     Output file
   -h, --help    Show this help message
+```
+
+#### analysis.r
+
+This script produces the plots and carries out the analysis for the project. It is an R script to be ran on a PC. It produces, FST plots, genotype plots and PCA plots for each assembly. It requires the outputs of the F<sub>ST</sub> scan, VCF files for the potential canddiate regions, population map files and covariate files.
+
+The population map files should contain the individual ID of the samples and the population (morph) they belong too. This should be in a tab separated format. The columns should be named `ind` and `pop`. An example is below. If IDs differ between assemblies, different population maps are needed for each assembly.
+
+```
+ind pop
+/gpfs01/home/mbyct9/Thesis/plumata_BAM/VB20001.rmd.bam  bombylans
+/gpfs01/home/mbyct9/Thesis/plumata_BAM/VB20002.rmd.bam  bombylans
+/gpfs01/home/mbyct9/Thesis/plumata_BAM/VB20003.rmd.bam  plumata
+/gpfs01/home/mbyct9/Thesis/plumata_BAM/VB20004.rmd.bam  plumata
+/gpfs01/home/mbyct9/Thesis/plumata_BAM/VB20005.rmd.bam  plumata
+```
+
+The covariate files should contain the individual ID of the samples and the population (morph) they belong too. In this study it also contained sex, longtitude and latitude of collection information. This should be in a comma separated format. An example is below. If IDs differ between assemblies, different population maps are needed for each assembly.
+
+```
+Individual,pop,sex,latitude,longitude
+/share/hoverflies/Caleb/alt_BAM/VB20001.rmd.bam,bombylans,F,54.467403,-0.6793531
+/share/hoverflies/Caleb/alt_BAM/VB20002.rmd.bam,bombylans,F,54.467403,-0.6793531
+/share/hoverflies/Caleb/alt_BAM/VB20003.rmd.bam,plumata,M,54.467403,-0.6793531
+/share/hoverflies/Caleb/alt_BAM/VB20004.rmd.bam,plumata,M,54.467403,-0.6793531
 ```
