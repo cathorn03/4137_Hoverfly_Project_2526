@@ -57,23 +57,24 @@ Information included
 
 ## Software
 
-The environments provided contain the following software, each is provided with the version.
+All software used within this project is listed below.
+They are provided with the version used, whether they are part of the enviroment or were used as a HPC module and a link to the relevant GitHub Repository.
 
-| Tool name   | Version  | Link |
-|-------------|----------|------|
-| FastQC      | 0.12.1   | https://github.com/s-andrews/FastQC |
-| MultiQC     | 1.0.dev0 | https://github.com/MultiQC/MultiQC |
-| FastP       | 0.23.4   | https://github.com/opengene/fastpbwa |
-| RagTag      | 2.1.0    | https://github.com/malonge/RagTag |
-| Liftoff     | 1.6.3    | https://github.com/agshumate/Liftoff |
-| BWA         | 0.7.19   | https://github.com/lh3/BWA |
-| SAMtools    | 1.18     | https://github.com/samtools/samtools |
-| Picard      | 3.0.0    | https://github.com/broadinstitute/picard |
-| BCFtools    | 1.19     | https://github.com/samtools/bcftools |
-| VCFtools    | 0.1.17   | https://github.com/vcftools/vcftools
-| BEDtools    | 2.31.0   | https://github.com/arq5x/bedtools2 |
-| Dysgu       | 1.9.0    | https://github.com/kcleal/dysgu |
-| BioPython   | 1.87     | https://github.com/biopython/biopython |
+| Tool name   | Version  | Environment Install/HPC Module | Link |
+|-------------|----------|--------------------------------|------|
+| FastQC      | 0.12.1   | env                            | https://github.com/s-andrews/FastQC |
+| MultiQC     | 1.0.dev0 | env                            | https://github.com/MultiQC/MultiQC |
+| FastP       | 0.23.4   | env                            | https://github.com/opengene/fastpbwa |
+| RagTag      | 2.1.0    | env                            | https://github.com/malonge/RagTag |
+| Liftoff     | 1.5.2    | env                            | https://github.com/agshumate/Liftoff |
+| BWA         | 0.7.19   | env                            | https://github.com/lh3/BWA |
+| SAMtools    | 1.18     | module                         | https://github.com/samtools/samtools |
+| Picard      | 3.0.0    | module                         | https://github.com/broadinstitute/picard |
+| BCFtools    | 1.19     | module                         | https://github.com/samtools/bcftools |
+| VCFtools    | 0.1.17   | env                            | https://github.com/vcftools/vcftools
+| BEDtools    | 2.31.0   | env                            | https://github.com/arq5x/bedtools2 |
+| Dysgu       | 1.9.0    | env                            | https://github.com/kcleal/dysgu |
+| BioPython   | 1.87     | env                            | https://github.com/biopython/biopython |
 
 ## Installation
 
@@ -112,6 +113,8 @@ Activate the environment using:
 ```
 conda activate hoverflies
 ```
+
+SAMtools, Picard, and BCFtools are not installed by `environment.yml`. Scripts which used these software did so through the installed module on the University of Nottingham HPC. If using this pipleine on a different HPC these will need adapting for your specific HPC.
 
 ## Pipeline Overview
 
