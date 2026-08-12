@@ -180,6 +180,9 @@ For script overviews and usage, see each directories' README.md
 ## Author
 
 Caleb Thornber
+
 School of Life Sciences
+
 University of Nottingham
+
 mbyct9@nottingham.ac.uk
