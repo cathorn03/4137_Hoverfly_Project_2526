@@ -177,6 +177,10 @@ For script overviews and usage, see each directories' README.md
 - [scripts/README.md](./scripts/README.md)
 - [additional_scripts/README.md](./additional_scripts/README.md)
 
+## Data Availabilty
+
+Due to the size of the data it is not available through this repository. The data used includes 86 paired Illumina short-read FASTQ files. These totalled 296 GB in size. The data is located on the University of Nottingham HPC.
+
 ## Author
 
 Caleb Thornber
