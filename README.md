@@ -63,7 +63,7 @@ They are provided with the version used, whether they are part of the enviroment
 | Tool name   | Version  | Environment Install/HPC Module | Link |
 |-------------|----------|--------------------------------|------|
 | FastQC      | 0.12.1   | env                            | https://github.com/s-andrews/FastQC |
-| MultiQC     | 1.0.dev0 | env                            | https://github.com/MultiQC/MultiQC |
+| MultiQC     | 1.35     | env                            | https://github.com/MultiQC/MultiQC |
 | FastP       | 0.23.4   | env                            | https://github.com/opengene/fastpbwa |
 | RagTag      | 2.1.0    | env                            | https://github.com/malonge/RagTag |
 | Liftoff     | 1.5.2    | env                            | https://github.com/agshumate/Liftoff |
@@ -72,7 +72,7 @@ They are provided with the version used, whether they are part of the enviroment
 | Picard      | 3.0.0    | module                         | https://github.com/broadinstitute/picard |
 | BCFtools    | 1.19     | module                         | https://github.com/samtools/bcftools |
 | VCFtools    | 0.1.17   | env                            | https://github.com/vcftools/vcftools
-| BEDtools    | 2.31.0   | env                            | https://github.com/arq5x/bedtools2 |
+| BEDtools    | 2.31.1   | env                            | https://github.com/arq5x/bedtools2 |
 | Dysgu       | 1.9.0    | env                            | https://github.com/kcleal/dysgu |
 | BioPython   | 1.87     | env                            | https://github.com/biopython/biopython |
 
