@@ -21,7 +21,6 @@ usage(){
 	echo "Usage: sbatch [slurm-options] $0 [options]"
 	echo
 	echo "Options:"
-	echo "  -t, --type    Type of SV to filter for"
 	echo "	-v, --vcf     VCF file to filter"
 	echo "  -o, --out     Output file"
 	echo "  -h, --help    Show this help message"
@@ -30,29 +29,29 @@ usage(){
 #Option handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
-		-t|--type)
-	  		[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-	  		TYPE="$2"
-	  		shift 2 ;;
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
 			shift 2 ;;
+			#Sets -o to OUT. This should be the output VCF file.
 
 		-v|--vcf)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			VCF="$2" 
 			shift 2 ;;
+			#Sets -v to VCF. This should be the output VCF file.
 
-		-h|--help)
-			usage
-			exit 0
-			;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+      #Runs usage
 
-		*) echo "Invalid option: $1" 
-			exit 1 ;;
+    *) echo "Invalid option: $1" 
+      exit 1 ;;
+      #Error handling for incorrect options
   esac
 done
 
-bcftools view -i 'INFO/SVTYPE="INV"' $VCF -o $OUT
+bcftools view -i 'INFO/SVTYPE="INV"' $VCF -o $OUT #Runs BCFtools view. Filters VCF for inversions.

@@ -30,28 +30,28 @@ usage(){
 	echo "  -h, --help    Show this help message"
 }
 
-#Option handling
+#Argument handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
   	-q|--fastq)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
-	  	# Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
+	  	#Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT_DIR="$2" 
 			shift 2 ;;
-			# Sets -o to $OUT_DIR. Should be the output directory
+			#Sets -o to $OUT_DIR. Should be the output directory
 
 		-r|--roots)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			ROOT_FILE="$2" 
 			shift 2 ;;
-			# Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
-			# The file should contain sample names for samples in $SAMPLE_DIR without read direction and file extension
-			# e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
+			#Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
+			#The file should contain sample names for samples in $SAMPLE_DIR without read direction and file extension
+			#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
 		-h|--help)
 			usage
@@ -61,7 +61,7 @@ while [[ $# -gt 0 ]]; do
 
 		*) echo "Invalid option: $1" 
 			exit 1 ;;
-			# Error handling for incorrect options
+			#Error handling for incorrect options
   esac
 done
 

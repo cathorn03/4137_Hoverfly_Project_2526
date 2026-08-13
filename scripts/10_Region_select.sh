@@ -11,17 +11,19 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
-source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
+#loads BCFtools slurm module
 
 usage(){
+  #Help message for the script
   echo "Usage: sbatch $0 [options]"
   echo
   echo "Options:"
   echo "  -v, --vcf       Input vcf file"
-  echo "  -r, --region    Selected region to filter"
+  echo "  -r, --region    Selected region to filter for. Formatted Chr:START-END"
   echo "  -o, --out       Output vcf file"
   echo "  -h, --help      Show this help message"
 }
@@ -32,27 +34,33 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
+      #Sets -v to $VCF. Should be the input VCF file
 
     -r|--region)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       REGION="$2"
       shift 2 ;;
+      #Sets -r to REGION. This is the region you want to filter for in the VCF. Formatted
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
+      #Sets -o to OUT. This should be the output file.
 
     -h|--help)
       usage
       exit 0
       ;;
+      #Runs usage
 
     *) echo "Invalid option: $1" 
       exit 1 ;;
+      #Error handling for incorrect options
+
   esac
 done
 
-bcftools view --threads 20 -r $REGION -Oz -o $OUT $VCF
-bcftools index $OUT
+bcftools view --threads 20 -r $REGION -Oz -o $OUT $VCF #Runs BCFtools to filter the VCF for the REGION. Uses 20 cores
+bcftools index $OUT #Indexes the output
 

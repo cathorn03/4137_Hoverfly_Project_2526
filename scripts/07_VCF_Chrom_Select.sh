@@ -16,8 +16,10 @@ conda activate hoverflies
 # Activates conda env
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
+#Loads module for script
 
 usage(){
+  #Help message for the script
   echo "Usage: sbatch [slurm-options] $0 [options]"
   echo
   echo "Options:"
@@ -34,27 +36,33 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2" 
       shift 2 ;;
+      #Sets -v to VCF. THis should be the input VCF file
 
     -c|--chr_file)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       CHR_FILE="$2"
       shift 2 ;;
+      #Sets -c to CHR_FILE. This should be the file containing the comma separated list of chromsome names as in the VCF file
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
+      #Sets -o to out. This is the output file and path
 
     -h|--help)
       usage
       exit 0
       ;;
+      #Runs usage
 
     *) echo "Invalid option: $1" 
       exit 1 ;;
+      #Error handling for incorrect options
   esac
 done
 
 CHRS=$(<"$CHR_FILE")
 
 bcftools view --threads 20 --regions "$CHRS" -Oz -o "$OUT" "$VCF" 
+#Runs bcftools view with 20 threads. Regions selected are the chromsomes listed in CHRS

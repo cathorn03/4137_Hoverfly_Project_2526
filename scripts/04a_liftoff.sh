@@ -13,8 +13,10 @@
 
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 usage(){
+  #Help message for the script
   echo "Usage: $0 [options]"
   echo
   echo "Options:"
@@ -25,40 +27,42 @@ usage(){
   echo "  -h, --help        Show this help message"
 }
 
+#Argument handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -t|--target)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       TARGET="$2"
       shift 2 ;;
+      #Sets -t to to TARGET. Should be to target FASTA to reciueve annotation
 
     -f|--reference)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       REF="$2" 
       shift 2 ;;
+      #Sets -f to REF. Should be the reference FASTA for the model GFF
 
     -g|--gff)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       GFF="$2" 
       shift 2 ;;
+      #Sets -g to GFF. This is the model GFF to lift the annotations from
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
-
-    -|--gff)
-      [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      PRE="$2" 
-      shift 2 ;;
+      #Sets -o to OUT. This should be the output GFF file for the annotations to be lifted to.
 
     -h|--help)
       usage
       exit 0
       ;;
+      #Runs usage()
 
     *) echo "Invalid option: $1" 
       exit 1 ;;
+      #Error handling for incorrect options
   esac
 done
 

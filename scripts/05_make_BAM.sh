@@ -43,27 +43,27 @@ while [[ $# -gt 0 ]]; do
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
-	  	# Stes -q to $SAMPLE_DIR. Should be a directory containg the sample fastq files
+	  	#Sets -q to $SAMPLE_DIR. Should be a directory containg the sample fastq files
 
   	-f|--reference)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	REF="$2"
 	  	shift 2 ;;
-	  	# Sets -r to $REF. Should be a reference .fasta file
+	  	#Sets -r to $REF. Should be a reference .fasta file
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT_DIR="$2" 
 			shift 2 ;;
-			# Sets -o to $OUT_DIR. Should be the output directory
+			#Sets -o to $OUT_DIR. Should be the output directory
 
 		-r|--roots)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			ROOT_FILE="$2" 
 			shift 2 ;;
-			# Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
-			# The file contain sample names for samples in $SAMPLE_DIR without read direction and file extension
-			# e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
+			#Sets -r to $ROOT_FILE. Should be a .txt file containing the roots of all the files in $SAMPLE_DIR
+			#The file contain sample names for samples in $SAMPLE_DIR without read direction and file extension
+			#e.g. /share/hoverflies/fastqs/VB21001_R2.fastq.gz > VB21001
 
 		-h|--help)
 			usage
@@ -97,7 +97,7 @@ OUT=$OUT_DIR$FQ.sort.bam
 bwa mem -M -t 8 $REF $FILE1 $FILE2 | \
 	samtools view -b | \
 	samtools sort -T $FQ -o $OUT
-#Makes BAM file
+#Makes BAM file from the paired reads (FILE1 and FILE2) using REF as the reference
 
 java -Xmx64g -jar $EBROOTPICARD/picard.jar \
 MarkDuplicates REMOVE_DUPLICATES=true \

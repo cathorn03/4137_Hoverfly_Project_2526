@@ -145,12 +145,12 @@ It will also produce a reformatted GFF file for the scaffolded assembly.
 Usage: sbatch 04a_scaffolding.sh [options]
 
 Options:
-  -f, --reference	Input vcf file
-  -t, --target    A .txt file with window sizes wanting to be tested
-  -o, --out       Output directory for ragtag
-  -g, --gff       Annotation file as a gff to be transfered
-  -go, --gff-out  Output file for the updated gff
-  -h, --help      Show this help message
+  -f, --reference	 Reference, chromsome-level scaffolded FASTA file
+  -t, --target     Target FASTA file to be rescaffolded"
+  -o, --out        Output directory for ragtag
+  -g, --gff        Annotation file as a gff to be transfered
+  -go, --gff-out   Output file for the updated gff
+  -h, --help       Show this help message
 ```
 
 An example use of the script is below.
@@ -367,7 +367,7 @@ Usage: sbatch 10_Region_select.sh [options]
 
 Options:
   -v, --vcf       Input vcf file
-  -r, --region		Selected region to filter
+  -r, --region		Selected region to filter for. Formatted Chr:START-END
   -o, --out       Output vcf file
   -h, --help      Show this help message
 ```
@@ -436,12 +436,12 @@ sbatch 12_SV_detection.sh -f ~/hoverflies/references/idVolBomb.fasta \
   -t ~/hoverflies/dysgu_temp
 ```
 
-#### 13_INV_filter.sh
+#### 13_SV_filter.sh
 
 Filters the structural variant VCF file for only inversions. 
 
 ```
-Usage: sbatch 13_INV_filter.sh [options]
+Usage: sbatch 13_SV_filter.sh [options]
 
 Options:
   -t, --type    Type of SV to filter for
@@ -450,6 +450,15 @@ Options:
   -h, --help    Show this help message
 ```
 
+For this project we used this script to filter for inversions using "INV".
+
+An example use of this script is below.
+
+```
+sbatch 13_SV_filter.sh -t INV \
+  -v ~/hoverflies/SV/ref_VB.SV.vcf.gz \
+  -o ~/hoverflies/SV/ref_VB.INV.vcf.gz 
+```
 #### analysis.R
 
 This script produces the plots and carries out the analysis for the project. It is an R script to be ran on a PC. It produces, FST plots, genotype plots and PCA plots for each assembly. It requires the outputs of the F<sub>ST</sub> scan, VCF files for the potential canddiate regions, population map files and covariate files.

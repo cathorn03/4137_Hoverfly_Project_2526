@@ -13,9 +13,10 @@
 
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 module load bedtools-uoneasy/2.31.0-GCC-12.3.0
-#loads bedtools slurm module
+#loads BEDtools slurm module
 
 usage(){
   echo "Usage: sbatch [slurm-options] $0 [options]"
@@ -34,16 +35,19 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       BED="$2" 
       shift 2 ;;
+      #Sets -b to BED. This should be the BED file containing the regions to look for the overlap
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
+      #Sets -o to out. This is the output file and path
 
     -g|--gff)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       GFF="$2"
       shift 2 ;;
+      #Sets -g to GFF. This is the GFF file to search for annotations within the coordinates in the BED file
 
     -h|--help)
       usage

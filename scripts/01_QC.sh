@@ -30,36 +30,36 @@ usage(){
 	echo "  -h, --help    Show this help message"
 }
 
-#Option handling
+#Argument handling
 while [[ $# -gt 0 ]]; do
   case "$1" in
 		-q|--fastq)
 	  	[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 	  	SAMPLE_DIR="$2"
 	  	shift 2 ;;
-	  	# Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
+	  	#Sets -q to $SAMPLE_DIR. Should be a directory for the fastq files
 
 		-o|--out)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			OUT="$2" 
 			shift 2 ;;
-			# Sets -o to $OUT. Should be the output directory
+			#Sets -o to $OUT. Should be the output directory
 
 		-n|--names)
 			[[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
 			NAME_FILE="$2" 
 			shift 2 ;;
-			# Sets -n to $NAME_FILE. Should be a .txt file with the names of all the files in $SAMPEL_DIR
+			#Sets -n to $NAME_FILE. Should be a .txt file with the names of all the files in $SAMPEL_DIR
 
 		-h|--help)
 			usage
 			exit 0
 			;;
-			# Runs usage
+			#Runs usage
 
 		*) echo "Invalid option: $1" 
 			exit 1 ;;
-			# Error handling for incorrect options
+			#Error handling for incorrect options
   esac
 done
 

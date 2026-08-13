@@ -35,43 +35,49 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
-      # Sets -v to $VCF. Should be the VCF file
+      #Sets -v to $VCF. Should be the input VCF file
 
     -w|--windows)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       WINDOW="$2"
       shift 2 ;;
-      # Sets -w to $WINDOWS_FILE. Should be a .txt file containing the window sizes wanting to be used on different lines. 
+      #Sets -w to $WINDOWS_FILE. Should be the size wanted for the window of the FST scan. Should not contain commas or units
 
     -s|--step-size)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       STEP="$2"
       shift 2 ;;
+      #Sets -s to STEP. This is the step size for the windo in the FST scan
       
     -p1|--population1)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       POP1="$2"
       shift 2 ;;
+      #Sets -p1 to POP1. This is the file containing the individual IDs for population 1
 
     -p2|--population2)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       POP2="$2"
       shift 2 ;;
+      #Sets -p2 to POP2. This is the file containing the individual IDs for population 1
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
+      #Sets -o to $OUT_DIR. Should be the output directory
 
     -p|--prefix)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       PREFIX="$2" 
       shift 2 ;;
+      #Stes -p to PREFIX. This is the prefix you want for the output files
 
     -h|--help)
       usage
       exit 0
       ;;
+      #Runs usage
 
     *) echo "Invalid option: $1" 
       exit 1 ;;
@@ -82,10 +88,6 @@ mkdir -p $OUT_DIR
 
 cd $OUT_DIR
 
-#mapfile -t FST_WINDOWS < $WINDOWS_FILE
-
-#WINDOW=${FST_WINDOWS[$SLURM_ARRAY_TASK_ID]} 
-
 vcftools --gzvcf $VCF \
 --weir-fst-pop $POP1 \
 --weir-fst-pop $POP2 \
@@ -93,4 +95,6 @@ vcftools --gzvcf $VCF \
 --fst-window-step $STEP \
 --out $PREFIX
 
+#Runs FST scan on VCF
+#Uses POP1 and POP2 as the populations with a sliding window which is WINDOW in size and moves in step sizes of STEP. Output files have the prefix PREFIX
 

@@ -13,6 +13,7 @@
 
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 module load bcftools-uoneasy/1.19-GCC-13.2.0
 #loads BCFtools slurm module
@@ -40,55 +41,55 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
-
+      #Sets -v to $VCF. Should be the VCF file
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT="$2" 
       shift 2 ;;
-      # Sets -o to $OUT. Should be the output filtered VCF file
+      #Sets -o to $OUT. Should be the output filtered VCF file
 
     -m|--mac)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAC="$2" 
       shift 2 ;;
-      # Sets -m to $MAC. Should be the filter setting for MAC
+      #Sets -m to $MAC. Should be the filter setting for MAC
 
     -M|--miss)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MISS="$2" 
       shift 2 ;;
-      # Sets -M to $MISS. Should be the filter setting for missinginess
+      #Sets -M to $MISS. Should be the filter setting for missinginess
 
     -Q|--quality)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       QUAL="$2" 
       shift 2 ;;
-      # Sets -Q to $QUAL. Should be the quality filter
+      #Sets -Q to $QUAL. Should be the quality filter
 
     -d|--min-depth)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MIN_DEPTH="$2" 
       shift 2 ;;
-      # Sets -d to $MIN_DEPTH. Should be the minimum depth filter
+      #Sets -d to $MIN_DEPTH. Should be the minimum depth filter
 
     -D|--max-depth)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAX_DEPTH="$2" 
       shift 2 ;;
-      # Sets -D to $MAX_DEPTH. Should be the minimum depth filter
+      #Sets -D to $MAX_DEPTH. Should be the minimum depth filter
 
     -bo|--biallelic-out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCFB="$2" 
       shift 2 ;; 
-      # Sets -bo to $VCFB. Should be the output for the biallelic only VCF
+      #Sets -bo to $VCFB. Should be the output for the biallelic only VCF
 
     -h|--help)
       usage
       exit 0
       ;;
-      # Runs usage
+      #Runs usage
 
     *) echo "Invalid option: $1" 
       exit 1 ;;

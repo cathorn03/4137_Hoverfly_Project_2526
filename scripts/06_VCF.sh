@@ -38,34 +38,35 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       REF="$2"
       shift 2 ;;
-      # Sets -r to $REF. Should be an indexed reference .fasta file
+      #Sets -r to $REF. Should be an indexed reference .fasta file
 
     -v|--vcf)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       VCF="$2"
       shift 2 ;;
-      # Sets -v to $VCF. SHould be the file name for the output
+      #Sets -v to $VCF. SHould be the file name for the output
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
-      # Sets -o to $OUT_DIR. Should be the output directory
+      #Sets -o to $OUT_DIR. Should be the output directory
 
     -b|--bams)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       BAMS="$2" 
       shift 2 ;;
-      # Sets -b to $BAMS. Should be a .txt file with the fule paths of all BAM files
+      #Sets -b to $BAMS. Should be a .txt file with the fule paths of all BAM files
 
     -h|--help)
       usage
       exit 0
       ;;
-      # Runs usage
-
+      #Runs usage
+      
     *) echo "Invalid option: $1" 
       exit 1 ;;
+      #Error handling for incorrect options
   esac
 done
 
@@ -88,7 +89,8 @@ bcftools call \
   -a GQ,GP \
   -Oz \
   -o "$VCF"
-#Generates VCF files
+#Generates VCF files using a minimum ase quality of 30 and mapping quality of 20
+#Outputs as a gzipped file
 
 bcftools index $VCF
 #Indexes VCF
