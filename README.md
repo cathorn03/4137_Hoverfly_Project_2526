@@ -133,7 +133,7 @@ The pipeline performs the following analysis:
 3. Trimming of the raw sequence data
 4. Reference assembly preparation
     1. Carry over GFF file from one reference to another
-    2. Reformat reference files to a structure of a different reference
+    2. Rescaffold reference files to a structure of a different reference
     3. Index reference files
 5. Allignment of reads, and production of BAM files
 6. Vsrient calling to produce raw VCFs
