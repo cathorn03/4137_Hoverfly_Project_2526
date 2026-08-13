@@ -14,6 +14,7 @@
 
 source $HOME/.bash_profile
 conda activate hoverflies
+#Activates conda env
 
 usage(){
 	#Help message for the script
@@ -39,34 +40,41 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       FQ_DIR="$2" 
       shift 2 ;;
+      #Sets -f to FQ_DIR. This should be the directory where the FASTQ fils of interest are
 
-    -n|--names-file)
+    -n|--name-file)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
-      NAMES_FILE="$2" 
+      NAME_FILE="$2" 
       shift 2 ;;
+      #Sets -n to NAME_FILE. This should be a file with the names of the FASTQ files to run this script on
 
     -m|--min-GC)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MIN_GC="$2"
       shift 2 ;;
+      #Sets -m to MIN_GC. This is the minimum of the range of GC content values to filter reads for
 
     -M|--max-GC)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       MAX_GC="$2"
       shift 2 ;;
+      #Sets -M to MAX_GC. This is the maximum of the range of GC content values to filter reads for
 
     -o|--out)
       [[ -z "$2" || "$2" == -* ]] && { echo "Missing argument for $1"; exit 1; }
       OUT_DIR="$2" 
       shift 2 ;;
+      #Sets -o to OUT_DIR. This is the output directory for the filtered reads
 
     -h|--help)
       usage
       exit 0
       ;;
+      #Runs usage
 
     *) echo "Invalid option: $1" 
       exit 1 ;;
+      #Error handling for incorrect options
   esac
 done
 
