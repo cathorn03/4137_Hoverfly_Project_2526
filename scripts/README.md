@@ -436,27 +436,23 @@ sbatch 12_SV_detection.sh -f ~/hoverflies/references/idVolBomb.fasta \
   -t ~/hoverflies/dysgu_temp
 ```
 
-#### 13_SV_filter.sh
+#### 13_IN_filter.sh
 
 Filters the structural variant VCF file for only inversions. 
 
 ```
-Usage: sbatch 13_SV_filter.sh [options]
+Usage: sbatch 13_INV_filter.sh [options]
 
 Options:
-  -t, --type    Type of SV to filter for
   -v, --vcf     VCF file to filter
   -o, --out     Output file
   -h, --help    Show this help message
 ```
 
-For this project we used this script to filter for inversions using "INV".
-
 An example use of this script is below.
 
 ```
-sbatch 13_SV_filter.sh -t INV \
-  -v ~/hoverflies/SV/ref_VB.SV.vcf.gz \
+sbatch 13_SV_filter.sh -v ~/hoverflies/SV/ref_VB.SV.vcf.gz \
   -o ~/hoverflies/SV/ref_VB.INV.vcf.gz 
 ```
 #### analysis.R
